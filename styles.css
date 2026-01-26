@@ -696,11 +696,18 @@ header .search-bar-container label:hover {
 
 
 
+.box.empty {
+  visibility: hidden;
+}
 
 
 
 
 
+.box.empty {
+  visibility: hidden;
+  order: 99;
+}
 
 
 
