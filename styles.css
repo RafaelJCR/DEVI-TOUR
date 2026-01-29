@@ -710,77 +710,102 @@ header .search-bar-container label:hover {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* EJEMPLO DE COMO SE VERIA EL CSS DEL PACKGE HIGUEY */
+
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* FONDO GENERAL */
+body {
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.package-detail {
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* IMAGEN */
+.package-detail img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+/* CONTENIDO */
+.package-detail h1 {
+  padding: 20px;
+  font-size: 28px;
+  color: #ff9800;
+}
+
+.package-detail p {
+  padding: 0 20px 20px;
+  font-size: 16px;
+}
+
+/* SUBTÍTULOS */
+.package-detail h3 {
+  padding: 0 20px;
+  margin-top: 10px;
+  color: #222;
+}
+
+/* LISTA */
+.package-detail ul {
+  padding: 10px 40px 20px;
+}
+
+.package-detail ul li {
+  margin-bottom: 8px;
+}
+
+/* PRECIO */
+.package-detail h2 {
+  padding: 0 20px 30px;
+  font-size: 22px;
+  color: #2e7d32;
+}
+
+/* BOTÓN */
+.btn {
+  display: block;
+  width: 220px;
+  margin: 0 auto 30px;
+  padding: 14px;
+  text-align: center;
+  background-color: #ff9800;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #e68900;
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .package-detail h1 {
+    font-size: 22px;
+  }
+
+  .package-detail img {
+    height: 260px;
+  }
+}
