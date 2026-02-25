@@ -41,7 +41,7 @@ h1 {
 .booking-form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 40px;
 }
 
 label {
@@ -188,9 +188,11 @@ textarea {
   <div class="price">$90.00 USD</div>
 </div>
 
-<button class="btn-book" style="background:#0070ba;">
-Pay $20 Deposit with PayPal
-</button>
+<!-- Boton de pasarela de pago -->
+<div style="max-width:500px; margin:40px auto;">
+  <div id="paypal-button-container"></div>
+</div>
+<!-- Boton de pasarela de pago -->
 
 <p style="text-align:center;font-size:13px;">
 Remaining balance paid on excursion day
@@ -268,6 +270,43 @@ Please confirm pickup time.
   );
 }
 </script>
+
+<!-- Pasarela de pago -->
+<script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
+
+<script>
+  paypal.Buttons({
+    style: {
+      layout: 'vertical',
+      color: 'blue',
+      shape: 'pill',
+      label: 'paypal'
+    },
+
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: '20.00'
+          },
+          description: 'Santo Domingo City Tour Deposit'
+        }]
+      });
+    },
+
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        alert('Payment completed by ' + details.payer.name.given_name);
+        
+        // Aquí luego podemos mandar los datos del formulario
+        window.location.href = "thank-you.html";
+      });
+    }
+
+  }).render('#paypal-button-container');
+</script>
+<!-- Pasarela de pago -->
+
 
 </body>
 </html>

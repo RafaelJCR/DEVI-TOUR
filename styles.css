@@ -809,3 +809,126 @@ body {
     height: 260px;
   }
 }
+
+/* Para que todos los botones de book now esten orden */
+.packages .box {
+  display: flex;
+  flex-direction: column;
+}
+
+.packages .box .content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.packages .box .btn {
+  margin-top: auto;
+}
+
+
+
+/* Para centrar barras dentro de la reservacion */
+
+/* BOOK SECTION - organizar inputs en 2 columnas */
+.book .row form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Que cada inputBox ocupe su espacio correctamente */
+.book .row form .inputBox {
+  width: 100%;
+}
+
+/* El botón ocupa toda la fila */
+.book .row form .btn {
+  grid-column: span 2;
+}
+
+
+
+
+
+/* CONTACT SECTION */
+.contact .row form .inputBox {
+  display: flex;
+  gap: 20px;
+}
+
+.contact .row form .inputBox input {
+  width: 100%;
+  background-color: #d1d1d1;
+}
+
+/* textarea ocupa todo el ancho */
+.contact .row form textarea {
+  width: 100%;
+  margin-top: 15px;
+  background-color: #d1d1d1;
+}
+
+/* botón centrado */
+.contact .row form .btn {
+  display: block;
+  margin: 20px auto 0;
+}
+
+
+
+
+
+/* Para que se vea bien en telefono */
+@media (max-width: 768px) {
+
+  .book .row form {
+    grid-template-columns: 1fr;
+  }
+
+  .book .row form .btn {
+    grid-column: span 1;
+  }
+
+  .contact .row form .inputBox {
+    flex-direction: column;
+  }
+
+}
+
+
+
+
+
+.booking-form {
+  max-width: 700px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #009688;
+}

@@ -98,7 +98,4 @@ var swiper = new Swiper(".brand-slider", {
 
 
 
-
-
-
 // refresh contributors
