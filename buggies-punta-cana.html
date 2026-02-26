@@ -18,7 +18,7 @@ body {
 }
 
 .booking-container {
-  background: rgba(255, 255, 255, 0.97);
+  background: rgba(255,255,255,0.97);
   max-width: 820px;
   width: 100%;
   padding: 35px;
@@ -26,184 +26,183 @@ body {
   box-shadow: 0 18px 45px rgba(0,0,0,0.3);
 }
 
-h1 {
-  text-align: center;
-  color: #0077b6;
-}
-
-.subtitle {
-  text-align: center;
-  color: #555;
-  margin-bottom: 25px;
-}
+h1 { text-align:center; color:#0077b6; }
 
 .booking-form {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-}
-
-label {
-  font-weight: 600;
-  margin-bottom: 6px;
-  display: block;
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:30px;
 }
 
 input, select, textarea {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #ccc;
 }
 
-textarea {
-  grid-column: span 2;
-  height: 90px;
-  resize: none;
-}
+textarea { grid-column: span 2; resize:none; height:90px; }
 
-.full-width {
-  grid-column: span 2;
-}
+.full-width { grid-column: span 2; }
 
-.price-box {
-  background: #f1faff;
-  border-radius: 16px;
-  padding: 18px;
-  margin: 25px 0;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.excursion-name {
-  font-weight: bold;
-  color: #023e8a;
-}
-
-.price {
-  font-size: 20px;
-  font-weight: bold;
-  color: #f77f00;
-}
-
-.btn-book {
-  width: 100%;
-  padding: 16px;
-  border-radius: 35px;
-  color: white;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-}
-
-/* HOTEL SEARCH */
-.hotel-box {
-  position: relative;
-}
+.hotel-box { position:relative; }
 
 #hotelList {
-  position: absolute;
-  width: 100%;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  max-height: 180px;
-  overflow-y: auto;
-  display: none;
-  z-index: 10;
+  position:absolute;
+  width:100%;
+  background:#fff;
+  border:1px solid #ccc;
+  border-radius:8px;
+  max-height:180px;
+  overflow-y:auto;
+  display:none;
+  z-index:10;
 }
 
-#hotelList div {
-  padding: 10px;
-  cursor: pointer;
+#hotelList div { padding:10px; cursor:pointer; }
+#hotelList div:hover { background:#f1f1f1; }
+
+.price-box {
+  background:#f1faff;
+  border-radius:16px;
+  padding:18px;
+  margin:25px 0;
+  display:flex;
+  justify-content:space-between;
 }
 
-#hotelList div:hover {
-  background: #f1f1f1;
+.price { font-size:20px; font-weight:bold; color:#f77f00; }
+
+.btn-whatsapp {
+  width:100%;
+  padding:16px;
+  border-radius:35px;
+  background:#25D366;
+  color:white;
+  font-weight:bold;
+  border:none;
+  cursor:pointer;
+  margin-top:15px;
 }
 
-@media(max-width:768px){
-  .booking-form {
-    grid-template-columns: 1fr;
-  }
-  textarea, .full-width {
-    grid-column: span 1;
-  }
+/* ADMIN PANEL */
+.admin-panel{
+  display:none;
+  background:white;
+  padding:30px;
+  width:95%;
+  max-width:1000px;
+  border-radius:20px;
+}
+
+.admin-panel table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.admin-panel th, .admin-panel td{
+  padding:10px;
+  border-bottom:1px solid #ddd;
+}
+
+.admin-panel th{
+  background:#0077b6;
+  color:white;
 }
 </style>
 </head>
-
 <body>
 
-<div class="booking-container">
+<!-- BOOKING SECTION -->
+<div class="booking-container" id="bookingSection">
 
 <h1>📍 Book Your Excursion</h1>
-<p class="subtitle">Secure your adventure in Punta Cana</p>
 
-<form class="booking-form">
+<form class="booking-form" onsubmit="return false;">
 
 <div>
-  <label>Full Name</label>
-  <input type="text" id="name" placeholder="John Doe" required>
+<label>Full Name *</label>
+<input type="text" id="name">
 </div>
 
 <div class="hotel-box">
-  <label>Hotel / Accommodation</label>
-  <input type="text" id="hotelInput" placeholder="Start typing your hotel..." required>
-  <div id="hotelList"></div>
+<label>Hotel *</label>
+<input type="text" id="hotelInput">
+<div id="hotelList"></div>
 </div>
 
 <div>
-  <label>Number of People</label>
-  <select id="people" required>
-    <option value="">Select</option>
-    <option>1 Person</option>
-    <option>2 People</option>
-    <option>3 People</option>
-    <option>4 People</option>
-    <option>5+ People</option>
-  </select>
+<label>Number of People</label>
+<select id="people">
+<option>1 Person</option>
+<option>2 People</option>
+<option>3 People</option>
+<option>4 People</option>
+<option>5+ People</option>
+</select>
 </div>
 
 <div>
-  <label>Excursion Date</label>
-  <input type="date" id="date" required>
+<label>Excursion Date</label>
+<input type="date" id="date">
 </div>
 
 <div class="full-width">
-  <label>Additional Information</label>
-  <textarea id="notes" placeholder="Kids, pickup time, special requests..."></textarea>
+<label>Additional Information</label>
+<textarea id="notes"></textarea>
 </div>
 
 </form>
 
 <div class="price-box">
-  <div>
-    <div class="excursion-name">Buggies Adventure Tour</div>
-    <small>Punta Cana, Dominican Republic</small>
-  </div>
-  <div class="price">$90.00 USD</div>
+<div>Buggies Adventure Tour</div>
+<div class="price">$90 USD</div>
 </div>
 
-<!-- Boton de pasarela de pago -->
-<div style="max-width:500px; margin:40px auto;">
-  <div id="paypal-button-container"></div>
-</div>
-<!-- Boton de pasarela de pago -->
+<h3>Pay Deposit</h3>
+<div id="paypal-button-container"></div>
 
-<p style="text-align:center;font-size:13px;">
-Remaining balance paid in cash on excursion day
-</p>
-
-<button class="btn-book" onclick="sendWhatsApp()" style="background:#25D366;">
+<button class="btn-whatsapp" onclick="sendWhatsApp()">
 Confirm Reservation via WhatsApp
 </button>
 
 </div>
 
+<!-- ADMIN PANEL -->
+<div class="admin-panel" id="adminPanel">
+<h2>Reservations - Admin Panel</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Hotel</th>
+<th>People</th>
+<th>Date</th>
+<th>Deposit</th>
+</tr>
+</thead>
+<tbody id="adminTable"></tbody>
+</table>
+</div>
+
+<!-- PAYPAL SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=TU_CLIENT_ID_AQUI&currency=USD"></script>
+
 <script>
-const hotels = [
+let depositAmount = 20;
+
+/* DEPOSIT DYNAMIC */
+document.getElementById("people").addEventListener("change",function(){
+const val=this.value;
+if(val.includes("1")) depositAmount=20;
+else if(val.includes("2")) depositAmount=40;
+else if(val.includes("3")) depositAmount=60;
+else if(val.includes("4")) depositAmount=80;
+else depositAmount=100;
+});
+
+/* HOTEL SEARCH FULL LIST */
+const hotels=[
 "Hard Rock Hotel & Casino Punta Cana","Royalton Punta Cana","Royalton Bavaro",
 "Royalton Splash Punta Cana","Royalton CHIC Punta Cana",
 "Riu Palace Bavaro","Riu Palace Punta Cana","Riu Palace Macao","Riu Bambu","Riu Republica",
@@ -219,92 +218,102 @@ const hotels = [
 "Nickelodeon Punta Cana","Impressive Punta Cana","Vista Sol Punta Cana"
 ];
 
-const input = document.getElementById("hotelInput");
-const list = document.getElementById("hotelList");
+const input=document.getElementById("hotelInput");
+const list=document.getElementById("hotelList");
 
-input.addEventListener("input", () => {
-  const value = input.value.toLowerCase().trim();
-  list.innerHTML = "";
+input.addEventListener("input",()=>{
+const value=input.value.toLowerCase();
+list.innerHTML="";
+if(!value){ list.style.display="none"; return; }
 
-  if (!value) {
-    list.style.display = "none";
-    return;
-  }
-
-  const firstLetter = value[0];
-
-  hotels
-    .filter(h => h.toLowerCase().startsWith(firstLetter))
-    .forEach(hotel => {
-      const div = document.createElement("div");
-      div.textContent = hotel;
-      div.onclick = () => {
-        input.value = hotel;
-        list.style.display = "none";
-      };
-      list.appendChild(div);
-    });
-
-  list.style.display = "block";
+hotels.filter(h=>h.toLowerCase().includes(value))
+.forEach(h=>{
+const div=document.createElement("div");
+div.textContent=h;
+div.onclick=()=>{ input.value=h; list.style.display="none"; };
+list.appendChild(div);
+});
+list.style.display="block";
 });
 
-function sendWhatsApp() {
-  const message = `
-Hello! I would like to confirm my excursion booking.
+/* PAYPAL */
+paypal.Buttons({
 
-📍 Buggies Adventure Tour
-👤 Name: ${name.value}
-🏨 Hotel: ${hotelInput.value}
-👥 People: ${people.value}
-📅 Date: ${date.value}
+createOrder:function(data,actions){
 
-Deposit paid via PayPal.
-Please confirm pickup time.
+if(!name.value || !hotelInput.value){
+alert("Name and Hotel are required.");
+return;
+}
+
+return actions.order.create({
+purchase_units:[{
+amount:{ value: depositAmount.toString() },
+description:"Buggies Tour Deposit"
+}]
+});
+},
+
+onApprove:function(data,actions){
+return actions.order.capture().then(function(details){
+saveReservation();
+alert("Payment completed!");
+});
+}
+
+}).render('#paypal-button-container');
+
+/* SAVE RESERVATION */
+function saveReservation(){
+const reservation={
+name:name.value,
+hotel:hotelInput.value,
+people:people.value,
+date:date.value,
+deposit:depositAmount
+};
+
+let reservations=JSON.parse(localStorage.getItem("reservations"))||[];
+reservations.push(reservation);
+localStorage.setItem("reservations",JSON.stringify(reservations));
+}
+
+/* WHATSAPP */
+function sendWhatsApp(){
+const message=`
+Reservation Confirmation
+
+Name: ${name.value}
+Hotel: ${hotelInput.value}
+People: ${people.value}
+Date: ${date.value}
 `;
+window.open("https://wa.me/18097980816?text="+encodeURIComponent(message));
+}
 
-  window.open(
-    "https://wa.me/18090000000?text=" + encodeURIComponent(message),
-    "_blank"
-  );
+/* ADMIN VIEW */
+if(window.location.hash==="#admin"){
+document.getElementById("bookingSection").style.display="none";
+document.getElementById("adminPanel").style.display="block";
+loadAdmin();
+}
+
+function loadAdmin(){
+let reservations=JSON.parse(localStorage.getItem("reservations"))||[];
+const table=document.getElementById("adminTable");
+table.innerHTML="";
+reservations.forEach(res=>{
+table.innerHTML+=`
+<tr>
+<td>${res.name}</td>
+<td>${res.hotel}</td>
+<td>${res.people}</td>
+<td>${res.date}</td>
+<td>$${res.deposit}</td>
+</tr>`;
+});
 }
 </script>
-
-
-<!-- Pasarela de pago -->
-<script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
-
-<script>
-  paypal.Buttons({
-    style: {
-      layout: 'vertical',
-      color: 'blue',
-      shape: 'pill',
-      label: 'paypal'
-    },
-
-    createOrder: function(data, actions) {
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: '20.00'
-          },
-          description: 'Santo Domingo City Tour Deposit'
-        }]
-      });
-    },
-
-    onApprove: function(data, actions) {
-      return actions.order.capture().then(function(details) {
-        alert('Payment completed by ' + details.payer.name.given_name);
-        
-        // Aquí luego podemos mandar los datos del formulario
-        window.location.href = "thank-you.html";
-      });
-    }
-
-  }).render('#paypal-button-container');
-</script>
-<!-- Pasarela de pago -->
 
 </body>
 </html>
