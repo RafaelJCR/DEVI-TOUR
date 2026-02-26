@@ -6,20 +6,6 @@
 <title>Book Excursion | Santo Domingo City Tour</title>
 
 <style>
-  @media(max-width:992px){
-  .booking-container{
-    grid-template-columns:1fr;
-    padding:40px 25px;
-  }
-
-  .booking-form{
-    grid-template-columns:1fr;
-  }
-
-  textarea{
-    grid-column:span 1;
-  }
-}
 *{
   margin:0;
   padding:0;
@@ -33,7 +19,7 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:40px;
+  padding:20px;
   position:relative;
 }
 
@@ -47,33 +33,37 @@ body::before{
 
 .booking-container{
   width:95%;
-  max-width:1600px;
+  max-width:1200px;
   display:grid;
   grid-template-columns:1.2fr 1fr;
-  gap:80px;
-  padding:80px;
+  gap:60px;
+  padding:60px;
   background:rgba(255,255,255,0.06);
   backdrop-filter:blur(14px);
   border-radius:30px;
   box-shadow:0 40px 90px rgba(0,0,0,0.5);
   color:white;
+  justify-items:center;
 }
 
 .left-side h1{
   font-size:38px;
   font-weight:300;
   margin-bottom:10px;
+  text-align:center;
 }
 
 .subtitle{
   opacity:0.8;
-  margin-bottom:60px;
+  margin-bottom:50px;
+  text-align:center;
 }
 
 .booking-form{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:40px;
+  gap:30px;
+  width:100%;
 }
 
 label{
@@ -85,20 +75,25 @@ label{
 
 input,select,textarea{
   width:100%;
-  padding:12px 5px;
+  padding:12px 10px;
   border:none;
   border-bottom:1px solid rgba(255,255,255,0.4);
-  background:transparent;
+  background:rgba(255,255,255,0.1);
   color:white;
   font-size:15px;
+  border-radius:5px;
+}
+
+select option{
+  color:black;
 }
 
 input::placeholder,
 textarea::placeholder{
-  color:rgba(255,255,255,0.6);
+  color:rgba(255,255,255,0.7);
 }
 
-input:focus,select:focus,textarea:focus{
+input:focus, select:focus, textarea:focus{
   outline:none;
   border-bottom:1px solid white;
 }
@@ -112,19 +107,26 @@ textarea{
 .right-side{
   display:flex;
   align-items:center;
+  justify-content:center;
+  width:100%;
 }
 
 .tour-card{
   width:100%;
+  max-width:400px;
   padding:40px;
   border:1px solid rgba(255,255,255,0.3);
   border-radius:25px;
   backdrop-filter:blur(12px);
+  text-align:center;
 }
-
+select option{
+  color:black; /* los números y texto del dropdown se ven */
+}
 .tour-card h2{
   margin-bottom:20px;
   font-weight:400;
+  font-size:24px;
 }
 
 .tour-card p{
@@ -135,7 +137,7 @@ textarea{
 }
 
 .price{
-  font-size:30px;
+  font-size:28px;
   font-weight:600;
   margin-bottom:25px;
 }
@@ -162,6 +164,7 @@ textarea{
   margin-top:20px;
   font-size:13px;
   opacity:0.7;
+  text-align:center;
 }
 
 #hotelList{
@@ -185,10 +188,12 @@ textarea{
   background:#f1f1f1;
 }
 
+/* RESPONSIVE */
 @media(max-width:992px){
   .booking-container{
     grid-template-columns:1fr;
     padding:40px 25px;
+    justify-items:center;
   }
 
   .booking-form{
@@ -197,6 +202,14 @@ textarea{
 
   textarea{
     grid-column:span 1;
+  }
+
+  .left-side h1, .subtitle{
+    text-align:center;
+  }
+
+  .tour-card{
+    max-width:100%;
   }
 }
 </style>
@@ -211,7 +224,6 @@ textarea{
 <p class="subtitle">Santo Domingo City Tour</p>
 
 <form class="booking-form" onsubmit="return false;">
-
 <div>
 <label>Full Name</label>
 <input type="text" id="name" placeholder="John Doe">
@@ -226,11 +238,12 @@ textarea{
 <div>
 <label>Number of People</label>
 <select id="people">
-<option>1 Person</option>
-<option>2 People</option>
-<option>3 People</option>
-<option>4 People</option>
-<option>5+ People</option>
+<option value="">Select</option>
+<option value="1">1 Person</option>
+<option value="2">2 People</option>
+<option value="3">3 People</option>
+<option value="4">4 People</option>
+<option value="5+">5+ People</option>
 </select>
 </div>
 
@@ -243,13 +256,11 @@ textarea{
 <label>Additional Information</label>
 <textarea id="notes" placeholder="Kids, food allergies, special requests..."></textarea>
 </div>
-
 </form>
 </div>
 
 <div class="right-side">
 <div class="tour-card">
-
 <h2>Santo Domingo City Tour</h2>
 
 <p>
@@ -302,10 +313,7 @@ input.addEventListener("input", () => {
     return;
   }
 
-  const firstLetter = value[0];
-
-  hotels
-    .filter(h => h.toLowerCase().startsWith(firstLetter))
+  hotels.filter(h => h.toLowerCase().startsWith(value))
     .forEach(hotel => {
       const div = document.createElement("div");
       div.textContent = hotel;
@@ -332,7 +340,6 @@ Notes: ${notes.value}
 Deposit via PayPal completed.
 Please confirm pickup time.
 `;
-
 window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
 }
 </script>

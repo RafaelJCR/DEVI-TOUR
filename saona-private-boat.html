@@ -3,32 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book Excursion | Saona Island Private Boat</title>
+<title>Book Excursion | Saona Island</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
-@media(max-width:992px){
-  .booking-container{
-    grid-template-columns:1fr;
-    padding:40px 25px;
-  }
-
-  .booking-form{
-    grid-template-columns:1fr;
-  }
-
-  textarea{
-    grid-column:span 1;
-  }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
 }
+
 body{
   background:url("Images/HD-wallpaper-orange-waves-12-background-gradient-iphone-pro-wave-thumbnail.jpg") no-repeat center/cover;
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:40px;
   position:relative;
+  padding:20px;
 }
 
 body::before{
@@ -41,33 +33,41 @@ body::before{
 
 .booking-container{
   width:95%;
-  max-width:1600px;
+  max-width:1200px;
   display:grid;
   grid-template-columns:1.2fr 1fr;
-  gap:80px;
-  padding:80px;
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(14px);
+  gap:60px;
+  padding:50px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(16px);
   border-radius:30px;
-  box-shadow:0 40px 90px rgba(0,0,0,0.5);
+  box-shadow:0 30px 60px rgba(0,0,0,0.5);
   color:white;
+  align-items:center;
+  justify-items:center;
+}
+
+.left-side, .right-side{
+  width:100%;
 }
 
 .left-side h1{
-  font-size:38px;
+  font-size:36px;
   font-weight:300;
   margin-bottom:10px;
+  text-align:center;
 }
 
 .subtitle{
-  opacity:0.8;
-  margin-bottom:60px;
+  opacity:0.85;
+  margin-bottom:40px;
+  text-align:center;
 }
 
 .booking-form{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:40px;
+  gap:30px;
 }
 
 label{
@@ -77,42 +77,40 @@ label{
   display:block;
 }
 
-input,select,textarea{
+input, select, textarea{
   width:100%;
-  padding:12px 5px;
+  padding:12px 10px;
   border:none;
   border-bottom:1px solid rgba(255,255,255,0.4);
   background:transparent;
   color:white;
   font-size:15px;
+  border-radius:4px;
 }
 
-input::placeholder,textarea::placeholder{
-  color:rgba(255,255,255,0.6);
-}
+input::placeholder,
+textarea::placeholder{ color:rgba(255,255,255,0.6); }
 
-input:focus,select:focus,textarea:focus{
-  outline:none;
-  border-bottom:1px solid white;
-}
+input:focus, select:focus, textarea:focus{ border-bottom:1px solid white; outline:none; }
 
-textarea{
-  grid-column:span 2;
-  height:100px;
-  resize:none;
-}
+textarea{ grid-column:span 2; height:100px; resize:none; }
 
 .right-side{
   display:flex;
   align-items:center;
+  justify-content:center;
 }
 
 .tour-card{
   width:100%;
-  padding:40px;
+  padding:30px 25px;
   border:1px solid rgba(255,255,255,0.3);
   border-radius:25px;
   backdrop-filter:blur(12px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
 }
 
 .tour-card h2{
@@ -128,7 +126,7 @@ textarea{
 }
 
 .price{
-  font-size:30px;
+  font-size:28px;
   font-weight:600;
   margin-bottom:25px;
 }
@@ -145,7 +143,8 @@ textarea{
 
 .btn-book{
   width:100%;
-  padding:16px;
+  max-width:300px;
+  padding:14px;
   border:none;
   border-radius:40px;
   background:linear-gradient(135deg,#25D366,#1ebe5d);
@@ -158,14 +157,10 @@ textarea{
 
 .btn-book:hover{
   transform:translateY(-4px);
-  box-shadow:0 20px 40px rgba(37,211,102,0.4);
+  box-shadow:0 15px 30px rgba(37,211,102,0.4);
 }
 
-.note{
-  margin-top:20px;
-  font-size:13px;
-  opacity:0.7;
-}
+.note{ margin-top:15px; font-size:13px; opacity:0.7; }
 
 #hotelList{
   position:absolute;
@@ -179,26 +174,19 @@ textarea{
   z-index:10;
 }
 
-#hotelList div{
-  padding:10px;
-  cursor:pointer;
-}
+#hotelList div{ padding:10px; cursor:pointer; }
+#hotelList div:hover{ background:#f1f1f1; }
 
-#hotelList div:hover{
-  background:#f1f1f1;
-}
+select option{ color:black; }
 
 @media(max-width:992px){
   .booking-container{
     grid-template-columns:1fr;
-    padding:40px 25px;
+    padding:30px 20px;
   }
-  .booking-form{
-    grid-template-columns:1fr;
-  }
-  textarea{
-    grid-column:span 1;
-  }
+  .booking-form{ grid-template-columns:1fr; }
+  textarea{ grid-column:span 1; }
+  .tour-card{ margin-top:30px; }
 }
 </style>
 </head>
@@ -207,59 +195,61 @@ textarea{
 
 <div class="booking-container">
 
-<div class="left-side">
-<h1>🛥️ Private Excursion Booking</h1>
-<p class="subtitle">Saona Island – Private Boat Experience</p>
+  <div class="left-side">
+    <h1>🛥️ Book Your Excursion</h1>
+    <p class="subtitle"></p>
 
-<form class="booking-form" onsubmit="return false;">
-<div>
-<label>Full Name</label>
-<input type="text" id="name" placeholder="Group leader name">
-</div>
+    <form class="booking-form" onsubmit="return false;">
+      <div>
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="John Doe">
+      </div>
 
-<div class="hotel-box">
-<label>Hotel / Pickup Location</label>
-<input type="text" id="hotelInput" placeholder="Start typing hotel...">
-<div id="hotelList"></div>
-</div>
+      <div class="hotel-box">
+        <label>Hotel / Pickup Location</label>
+        <input type="text" id="hotelInput" placeholder="Start typing hotel...">
+        <div id="hotelList"></div>
+      </div>
 
-<div>
-<label>Group Size</label>
-<select id="people">
-<option>10 – 10 People</option>
-<option>16 – 25 People</option>
-<option>26 – 40 People</option>
-<option>41 – 60 People</option>
-</select>
-</div>
+      <div>
+        <label>Number of People</label>
+        <select id="people"></select>
+      </div>
 
-<div>
-<label>Excursion Date</label>
-<input type="date" id="date">
-</div>
+      <div>
+        <label>Excursion Date</label>
+        <input type="date" id="date">
+      </div>
 
-<div>
-<label>Additional Information</label>
-<textarea id="notes" placeholder="Celebration, music preference, special requests..."></textarea>
-</div>
-</form>
-</div>
+      <div>
+        <label>Additional Information</label>
+        <textarea id="notes" placeholder="Special requests..."></textarea>
+      </div>
+    </form>
+  </div>
 
-<div class="right-side">
-<div class="tour-card">
-<h2>Saona Island – Private Boat <span class="private-badge">PRIVATE</span></h2>
-<p>Full-day private boat experience to Saona Island with drinks, music, lunch, and transport included. Perfect for groups, celebrations, or special occasions.</p>
-<div class="price">$2600 USD / Group</div>
-<div id="paypal-button-container"></div>
-
-<button class="btn-book" onclick="sendWhatsApp()">Confirm Private Booking via WhatsApp</button>
-<p class="note">Deposit via PayPal. Remaining balance paid on excursion day.</p>
-</div>
-</div>
+  <div class="right-side">
+    <div class="tour-card">
+      <h2></h2>
+      <p></p>
+      <div class="price"></div>
+      <div id="paypal-button-container"></div>
+      <button class="btn-book" onclick="sendWhatsApp()">Confirm Booking via WhatsApp</button>
+      <p class="note">Deposit via PayPal. Remaining balance paid on excursion day.</p>
+    </div>
+  </div>
 
 </div>
 
 <script>
+const tour = {
+  name: "Saona Island – Private Boat",
+  description: "Full-day private boat experience to Saona Island with drinks, music, lunch, and transport included. Perfect for groups, celebrations, or special occasions.",
+  price: "2600",
+  peopleOptions: ["1","2","3","4","5+"],
+  isPrivate:true
+};
+
 const hotels = [
 "Hard Rock Hotel & Casino Punta Cana","Royalton Punta Cana","Royalton Bavaro","Royalton Splash Punta Cana",
 "Royalton CHIC Punta Cana","Riu Palace Bavaro","Riu Palace Punta Cana","Riu Palace Macao","Riu Bambu",
@@ -273,44 +263,66 @@ const hotels = [
 "Vista Sol Punta Cana","Santo Domingo Hotel"
 ];
 
+// ======= Set tour info =======
+document.title = `Book Excursion | ${tour.name}`;
+document.querySelector(".subtitle").innerText = tour.name;
+
+const h2 = document.querySelector(".tour-card h2");
+h2.innerText = tour.name + (tour.isPrivate ? ' ' : '');
+if(tour.isPrivate){ h2.innerHTML += '<span class="private-badge">PRIVATE</span>'; }
+
+document.querySelector(".tour-card p").innerText = tour.description;
+document.querySelector(".tour-card .price").innerText = `$${tour.price} USD` + (tour.isPrivate ? ' / Group' : '');
+
+// ======= Populate people options =======
+const peopleSelect = document.getElementById("people");
+peopleSelect.innerHTML = "";
+tour.peopleOptions.forEach(opt=>{
+  const option = document.createElement("option");
+  option.textContent = opt;
+  peopleSelect.appendChild(option);
+});
+
+// ======= Hotel autocomplete =======
 const input = document.getElementById("hotelInput");
 const list = document.getElementById("hotelList");
-
 input.addEventListener("input", () => {
   const value = input.value.toLowerCase().trim();
   list.innerHTML = "";
-  if(!value){list.style.display="none";return;}
-  const firstLetter=value[0];
-  hotels.filter(h=>h.toLowerCase().startsWith(firstLetter))
-    .forEach(hotel=>{
-      const div=document.createElement("div");
-      div.textContent=hotel;
-      div.onclick=()=>{input.value=hotel;list.style.display="none";}
-      list.appendChild(div);
-    });
+  if(!value){ list.style.display="none"; return; }
+  hotels.filter(h => h.toLowerCase().startsWith(value[0])).forEach(h=>{
+    const div = document.createElement("div");
+    div.textContent = h;
+    div.onclick = () => { input.value = h; list.style.display="none"; };
+    list.appendChild(div);
+  });
   list.style.display="block";
 });
 
+// ======= WhatsApp message =======
 function sendWhatsApp(){
-const message=`Hello! I would like to book a PRIVATE Saona Island excursion.
-🛥️ Private Boat – Saona Island
-👤 Group Leader: ${name.value}
-🏨 Hotel: ${hotelInput.value}
-👥 Group Size: ${people.value}
-📅 Date: ${date.value}
+  const message = `Hello! I would like to book ${tour.name}.
+Group Leader: ${name.value}
+Hotel: ${hotelInput.value}
+People: ${people.value}
+Date: ${date.value}
 Notes: ${notes.value}
 Deposit via PayPal completed.
 Please confirm pickup time and full quote.`;
-window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
+  window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
 }
 </script>
 
 <script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
 <script>
 paypal.Buttons({
-style:{layout:'vertical',color:'blue',shape:'pill',label:'paypal'},
-createOrder:function(data,actions){return actions.order.create({purchase_units:[{amount:{value:'20.00'},description:'Saona Island Private Boat Deposit'}]});},
-onApprove:function(data,actions){return actions.order.capture().then(details=>{alert('Payment completed by '+details.payer.name.given_name);});}
+  style:{layout:'vertical',color:'blue',shape:'pill',label:'paypal'},
+  createOrder:function(data,actions){
+    return actions.order.create({ purchase_units:[{ amount:{value: tour.price}, description:`${tour.name} Deposit` }] });
+  },
+  onApprove:function(data,actions){
+    return actions.order.capture().then(details=>{ alert('Payment completed by '+details.payer.name.given_name); });
+  }
 }).render('#paypal-button-container');
 </script>
 

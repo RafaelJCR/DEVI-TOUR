@@ -3,202 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book Excursion | Saona Island & Altos de Chavón</title>
+<title>Book Excursion</title>
 
 <style>
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+  }
+
+  body{
+    background:url("Images/HD-wallpaper-orange-waves-12-background-gradient-iphone-pro-wave-thumbnail.jpg") no-repeat center center/cover;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    position:relative;
+  }
+
+  /* Fondo oscuro semi-transparente */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    z-index:-1;
+  }
+
+  .booking-container{
+    width:100%;
+    max-width:1200px;
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:60px;
+    padding:40px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(16px);
+    border-radius:30px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    color:white;
+    align-items:center;
+    justify-items:center;
+  }
+
+  .left-side, .right-side{
+    width:100%;
+  }
+
+  .left-side h1{
+    font-size:36px;
+    font-weight:300;
+    margin-bottom:10px;
+    text-align:center;
+  }
+  select option{
+  color:black; /* los números y texto del dropdown se ven */
+}
+
+  .subtitle{
+    opacity:0.85;
+    margin-bottom:40px;
+    text-align:center;
+  }
+
+  .booking-form{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+  }
+
+  label{
+    font-size:14px;
+    opacity:0.8;
+    margin-bottom:6px;
+    display:block;
+  }
+
+  input,select,textarea{
+    width:100%;
+    padding:12px 10px;
+    border:none;
+    border-bottom:1px solid rgba(255,255,255,0.4);
+    background:transparent;
+    color:white;
+    font-size:15px;
+    border-radius:4px;
+  }
+
+  input::placeholder,
+  textarea::placeholder{
+    color:rgba(255,255,255,0.6);
+  }
+
+  input:focus,select:focus,textarea:focus{
+    outline:none;
+    border-bottom:1px solid white;
+  }
+
+  textarea{
+    grid-column:span 2;
+    height:100px;
+    resize:none;
+  }
+
+  .tour-card{
+    width:100%;
+    padding:30px 25px;
+    border:1px solid rgba(255,255,255,0.3);
+    border-radius:25px;
+    backdrop-filter:blur(12px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+
+  .tour-card h2{
+    margin-bottom:20px;
+    font-weight:400;
+  }
+
+  .tour-card p{
+    font-size:14px;
+    line-height:1.6;
+    opacity:0.85;
+    margin-bottom:25px;
+  }
+
+  .price{
+    font-size:28px;
+    font-weight:600;
+    margin-bottom:25px;
+  }
+
+  .btn-book{
+    width:100%;
+    max-width:300px;
+    padding:14px;
+    border:none;
+    border-radius:40px;
+    background:linear-gradient(135deg,#25D366,#1ebe5d);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:20px;
+    transition:0.3s;
+  }
+
+  .btn-book:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 30px rgba(37,211,102,0.4);
+  }
+
+  .note{
+    margin-top:15px;
+    font-size:13px;
+    opacity:0.7;
+  }
+
+  #hotelList{
+    position:absolute;
+    width:100%;
+    background:#fff;
+    color:#000;
+    border-radius:8px;
+    max-height:180px;
+    overflow-y:auto;
+    display:none;
+    z-index:10;
+  }
+
+  #hotelList div{
+    padding:10px;
+    cursor:pointer;
+  }
+
+  #hotelList div:hover{
+    background:#f1f1f1;
+  }
+
   @media(max-width:992px){
-  .booking-container{
-    grid-template-columns:1fr;
-    padding:40px 25px;
+    .booking-container{
+      grid-template-columns:1fr;
+      padding:30px 20px;
+    }
+
+    .booking-form{
+      grid-template-columns:1fr;
+    }
+
+    textarea{
+      grid-column:span 1;
+    }
+
+    .tour-card{
+      margin-top:30px;
+    }
   }
-
-  .booking-form{
-    grid-template-columns:1fr;
-  }
-
-  textarea{
-    grid-column:span 1;
-  }
-}
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"Poppins",sans-serif;
-}
-
-body{
-  background:url("Images/HD-wallpaper-orange-waves-12-background-gradient-iphone-pro-wave-thumbnail.jpg") no-repeat center center/cover;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:40px;
-  position:relative;
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  z-index:-1;
-}
-
-.booking-container{
-  width:95%;
-  max-width:1600px;
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:80px;
-  padding:80px;
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(14px);
-  border-radius:30px;
-  box-shadow:0 40px 90px rgba(0,0,0,0.5);
-  color:white;
-}
-
-.left-side h1{
-  font-size:38px;
-  font-weight:300;
-  margin-bottom:10px;
-}
-
-.subtitle{
-  opacity:0.8;
-  margin-bottom:60px;
-}
-
-.booking-form{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-}
-
-label{
-  font-size:14px;
-  opacity:0.8;
-  margin-bottom:6px;
-  display:block;
-}
-
-input,select,textarea{
-  width:100%;
-  padding:12px 5px;
-  border:none;
-  border-bottom:1px solid rgba(255,255,255,0.4);
-  background:transparent;
-  color:white;
-  font-size:15px;
-}
-
-input::placeholder,
-textarea::placeholder{
-  color:rgba(255,255,255,0.6);
-}
-
-input:focus,select:focus,textarea:focus{
-  outline:none;
-  border-bottom:1px solid white;
-}
-
-textarea{
-  grid-column:span 2;
-  height:100px;
-  resize:none;
-}
-
-.right-side{
-  display:flex;
-  align-items:center;
-}
-
-.tour-card{
-  width:100%;
-  padding:40px;
-  border:1px solid rgba(255,255,255,0.3);
-  border-radius:25px;
-  backdrop-filter:blur(12px);
-}
-
-.tour-card h2{
-  margin-bottom:20px;
-  font-weight:400;
-}
-
-.tour-card p{
-  font-size:14px;
-  line-height:1.6;
-  opacity:0.85;
-  margin-bottom:25px;
-}
-
-.price{
-  font-size:30px;
-  font-weight:600;
-  margin-bottom:25px;
-}
-
-.btn-book{
-  width:100%;
-  padding:16px;
-  border:none;
-  border-radius:40px;
-  background:linear-gradient(135deg,#25D366,#1ebe5d);
-  color:white;
-  font-size:16px;
-  cursor:pointer;
-  margin-top:20px;
-  transition:0.3s;
-}
-
-.btn-book:hover{
-  transform:translateY(-4px);
-  box-shadow:0 20px 40px rgba(37,211,102,0.4);
-}
-
-.note{
-  margin-top:20px;
-  font-size:13px;
-  opacity:0.7;
-}
-
-#hotelList{
-  position:absolute;
-  width:100%;
-  background:#fff;
-  color:#000;
-  border-radius:8px;
-  max-height:180px;
-  overflow-y:auto;
-  display:none;
-  z-index:10;
-}
-
-#hotelList div{
-  padding:10px;
-  cursor:pointer;
-}
-
-#hotelList div:hover{
-  background:#f1f1f1;
-}
-
-@media(max-width:992px){
-  .booking-container{
-    grid-template-columns:1fr;
-    padding:40px 25px;
-  }
-
-  .booking-form{
-    grid-template-columns:1fr;
-  }
-
-  textarea{
-    grid-column:span 1;
-  }
-}
 </style>
 </head>
 
@@ -206,122 +209,114 @@ textarea{
 
 <div class="booking-container">
 
-<div class="left-side">
-<h1>🏝️ Book Your Excursion</h1>
-<p class="subtitle">Saona Island & Altos de Chavón</p>
+  <div class="left-side">
+    <h1>🏝️ Book Your Excursion</h1>
+    <p class="subtitle"></p>
 
-<form class="booking-form" onsubmit="return false;">
+    <form class="booking-form" onsubmit="return false;">
 
-<div>
-<label>Full Name</label>
-<input type="text" id="name" placeholder="John Doe">
-</div>
+      <div>
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="John Doe">
+      </div>
 
-<div class="hotel-box">
-<label>Hotel / Accommodation</label>
-<input type="text" id="hotelInput" placeholder="Start typing your hotel...">
-<div id="hotelList"></div>
-</div>
+      <div class="hotel-box">
+        <label>Hotel / Accommodation</label>
+        <input type="text" id="hotelInput" placeholder="Start typing your hotel...">
+        <div id="hotelList"></div>
+      </div>
 
-<div>
-<label>Number of People</label>
-<select id="people">
-<option>1 Person</option>
-<option>2 People</option>
-<option>3 People</option>
-<option>4 People</option>
-<option>5+ People</option>
-</select>
-</div>
+      <div>
+        <label>Number of People</label>
+        <select id="people">
+          <option>1 Person</option>
+          <option>2 People</option>
+          <option>3 People</option>
+          <option>4 People</option>
+          <option>5+ People</option>
+        </select>
+      </div>
 
-<div>
-<label>Excursion Date</label>
-<input type="date" id="date">
-</div>
+      <div>
+        <label>Excursion Date</label>
+        <input type="date" id="date">
+      </div>
 
-<div>
-<label>Additional Information</label>
-<textarea id="notes" placeholder="Kids, food allergies, special requests..."></textarea>
-</div>
+      <div>
+        <label>Additional Information</label>
+        <textarea id="notes" placeholder="Kids, food allergies, special requests..."></textarea>
+      </div>
 
-</form>
-</div>
+    </form>
+  </div>
 
-<div class="right-side">
-<div class="tour-card">
-
-<h2>Saona Island & Altos de Chavón</h2>
-
-<p>
-Discover pristine beaches, Altos de Chavón village, natural pools, and enjoy Dominican culture & cuisine.
-</p>
-
-<div class="price">$155 USD</div>
-
-<div id="paypal-button-container"></div>
-
-<button class="btn-book" onclick="sendWhatsApp()">
-Confirm Reservation via WhatsApp
-</button>
-
-<p class="note">
-Deposit via PayPal. Remaining balance paid on excursion day.
-</p>
-
-</div>
-</div>
+  <div class="right-side">
+    <div class="tour-card">
+      <h2></h2>
+      <p></p>
+      <div class="price"></div>
+      <div id="paypal-button-container"></div>
+      <button class="btn-book" onclick="sendWhatsApp()">Confirm Reservation via WhatsApp</button>
+      <p class="note">Deposit via PayPal. Remaining balance paid on excursion day.</p>
+    </div>
+  </div>
 
 </div>
 
 <script>
-const hotels = [
-"Hard Rock Hotel & Casino Punta Cana","Royalton Punta Cana","Royalton Bavaro",
-"Royalton Splash Punta Cana","Royalton CHIC Punta Cana",
-"Riu Palace Bavaro","Riu Palace Punta Cana","Riu Palace Macao","Riu Bambu","Riu Republica",
-"Majestic Mirage Punta Cana","Majestic Elegance Punta Cana","Majestic Colonial Punta Cana",
-"Bahia Principe Fantasia","Bahia Principe Grand Bavaro","Bahia Principe Luxury Ambar",
-"Barceló Bávaro Palace","Barceló Bávaro Beach",
-"Iberostar Selection Bavaro","Iberostar Grand Bavaro","JOIA Bavaro by Iberostar",
-"Dreams Royal Beach","Dreams Macao","Secrets Royal Beach","Secrets Cap Cana",
-"Melia Caribe Beach","Paradisus Palma Real","Lopesan Costa Bavaro",
-"Ocean Blue & Sand","Ocean El Faro",
-"Grand Palladium Punta Cana","Catalonia Bavaro","Excellence Punta Cana",
-"Hyatt Zilara Cap Cana","Hyatt Ziva Cap Cana","TRS Cap Cana","Eden Roc Cap Cana",
-"Nickelodeon Punta Cana","Impressive Punta Cana","Vista Sol Punta Cana"
-];
+  // Tour info
+  const tour = {
+    name: "Saona Island & Altos de Chavón",
+    description: "Discover pristine beaches, Altos de Chavón village, natural pools, and enjoy Dominican culture & cuisine.",
+    price: "155"
+  };
 
-const input = document.getElementById("hotelInput");
-const list = document.getElementById("hotelList");
+  // Hotels
+  const hotels = [
+    "Hard Rock Hotel & Casino Punta Cana","Royalton Punta Cana","Royalton Bavaro",
+    "Royalton Splash Punta Cana","Royalton CHIC Punta Cana",
+    "Riu Palace Bavaro","Riu Palace Punta Cana","Riu Palace Macao","Riu Bambu","Riu Republica",
+    "Majestic Mirage Punta Cana","Majestic Elegance Punta Cana","Majestic Colonial Punta Cana",
+    "Bahia Principe Fantasia","Bahia Principe Grand Bavaro","Bahia Principe Luxury Ambar",
+    "Barceló Bávaro Palace","Barceló Bávaro Beach",
+    "Iberostar Selection Bavaro","Iberostar Grand Bavaro","JOIA Bavaro by Iberostar",
+    "Dreams Royal Beach","Dreams Macao","Secrets Royal Beach","Secrets Cap Cana",
+    "Melia Caribe Beach","Paradisus Palma Real","Lopesan Costa Bavaro",
+    "Ocean Blue & Sand","Ocean El Faro",
+    "Grand Palladium Punta Cana","Catalonia Bavaro","Excellence Punta Cana",
+    "Hyatt Zilara Cap Cana","Hyatt Ziva Cap Cana","TRS Cap Cana","Eden Roc Cap Cana",
+    "Nickelodeon Punta Cana","Impressive Punta Cana","Vista Sol Punta Cana"
+  ];
 
-input.addEventListener("input", () => {
-  const value = input.value.toLowerCase().trim();
-  list.innerHTML = "";
+  // Set tour data
+  document.title = `Book Excursion | ${tour.name}`;
+  document.querySelector(".subtitle").innerText = tour.name;
+  document.querySelector(".tour-card h2").innerText = tour.name;
+  document.querySelector(".tour-card p").innerText = tour.description;
+  document.querySelector(".tour-card .price").innerText = `$${tour.price} USD`;
 
-  if (!value) {
-    list.style.display = "none";
-    return;
-  }
+  // Hotel autocomplete
+  const input = document.getElementById("hotelInput");
+  const list = document.getElementById("hotelList");
 
-  const firstLetter = value[0];
+  input.addEventListener("input", () => {
+    const value = input.value.toLowerCase().trim();
+    list.innerHTML = "";
+    if(!value){ list.style.display="none"; return; }
+    hotels.filter(h => h.toLowerCase().startsWith(value[0]))
+      .forEach(hotel => {
+        const div = document.createElement("div");
+        div.textContent = hotel;
+        div.onclick = () => { input.value = hotel; list.style.display="none"; };
+        list.appendChild(div);
+      });
+    list.style.display="block";
+  });
 
-  hotels
-    .filter(h => h.toLowerCase().startsWith(firstLetter))
-    .forEach(hotel => {
-      const div = document.createElement("div");
-      div.textContent = hotel;
-      div.onclick = () => {
-        input.value = hotel;
-        list.style.display = "none";
-      };
-      list.appendChild(div);
-    });
-
-  list.style.display = "block";
-});
-
-function sendWhatsApp(){
-const message = `
-Hello! I would like to confirm my Saona Island & Altos de Chavón booking.
+  // WhatsApp
+  function sendWhatsApp(){
+    const message = `
+Hello! I would like to confirm my ${tour.name} booking.
 
 Name: ${name.value}
 Hotel: ${hotelInput.value}
@@ -332,31 +327,27 @@ Notes: ${notes.value}
 Deposit via PayPal completed.
 Please confirm pickup time.
 `;
-
-window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
-}
+    window.open("https://wa.me/18090000000?text="+encodeURIComponent(message), "_blank");
+  }
 </script>
 
 <script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
 <script>
 paypal.Buttons({
-style:{ layout:'vertical', color:'blue', shape:'pill', label:'paypal' },
-
-createOrder: function(data, actions){
-return actions.order.create({
-purchase_units:[{
-amount:{ value:'20.00' },
-description:'Saona Island & Altos de Chavón Deposit'
-}]
-});
-},
-
-onApprove: function(data, actions){
-return actions.order.capture().then(function(details){
-alert('Payment completed by ' + details.payer.name.given_name);
-});
-}
-
+  style:{ layout:'vertical', color:'blue', shape:'pill', label:'paypal' },
+  createOrder: function(data, actions){
+    return actions.order.create({
+      purchase_units:[{
+        amount:{ value: tour.price },
+        description:`${tour.name} Deposit`
+      }]
+    });
+  },
+  onApprove: function(data, actions){
+    return actions.order.capture().then(function(details){
+      alert('Payment completed by ' + details.payer.name.given_name);
+    });
+  }
 }).render('#paypal-button-container');
 </script>
 

@@ -6,20 +6,6 @@
 <title>Book Excursion | Saona Island From Santo Domingo</title>
 
 <style>
-  @media(max-width:992px){
-  .booking-container{
-    grid-template-columns:1fr;
-    padding:40px 25px;
-  }
-
-  .booking-form{
-    grid-template-columns:1fr;
-  }
-
-  textarea{
-    grid-column:span 1;
-  }
-}
 *{
   margin:0;
   padding:0;
@@ -33,7 +19,7 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:40px;
+  padding:20px;
   position:relative;
 }
 
@@ -47,33 +33,41 @@ body::before{
 
 .booking-container{
   width:95%;
-  max-width:1600px;
+  max-width:1200px;
   display:grid;
   grid-template-columns:1.2fr 1fr;
-  gap:80px;
-  padding:80px;
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(14px);
+  gap:60px;
+  padding:50px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(16px);
   border-radius:30px;
-  box-shadow:0 40px 90px rgba(0,0,0,0.5);
+  box-shadow:0 30px 60px rgba(0,0,0,0.5);
   color:white;
+  align-items:center;
+  justify-items:center;
+}
+
+.left-side, .right-side{
+  width:100%;
 }
 
 .left-side h1{
-  font-size:38px;
+  font-size:36px;
   font-weight:300;
   margin-bottom:10px;
+  text-align:center;
 }
 
 .subtitle{
-  opacity:0.8;
-  margin-bottom:60px;
+  opacity:0.85;
+  margin-bottom:40px;
+  text-align:center;
 }
 
 .booking-form{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:40px;
+  gap:30px;
 }
 
 label{
@@ -83,14 +77,15 @@ label{
   display:block;
 }
 
-input,select,textarea{
+input, select, textarea{
   width:100%;
-  padding:12px 5px;
+  padding:12px 10px;
   border:none;
   border-bottom:1px solid rgba(255,255,255,0.4);
   background:transparent;
   color:white;
   font-size:15px;
+  border-radius:4px;
 }
 
 input::placeholder,
@@ -98,7 +93,7 @@ textarea::placeholder{
   color:rgba(255,255,255,0.6);
 }
 
-input:focus,select:focus,textarea:focus{
+input:focus, select:focus, textarea:focus{
   outline:none;
   border-bottom:1px solid white;
 }
@@ -112,14 +107,19 @@ textarea{
 .right-side{
   display:flex;
   align-items:center;
+  justify-content:center;
 }
 
 .tour-card{
   width:100%;
-  padding:40px;
+  padding:30px 25px;
   border:1px solid rgba(255,255,255,0.3);
   border-radius:25px;
   backdrop-filter:blur(12px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
 }
 
 .tour-card h2{
@@ -135,14 +135,15 @@ textarea{
 }
 
 .price{
-  font-size:30px;
+  font-size:28px;
   font-weight:600;
   margin-bottom:25px;
 }
 
 .btn-book{
   width:100%;
-  padding:16px;
+  max-width:300px;
+  padding:14px;
   border:none;
   border-radius:40px;
   background:linear-gradient(135deg,#25D366,#1ebe5d);
@@ -155,11 +156,11 @@ textarea{
 
 .btn-book:hover{
   transform:translateY(-4px);
-  box-shadow:0 20px 40px rgba(37,211,102,0.4);
+  box-shadow:0 15px 30px rgba(37,211,102,0.4);
 }
 
 .note{
-  margin-top:20px;
+  margin-top:15px;
   font-size:13px;
   opacity:0.7;
 }
@@ -185,10 +186,14 @@ textarea{
   background:#f1f1f1;
 }
 
+select option{
+  color:black;
+}
+
 @media(max-width:992px){
   .booking-container{
     grid-template-columns:1fr;
-    padding:40px 25px;
+    padding:30px 20px;
   }
 
   .booking-form{
@@ -197,6 +202,10 @@ textarea{
 
   textarea{
     grid-column:span 1;
+  }
+
+  .tour-card{
+    margin-top:30px;
   }
 }
 </style>
@@ -249,25 +258,12 @@ textarea{
 
 <div class="right-side">
 <div class="tour-card">
-
 <h2>Saona Island From Santo Domingo</h2>
-
-<p>
-Full-day excursion with transport from Santo Domingo, natural pools, pristine beaches, and authentic Dominican experience.
-</p>
-
+<p>Full-day excursion with transport from Santo Domingo, natural pools, pristine beaches, and authentic Dominican experience.</p>
 <div class="price">$75 USD</div>
-
 <div id="paypal-button-container"></div>
-
-<button class="btn-book" onclick="sendWhatsApp()">
-Confirm Reservation via WhatsApp
-</button>
-
-<p class="note">
-Deposit via PayPal. Remaining balance paid on excursion day.
-</p>
-
+<button class="btn-book" onclick="sendWhatsApp()">Confirm Reservation via WhatsApp</button>
+<p class="note">Deposit via PayPal. Remaining balance paid on excursion day.</p>
 </div>
 </div>
 
@@ -324,27 +320,16 @@ const list = document.getElementById("hotelList");
 input.addEventListener("input", () => {
   const value = input.value.toLowerCase().trim();
   list.innerHTML = "";
-
-  if (!value) {
-    list.style.display = "none";
-    return;
-  }
-
-  const firstLetter = value[0];
-
+  if (!value) { list.style.display = "none"; return; }
   hotels
-    .filter(h => h.toLowerCase().startsWith(firstLetter))
+    .filter(h => h.toLowerCase().startsWith(value[0]))
     .forEach(hotel => {
       const div = document.createElement("div");
       div.textContent = hotel;
-      div.onclick = () => {
-        input.value = hotel;
-        list.style.display = "none";
-      };
+      div.onclick = () => { input.value = hotel; list.style.display="none"; };
       list.appendChild(div);
     });
-
-  list.style.display = "block";
+  list.style.display="block";
 });
 
 function sendWhatsApp(){
@@ -369,7 +354,6 @@ window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blan
 <script>
 paypal.Buttons({
 style:{ layout:'vertical', color:'blue', shape:'pill', label:'paypal' },
-
 createOrder: function(data, actions){
 return actions.order.create({
 purchase_units:[{
@@ -378,13 +362,11 @@ description:'Saona Island From Santo Domingo Deposit'
 }]
 });
 },
-
 onApprove: function(data, actions){
 return actions.order.capture().then(function(details){
 alert('Payment completed by ' + details.payer.name.given_name);
 });
 }
-
 }).render('#paypal-button-container');
 </script>
 

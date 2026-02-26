@@ -4,36 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Excursion | Saona Island Catamaran & Speed Boat</title>
-
 <style>
-  @media(max-width:992px){
-  .booking-container{
-    grid-template-columns:1fr;
-    padding:40px 25px;
-  }
-
-  .booking-form{
-    grid-template-columns:1fr;
-  }
-
-  textarea{
-    grid-column:span 1;
-  }
-}
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"Poppins",sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
 
 body{
-  background:url("Images/HD-wallpaper-orange-waves-12-background-gradient-iphone-pro-wave-thumbnail.jpg") no-repeat center center/cover;
+  background:url("Images/HD-wallpaper-orange-waves-12-background-gradient-iphone-pro-wave-thumbnail.jpg") no-repeat center/cover;
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:40px;
+  padding:20px;
   position:relative;
 }
 
@@ -47,122 +27,98 @@ body::before{
 
 .booking-container{
   width:95%;
-  max-width:1600px;
+  max-width:1200px;
   display:grid;
   grid-template-columns:1.2fr 1fr;
-  gap:80px;
-  padding:80px;
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(14px);
+  gap:60px;
+  padding:50px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(16px);
   border-radius:30px;
-  box-shadow:0 40px 90px rgba(0,0,0,0.5);
+  box-shadow:0 30px 60px rgba(0,0,0,0.5);
   color:white;
+  align-items:center;
+  justify-items:center;
 }
 
+.left-side, .right-side{ width:100%; }
+
 .left-side h1{
-  font-size:38px;
+  font-size:36px;
   font-weight:300;
   margin-bottom:10px;
+  text-align:center;
 }
 
 .subtitle{
-  opacity:0.8;
-  margin-bottom:60px;
+  opacity:0.85;
+  margin-bottom:40px;
+  text-align:center;
 }
 
 .booking-form{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:40px;
+  gap:30px;
 }
 
-label{
-  font-size:14px;
-  opacity:0.8;
-  margin-bottom:6px;
-  display:block;
-}
-
-input,select,textarea{
+label{ font-size:14px; opacity:0.8; margin-bottom:6px; display:block; }
+input, select, textarea{
   width:100%;
-  padding:12px 5px;
+  padding:12px 10px;
   border:none;
   border-bottom:1px solid rgba(255,255,255,0.4);
   background:transparent;
   color:white;
   font-size:15px;
+  border-radius:4px;
 }
 
-input::placeholder,
-textarea::placeholder{
-  color:rgba(255,255,255,0.6);
-}
-
-input:focus,select:focus,textarea:focus{
-  outline:none;
-  border-bottom:1px solid white;
-}
-
-textarea{
-  grid-column:span 2;
-  height:100px;
-  resize:none;
-}
+input::placeholder, textarea::placeholder{ color:rgba(255,255,255,0.6); }
+input:focus, select:focus, textarea:focus{ border-bottom:1px solid white; outline:none; }
+textarea{ grid-column:span 2; height:100px; resize:none; }
 
 .right-side{
   display:flex;
   align-items:center;
+  justify-content:center;
 }
 
 .tour-card{
   width:100%;
-  padding:40px;
+  padding:30px 25px;
   border:1px solid rgba(255,255,255,0.3);
   border-radius:25px;
   backdrop-filter:blur(12px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
 }
 
-.tour-card h2{
-  margin-bottom:20px;
-  font-weight:400;
-}
-
-.tour-card p{
-  font-size:14px;
-  line-height:1.6;
-  opacity:0.85;
-  margin-bottom:25px;
-}
-
-.price{
-  font-size:30px;
-  font-weight:600;
-  margin-bottom:25px;
-  color:#f77f00;
-}
+.tour-card h2{ margin-bottom:20px; font-weight:400; }
+.tour-card p{ font-size:14px; line-height:1.6; opacity:0.85; margin-bottom:25px; }
+.price{ font-size:28px; font-weight:600; margin-bottom:25px; color:#f77f00; }
 
 .btn-book{
   width:100%;
-  padding:16px;
+  max-width:300px;
+  padding:14px;
   border:none;
   border-radius:40px;
+  background:linear-gradient(135deg,#25D366,#1ebe5d);
   color:white;
   font-size:16px;
   cursor:pointer;
   margin-top:20px;
   transition:0.3s;
 }
-
 .btn-book:hover{
   transform:translateY(-4px);
-  box-shadow:0 20px 40px rgba(37,211,102,0.4);
+  box-shadow:0 15px 30px rgba(37,211,102,0.4);
 }
 
-.note{
-  margin-top:20px;
-  font-size:13px;
-  opacity:0.7;
-}
+.note{ margin-top:15px; font-size:13px; opacity:0.7; }
 
 #hotelList{
   position:absolute;
@@ -175,101 +131,72 @@ textarea{
   display:none;
   z-index:10;
 }
+#hotelList div{ padding:10px; cursor:pointer; }
+#hotelList div:hover{ background:#f1f1f1; }
 
-#hotelList div{
-  padding:10px;
-  cursor:pointer;
-}
-
-#hotelList div:hover{
-  background:#f1f1f1;
-}
+select option{ color:black; }
 
 @media(max-width:992px){
-  .booking-container{
-    grid-template-columns:1fr;
-    padding:40px 25px;
-  }
-
-  .booking-form{
-    grid-template-columns:1fr;
-  }
-
-  textarea{
-    grid-column:span 1;
-  }
+  .booking-container{ grid-template-columns:1fr; padding:30px 20px; }
+  .booking-form{ grid-template-columns:1fr; }
+  textarea{ grid-column:span 1; }
+  .tour-card{ margin-top:30px; }
 }
 </style>
 </head>
-
 <body>
 
 <div class="booking-container">
 
-<div class="left-side">
-<h1>🏝️ Book Your Excursion</h1>
-<p class="subtitle">Saona Island – Catamaran & Speed Boat</p>
+  <div class="left-side">
+    <h1>🛥️ Book Your Excursion</h1>
+    <p class="subtitle">Saona Island – Catamaran & Speed Boat</p>
 
-<form class="booking-form" onsubmit="return false;">
+    <form class="booking-form" onsubmit="return false;">
+      <div>
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="John Doe">
+      </div>
 
-<div>
-<label>Full Name</label>
-<input type="text" id="name" placeholder="John Doe">
-</div>
+      <div class="hotel-box">
+        <label>Hotel / Pickup Location</label>
+        <input type="text" id="hotelInput" placeholder="Start typing hotel...">
+        <div id="hotelList"></div>
+      </div>
 
-<div class="hotel-box">
-<label>Hotel / Accommodation</label>
-<input type="text" id="hotelInput" placeholder="Start typing your hotel...">
-<div id="hotelList"></div>
-</div>
+      <div>
+        <label>Number of People</label>
+        <select id="people">
+          <option>1 Person</option>
+          <option>2 People</option>
+          <option>3 People</option>
+          <option>4 People</option>
+          <option>5+ People</option>
+        </select>
+      </div>
 
-<div>
-<label>Number of People</label>
-<select id="people">
-<option>1 Person</option>
-<option>2 People</option>
-<option>3 People</option>
-<option>4 People</option>
-<option>5+ People</option>
-</select>
-</div>
+      <div>
+        <label>Excursion Date</label>
+        <input type="date" id="date">
+      </div>
 
-<div>
-<label>Excursion Date</label>
-<input type="date" id="date">
-</div>
+      <div>
+        <label>Additional Information</label>
+        <textarea id="notes" placeholder="Kids, special requests, room number..."></textarea>
+      </div>
+    </form>
+  </div>
 
-<div>
-<label>Additional Information</label>
-<textarea id="notes" placeholder="Kids, special requests, room number..."></textarea>
-</div>
-
-</form>
-</div>
-
-<div class="right-side">
-<div class="tour-card">
-
-<h2>Saona Island – Catamaran & Speed Boat</h2>
-
-<p>
-Full-day excursion with Catamaran and Speed Boat, natural pools, pristine beaches, and authentic Dominican experience.
-</p>
-
-<div class="price">$55 USD</div>
-
-<div id="paypal-button-container"></div>
-
-<button class="btn-book" onclick="sendWhatsApp()">
-Confirm Reservation via WhatsApp
-</button>
-
-<p class="note">
-Deposit via PayPal. Remaining balance paid on excursion day.
-</p>
-
-</div>
-</div>
+  <div class="right-side">
+    <div class="tour-card">
+      <h2>Saona Island – Catamaran & Speed Boat</h2>
+      <p>Full-day excursion with Catamaran and Speed Boat, natural pools, pristine beaches, and authentic Dominican experience.</p>
+      <div class="price">$55 USD</div>
+      <div id="paypal-button-container"></div>
+      <button class="btn-book" onclick="sendWhatsApp()">Confirm Reservation via WhatsApp</button>
+      <p class="note">Deposit via PayPal. Remaining balance paid on excursion day.</p>
+    </div>
+  </div>
 
 </div>
 
@@ -297,31 +224,25 @@ const list = document.getElementById("hotelList");
 input.addEventListener("input", () => {
   const value = input.value.toLowerCase().trim();
   list.innerHTML = "";
-  if (!value) { list.style.display="none"; return; }
-  hotels.filter(h => h.toLowerCase().startsWith(value[0])).forEach(hotel => {
-    const div = document.createElement("div");
-    div.textContent = hotel;
-    div.onclick = ()=>{ input.value=hotel; list.style.display="none"; };
+  if(!value){ list.style.display="none"; return; }
+  hotels.filter(h => h.toLowerCase().startsWith(value[0])).forEach(h=>{
+    const div=document.createElement("div");
+    div.textContent=h;
+    div.onclick=()=>{ input.value=h; list.style.display="none"; };
     list.appendChild(div);
   });
   list.style.display="block";
 });
 
 function sendWhatsApp(){
-const message = `
-Hello! I would like to confirm my Saona Island Catamaran & Speed Boat booking.
-
+  const message = `Hello! I would like to confirm my Saona Island Catamaran & Speed Boat booking.
 Name: ${name.value}
 Hotel: ${hotelInput.value}
 People: ${people.value}
 Date: ${date.value}
 Notes: ${notes.value}
-
-Deposit via PayPal completed.
-Please confirm pickup time.
-`;
-
-window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
+Deposit via PayPal completed. Please confirm pickup time.`;
+  window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
 }
 </script>
 
@@ -329,22 +250,12 @@ window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blan
 <script>
 paypal.Buttons({
 style:{ layout:'vertical', color:'blue', shape:'pill', label:'paypal' },
-
-createOrder: function(data, actions){
-return actions.order.create({
-purchase_units:[{
-amount:{ value:'20.00' },
-description:'Saona Island Catamaran & Speed Boat Deposit'
-}]
-});
+createOrder:function(data,actions){
+  return actions.order.create({ purchase_units:[{ amount:{value:'20.00'}, description:'Saona Island Catamaran & Speed Boat Deposit' }] });
 },
-
-onApprove: function(data, actions){
-return actions.order.capture().then(function(details){
-alert('Payment completed by ' + details.payer.name.given_name);
-});
+onApprove:function(data,actions){
+  return actions.order.capture().then(details=>{ alert('Payment completed by '+details.payer.name.given_name); });
 }
-
 }).render('#paypal-button-container');
 </script>
 
