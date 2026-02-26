@@ -6,6 +6,10 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Responsive Tour and Travel Agency Website Design </title>
 
+ <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
  <!-- swiper cdn link -->
  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
@@ -85,7 +89,7 @@
     <video src="Images/Vídeo DEBI.mp4" id="video-slider" loop autoplay muted></video>
   </div>
 
-</section> -->
+</section> 
 
 <section class="book" id="book">
   <h1 class="heading">
@@ -535,6 +539,10 @@ Water
 
 <!-- review section starts  -->
 
+<!-- review section starts -->
+
+<!-- review section starts -->
+
 <section class="review" id="review">
 
   <h1 class="heading">
@@ -546,122 +554,49 @@ Water
     <span>w</span>
   </h1>
 
-  <div class="swiper-container review-slider">
-
+  <div class="swiper review-slider">
     <div class="swiper-wrapper">
 
       <div class="swiper-slide">
         <div class="box">
           <img src="Images/Argentina-Flag-Wallpaper-HD.png" alt="">
           <h3>Sarah Johnson</h3>
-          <p>Una experiencia increíble de principio a fin. El personal fue muy amable, todo estuvo bien organizado y los lugares que visitamos fueron hermosos. ¡Totalmente recomendado!</p>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
+          <p>Una experiencia increíble de principio a fin. ¡Totalmente recomendado!</p>
         </div>
       </div>
+
       <div class="swiper-slide">
         <div class="box">
           <img src="Images/us.png" alt="">
           <h3>Michael Brown</h3>
-          <p>One of the best excursions we’ve done in the Dominican Republic. Great transportation, delicious food, and the guide was very professional and fun.</p>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
+          <p>One of the best excursions we’ve done in the Dominican Republic.</p>
         </div>
       </div>
+
       <div class="swiper-slide">
         <div class="box">
           <img src="Images/fr.png" alt="">
           <h3>Emily Carter</h3>
-          <p>Everything exceeded our expectations. The landscapes were incredible, the activities were exciting, and the service was excellent. We would definitely do it again.</p>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
+          <p>Everything exceeded our expectations.</p>
         </div>
       </div>
+
       <div class="swiper-slide">
         <div class="box">
           <img src="Images/Bandera_de_España.svg.png" alt="">
           <h3>Daniel Rodríguez</h3>
-          <p>Un día perfecto lleno de aventura y cultura. Nos encantaron los lugares naturales, los productos locales y lo bien organizado que estuvo todo. ¡Valió totalmente la pena!</p>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
+          <p>Un día perfecto lleno de aventura y cultura.</p>
         </div>
       </div>
 
     </div>
-
   </div>
 
 </section>
 
-<section class="contact" id="contact">
 
-  <h1 class="heading">
-    <span>C</span>
-    <span>o</span>
-    <span>n</span>
-    <span>t</span>
-    <span>a</span>
-    <span>c</span>
-    <span>t</span>
-  </h1>
 
-  <div class="row">
 
-    <div class="image">
-      <img src="images/contact-img.svg" alt="">
-    </div>
-
-    <form action="">
-      <div class="inputBox">
-        <input type="text" placeholder="name">
-        <input type="email" placeholder="email">
-      </div>
-      <div class="inputBox">
-        <input type="number" placeholder="number">
-        <input type="text" placeholder="subject">
-      </div>
-      <textarea placeholder="message" name="" id="" cols="30" rows="10"></textarea>
-      <input type="submit" class="btn" value="send message">
-    </form>
-
-  </div>
-
-</section>
-
-<section class="brand-container">
-
-  <div class="swiper-container brand-slider">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
-      <div class="swiper-slide"><img src="images/2.jpg" alt=""></div>
-      <div class="swiper-slide"><img src="images/3.jpg" alt=""></div>
-      <div class="swiper-slide"><img src="images/4.jpg" alt=""></div>
-      <div class="swiper-slide"><img src="images/5.jpg" alt=""></div>
-      <div class="swiper-slide"><img src="images/6.jpg" alt=""></div>
-    </div>
-  </div>-
-
-</section>
 
 <section class="footer">
 
@@ -704,5 +639,37 @@ Founded with a vision to transform how excursion companies present and sell thei
 
 <!-- custom js file link -->
 <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+<script>
+  // REVIEW SLIDER
+  new Swiper(".review-slider", {
+    loop: true,
+    spaceBetween: 20,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      0: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    },
+  });
+
+  // BRAND SLIDER
+  new Swiper(".brand-slider", {
+    loop: true,
+    spaceBetween: 20,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      0: { slidesPerView: 2 },
+      768: { slidesPerView: 4 },
+      1024: { slidesPerView: 5 },
+    },
+  });
+</script>
 </body>
