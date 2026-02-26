@@ -2,135 +2,201 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Excursion | Saona Island From Santo Domingo</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: "Poppins", Arial, sans-serif;
-  min-height: 100vh;
-  background:
-    linear-gradient(rgba(255,200,80,0.35), rgba(0,180,216,0.45)),
-    url("../Images/saona-sd.jpg") center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.booking-container {
-  background: rgba(255,255,255,0.97);
-  max-width: 900px;
-  width: 100%;
-  padding: 35px;
-  border-radius: 22px;
-  box-shadow: 0 18px 45px rgba(0,0,0,0.3);
-}
-
-h1 {
-  text-align: center;
-  color: #0077b6;
-}
-
-.subtitle {
-  text-align: center;
-  color: #555;
-  margin-bottom: 25px;
-}
-
-.booking-form {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-}
-
-label {
-  font-weight: 600;
-  margin-bottom: 6px;
-  display: block;
-}
-
-input, select, textarea {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-
-textarea {
-  grid-column: span 2;
-  resize: none;
-  height: 90px;
-}
-
-.full-width {
-  grid-column: span 2;
-}
-
-/* HOTEL SEARCH */
-.hotel-box {
-  position: relative;
-}
-
-#hotelList {
-  position: absolute;
-  width: 100%;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  max-height: 180px;
-  overflow-y: auto;
-  display: none;
-  z-index: 10;
-}
-
-#hotelList div {
-  padding: 10px;
-  cursor: pointer;
-}
-
-#hotelList div:hover {
-  background: #f1f1f1;
-}
-
-.price-box {
-  background: #f1faff;
-  border-radius: 16px;
-  padding: 18px;
-  margin: 25px 0;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.excursion-name {
-  font-weight: bold;
-  color: #023e8a;
-}
-
-.price {
-  font-size: 20px;
-  font-weight: bold;
-  color: #f77f00;
-}
-
-.btn-book {
-  width: 100%;
-  padding: 16px;
-  border-radius: 35px;
-  color: white;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-@media(max-width:768px){
-  .booking-form {
-    grid-template-columns: 1fr;
+  @media(max-width:992px){
+  .booking-container{
+    grid-template-columns:1fr;
+    padding:40px 25px;
   }
-  textarea, .full-width {
-    grid-column: span 1;
+
+  .booking-form{
+    grid-template-columns:1fr;
+  }
+
+  textarea{
+    grid-column:span 1;
+  }
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
+}
+
+body{
+  background:url("Images/HD-wallpaper-orange-waves-12-background-gradient-iphone-pro-wave-thumbnail.jpg") no-repeat center center/cover;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px;
+  position:relative;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  z-index:-1;
+}
+
+.booking-container{
+  width:95%;
+  max-width:1600px;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:80px;
+  padding:80px;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(14px);
+  border-radius:30px;
+  box-shadow:0 40px 90px rgba(0,0,0,0.5);
+  color:white;
+}
+
+.left-side h1{
+  font-size:38px;
+  font-weight:300;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  opacity:0.8;
+  margin-bottom:60px;
+}
+
+.booking-form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+label{
+  font-size:14px;
+  opacity:0.8;
+  margin-bottom:6px;
+  display:block;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:12px 5px;
+  border:none;
+  border-bottom:1px solid rgba(255,255,255,0.4);
+  background:transparent;
+  color:white;
+  font-size:15px;
+}
+
+input::placeholder,
+textarea::placeholder{
+  color:rgba(255,255,255,0.6);
+}
+
+input:focus,select:focus,textarea:focus{
+  outline:none;
+  border-bottom:1px solid white;
+}
+
+textarea{
+  grid-column:span 2;
+  height:100px;
+  resize:none;
+}
+
+.right-side{
+  display:flex;
+  align-items:center;
+}
+
+.tour-card{
+  width:100%;
+  padding:40px;
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:25px;
+  backdrop-filter:blur(12px);
+}
+
+.tour-card h2{
+  margin-bottom:20px;
+  font-weight:400;
+}
+
+.tour-card p{
+  font-size:14px;
+  line-height:1.6;
+  opacity:0.85;
+  margin-bottom:25px;
+}
+
+.price{
+  font-size:30px;
+  font-weight:600;
+  margin-bottom:25px;
+}
+
+.btn-book{
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:40px;
+  background:linear-gradient(135deg,#25D366,#1ebe5d);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:20px;
+  transition:0.3s;
+}
+
+.btn-book:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(37,211,102,0.4);
+}
+
+.note{
+  margin-top:20px;
+  font-size:13px;
+  opacity:0.7;
+}
+
+#hotelList{
+  position:absolute;
+  width:100%;
+  background:#fff;
+  color:#000;
+  border-radius:8px;
+  max-height:180px;
+  overflow-y:auto;
+  display:none;
+  z-index:10;
+}
+
+#hotelList div{
+  padding:10px;
+  cursor:pointer;
+}
+
+#hotelList div:hover{
+  background:#f1f1f1;
+}
+
+@media(max-width:992px){
+  .booking-container{
+    grid-template-columns:1fr;
+    padding:40px 25px;
+  }
+
+  .booking-form{
+    grid-template-columns:1fr;
+  }
+
+  textarea{
+    grid-column:span 1;
   }
 }
 </style>
@@ -140,67 +206,70 @@ textarea {
 
 <div class="booking-container">
 
+<div class="left-side">
 <h1>🏝️ Book Your Excursion</h1>
 <p class="subtitle">Saona Island From Santo Domingo</p>
 
-<form class="booking-form">
+<form class="booking-form" onsubmit="return false;">
 
 <div>
-  <label>Full Name</label>
-  <input type="text" id="name" placeholder="John Doe" required>
+<label>Full Name</label>
+<input type="text" id="name" placeholder="John Doe">
 </div>
 
 <div class="hotel-box">
-  <label>Hotel / Accommodation</label>
-  <input type="text" id="hotelInput" placeholder="Start typing your hotel..." required>
-  <div id="hotelList"></div>
+<label>Hotel / Accommodation</label>
+<input type="text" id="hotelInput" placeholder="Start typing your hotel...">
+<div id="hotelList"></div>
 </div>
 
 <div>
-  <label>Number of People</label>
-  <select id="people" required>
-    <option value="">Select</option>
-    <option>1 Person</option>
-    <option>2 People</option>
-    <option>3 People</option>
-    <option>4 People</option>
-    <option>5+ People</option>
-  </select>
+<label>Number of People</label>
+<select id="people">
+<option>1 Person</option>
+<option>2 People</option>
+<option>3 People</option>
+<option>4 People</option>
+<option>5+ People</option>
+</select>
 </div>
 
 <div>
-  <label>Excursion Date</label>
-  <input type="date" id="date" required>
+<label>Excursion Date</label>
+<input type="date" id="date">
 </div>
 
-<div class="full-width">
-  <label>Additional Information</label>
-  <textarea id="notes" placeholder="Kids, special requests, room number..."></textarea>
+<div>
+<label>Additional Information</label>
+<textarea id="notes" placeholder="Kids, special requests, room number..."></textarea>
 </div>
 
 </form>
-
-<div class="price-box">
-  <div>
-    <div class="excursion-name">Saona Island From Santo Domingo</div>
-    <small>Transportation · Natural Pool · Island Time</small>
-  </div>
-  <div class="price">$75.00 USD</div>
 </div>
 
-<!-- Boton de pasarela de pago -->
-<div style="max-width:500px; margin:40px auto;">
-  <div id="paypal-button-container"></div>
-</div>
-<!-- Boton de pasarela de pago -->
+<div class="right-side">
+<div class="tour-card">
 
-<p style="text-align:center;font-size:13px;">
-Remaining balance paid on excursion day
+<h2>Saona Island From Santo Domingo</h2>
+
+<p>
+Full-day excursion with transport from Santo Domingo, natural pools, pristine beaches, and authentic Dominican experience.
 </p>
 
-<button class="btn-book" onclick="sendWhatsApp()" style="background:#25D366;">
+<div class="price">$75 USD</div>
+
+<div id="paypal-button-container"></div>
+
+<button class="btn-book" onclick="sendWhatsApp()">
 Confirm Reservation via WhatsApp
 </button>
+
+<p class="note">
+Deposit via PayPal. Remaining balance paid on excursion day.
+</p>
+
+</div>
+</div>
 
 </div>
 
@@ -278,64 +347,46 @@ input.addEventListener("input", () => {
   list.style.display = "block";
 });
 
-function sendWhatsApp() {
-  const message = `
-Hello! I would like to confirm my excursion booking.
+function sendWhatsApp(){
+const message = `
+Hello! I would like to confirm my Saona Island From Santo Domingo booking.
 
-🏝️ Saona Island From Santo Domingo
-👤 Name: ${name.value}
-🏨 Hotel: ${hotelInput.value}
-👥 People: ${people.value}
-📅 Date: ${date.value}
+Name: ${name.value}
+Hotel: ${hotelInput.value}
+People: ${people.value}
+Date: ${date.value}
+Notes: ${notes.value}
 
-💰 Deposit via PayPal
-💵 Balance paid on excursion day
-
+Deposit via PayPal completed.
 Please confirm pickup time.
 `;
 
-  window.open(
-    "https://wa.me/18090000000?text=" + encodeURIComponent(message),
-    "_blank"
-  );
+window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
 }
 </script>
 
-<!-- Pasarela de pago -->
 <script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
-
 <script>
-  paypal.Buttons({
-    style: {
-      layout: 'vertical',
-      color: 'blue',
-      shape: 'pill',
-      label: 'paypal'
-    },
+paypal.Buttons({
+style:{ layout:'vertical', color:'blue', shape:'pill', label:'paypal' },
 
-    createOrder: function(data, actions) {
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: '20.00'
-          },
-          description: 'Santo Domingo City Tour Deposit'
-        }]
-      });
-    },
+createOrder: function(data, actions){
+return actions.order.create({
+purchase_units:[{
+amount:{ value:'20.00' },
+description:'Saona Island From Santo Domingo Deposit'
+}]
+});
+},
 
-    onApprove: function(data, actions) {
-      return actions.order.capture().then(function(details) {
-        alert('Payment completed by ' + details.payer.name.given_name);
-        
-        // Aquí luego podemos mandar los datos del formulario
-        window.location.href = "thank-you.html";
-      });
-    }
+onApprove: function(data, actions){
+return actions.order.capture().then(function(details){
+alert('Payment completed by ' + details.payer.name.given_name);
+});
+}
 
-  }).render('#paypal-button-container');
+}).render('#paypal-button-container');
 </script>
-<!-- Pasarela de pago -->
 
 </body>
 </html>

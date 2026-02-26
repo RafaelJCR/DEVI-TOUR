@@ -2,131 +2,221 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Excursion | Zip Line Punta Cana</title>
 
 <style>
-body{
+*{
   margin:0;
-  font-family:"Poppins", Arial, sans-serif;
-  background:#f4f4f4;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
 }
 
-.hero-img{
-  width:100%;
-  height:280px;
-  background:url("Images/zipline.jpg") center/cover no-repeat;
-  border-radius:20px 20px 0 0;
+body{
+  background:url("Images/HD-wallpaper-orange-waves-12-background-gradient-iphone-pro-wave-thumbnail.jpg") center/cover no-repeat;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px;
+  position:relative;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  z-index:-1;
 }
 
 .booking-container{
-  max-width:900px;
-  margin:40px auto;
-  background:#fff;
-  border-radius:20px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.15);
-  overflow:hidden;
+  width:95%;
+  max-width:1200px;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:50px;
+  padding:60px;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(14px);
+  border-radius:30px;
+  box-shadow:0 40px 90px rgba(0,0,0,0.5);
+  color:white;
 }
 
-.content{
-  padding:30px;
-}
-
-h1{
-  color:#0077b6;
-  text-align:center;
+.left-side h1{
+  font-size:36px;
+  font-weight:300;
+  margin-bottom:10px;
 }
 
 .subtitle{
-  text-align:center;
-  color:#666;
-  margin-bottom:25px;
+  opacity:0.8;
+  margin-bottom:50px;
 }
 
 .booking-form{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:40px;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
 }
 
 label{
-  font-weight:600;
+  font-size:14px;
+  opacity:0.8;
+  margin-bottom:6px;
+  display:block;
 }
 
-input, select, textarea{
+input,select,textarea{
   width:100%;
-  padding:12px;
-  border-radius:10px;
-  border:1px solid #ccc;
+  padding:12px 5px;
+  border:none;
+  border-bottom:1px solid rgba(255,255,255,0.4);
+  background:transparent;
+  color:white;
+  font-size:15px;
+}
+
+input::placeholder,
+textarea::placeholder{
+  color:rgba(255,255,255,0.6);
+}
+
+input:focus,select:focus,textarea:focus{
+  outline:none;
+  border-bottom:1px solid white;
 }
 
 textarea{
   grid-column:span 2;
-  height:90px;
+  height:100px;
+  resize:none;
 }
 
-.full{
-  grid-column:span 2;
-}
-
-.price-box{
-  background:#f1faff;
-  border-radius:16px;
-  padding:18px;
-  margin:25px 0;
+.right-side{
   display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
+  justify-content:center;
 }
 
-.excursion-name{
-  font-weight:bold;
-  color:#023e8a;
-  font-size:18px;
+.tour-card{
+  width:100%;
+  max-width:400px;
+  padding:30px;
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:25px;
+  backdrop-filter:blur(12px);
+  text-align:center;
+}
+
+.tour-card h2{
+  margin-bottom:15px;
+  font-weight:400;
+}
+
+.tour-card p{
+  font-size:14px;
+  line-height:1.6;
+  opacity:0.85;
+  margin-bottom:20px;
 }
 
 .price{
-  font-size:22px;
-  font-weight:bold;
+  font-size:28px;
+  font-weight:600;
+  margin-bottom:20px;
   color:#f77f00;
 }
 
-.old-price{
-  text-decoration:line-through;
-  color:#888;
-  font-size:14px;
+/* Contenedor de botones centrados */
+.button-group{
+  display:flex;
+  justify-content:center; /* centrado horizontal */
+  flex-wrap:wrap;
+  gap:15px; /* espacio entre los botones */
+  margin-bottom:20px;
+}
+
+.btn-book{
+  flex:1;
+  min-width:150px;
+  padding:14px;
+  border:none;
+  border-radius:40px;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+  text-align:center;
 }
 
 .btn-whatsapp{
-  width:100%;
-  padding:16px;
-  border-radius:35px;
-  border:none;
-  font-weight:bold;
-  color:white;
   background:#25D366;
-  cursor:pointer;
-  margin-top:15px;
 }
 
-@media(max-width:768px){
+.btn-paypal{
+  background:#0070ba;
+}
+
+.btn-book:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 30px rgba(0,0,0,0.2);
+}
+
+.note{
+  font-size:13px;
+  opacity:0.7;
+}
+
+#hotelList{
+  position:absolute;
+  width:100%;
+  background:#fff;
+  color:#000;
+  border-radius:8px;
+  max-height:180px;
+  overflow-y:auto;
+  display:none;
+  z-index:10;
+}
+
+#hotelList div{
+  padding:10px;
+  cursor:pointer;
+}
+
+#hotelList div:hover{
+  background:#f1f1f1;
+}
+
+@media(max-width:992px){
+  .booking-container{
+    grid-template-columns:1fr;
+    padding:30px 20px;
+  }
+
   .booking-form{
     grid-template-columns:1fr;
   }
-  textarea, .full{
+
+  textarea{
     grid-column:span 1;
   }
-}
 
-body{
-  margin: 0;
-  font-family: "Poppins", Arial, sans-serif;
-  background: linear-gradient(
-    to bottom,
-    #87ceeb 0%,
-    #a8e0f9 40%,
-    #ffffff 100%
-  );
+  .right-side{
+    justify-content:center;
+    margin-top:30px;
+  }
+
+  .tour-card{
+    max-width:100%;
+  }
+
+  .button-group{
+    flex-direction:column;
+    gap:15px;
+  }
 }
 </style>
 </head>
@@ -135,132 +225,140 @@ body{
 
 <div class="booking-container">
 
-<div class="hero-img"></div>
+  <div class="left-side">
+    <h1>📍 Zip Line Punta Cana</h1>
+    <p class="subtitle">Fly over the jungle with breathtaking views</p>
 
-<div class="content">
+    <form class="booking-form" onsubmit="return false;">
+      <div>
+        <label>Full Name</label>
+        <input type="text" placeholder="Group leader name" id="name">
+      </div>
 
-<h1>📍 Zip Line Punta Cana</h1>
-<p class="subtitle">Fly over the jungle with breathtaking views</p>
+      <div class="hotel-box">
+        <label>Hotel / Accommodation</label>
+        <input type="text" placeholder="Start typing your hotel..." id="hotelInput">
+        <div id="hotelList"></div>
+      </div>
 
-<form class="booking-form">
+      <div>
+        <label>Number of People</label>
+        <select id="people">
+          <option>1 Person</option>
+          <option>2 People</option>
+          <option>3 People</option>
+          <option>4 People</option>
+          <option>5 People</option>
+        </select>
+      </div>
 
-<div>
-<label>Full Name</label>
-<input type="text" placeholder="Group leader name" id="name" required>
-</div>
+      <div>
+        <label>Excursion Date</label>
+        <input type="date" id="date">
+      </div>
 
-<div>
-<label>Hotel</label>
-<input type="text" placeholder="Start typing your hotel..."  id="hotelInput" required>
-</div>
+      <div>
+        <label>Additional Information</label>
+        <textarea id="notes" placeholder="Kids, special requests, celebrations..."></textarea>
+      </div>
+    </form>
+  </div>
 
-<div>
-<label>Number of People</label>
-<select id="people" required>
-<option value="">Select</option>
-<option value="1">1 Person</option>
-<option value="2">2 People</option>
-<option value="3">3 People</option>
-<option value="4">4 People</option>
-<option value="5">5 People</option>
-</select>
-</div>
+  <div class="right-side">
+    <div class="tour-card">
+      <h2>Zip Line Punta Cana</h2>
+      <p>All equipment included · Hotel pickup · Fly over the jungle</p>
+      <div class="price">$60 USD</div>
 
-<div>
-<label>Excursion Date</label>
-<input type="date" id="date" required>
-</div>
+      <!-- Botones centrados -->
+      <div class="button-group">
+        <div id="paypal-button-container"></div>
+        <button class="btn-book btn-whatsapp" onclick="sendWhatsApp()">Confirm via WhatsApp</button>
+      </div>
 
-<div class="full">
-<label>Additional Information</label>
-<textarea id="notes" placeholder="Kids, special requests, celebrations..."></textarea>
-</div>
+      <p class="note">
+        Deposit required today. Remaining balance due on tour day.
+      </p>
+    </div>
+  </div>
 
-</form>
-
-<div class="price-box">
-<div>
-<div class="excursion-name">Zip Line Punta Cana</div>
-<small>All equipment included · Hotel pickup</small><br>
-<span class="old-price">$120.00</span>
-</div>
-<div class="price">$60.00 USD</div>
-</div>
-
-<!-- Boton de pasarela de pago -->
-<div style="max-width:500px; margin:40px auto;">
-  <div id="paypal-button-container"></div>
-</div>
-<!-- Boton de pasarela de pago -->
-
-<p style="text-align:center;font-size:13px;">
-Deposit required today. Remaining balance due on tour day.
-</p>
-
-<button class="btn-whatsapp" onclick="sendWhatsApp()">
-Confirm Reservation via WhatsApp
-</button>
-
-</div>
 </div>
 
 <script>
+const hotels = [
+"Hard Rock Hotel & Casino Punta Cana","Royalton Punta Cana","Royalton Bavaro",
+"Royalton Splash Punta Cana","Royalton CHIC Punta Cana",
+"Riu Palace Bavaro","Riu Palace Punta Cana","Riu Palace Macao","Riu Bambu","Riu Republica",
+"Majestic Mirage Punta Cana","Majestic Elegance Punta Cana","Majestic Colonial Punta Cana",
+"Bahia Principe Fantasia","Bahia Principe Grand Bavaro","Bahia Principe Luxury Ambar",
+"Barceló Bávaro Palace","Barceló Bávaro Beach",
+"Iberostar Selection Bavaro","Iberostar Grand Bavaro","JOIA Bavaro by Iberostar",
+"Dreams Royal Beach","Dreams Macao","Secrets Royal Beach","Secrets Cap Cana",
+"Melia Caribe Beach","Paradisus Palma Real","Lopesan Costa Bavaro",
+"Ocean Blue & Sand","Ocean El Faro",
+"Grand Palladium Punta Cana","Catalonia Bavaro","Excellence Punta Cana",
+"Hyatt Zilara Cap Cana","Hyatt Ziva Cap Cana","TRS Cap Cana","Eden Roc Cap Cana",
+"Nickelodeon Punta Cana","Impressive Punta Cana","Vista Sol Punta Cana",
+"Santo Domingo Hotel"
+];
+
+const input = document.getElementById("hotelInput");
+const list = document.getElementById("hotelList");
+
+input.addEventListener("input", () => {
+  const value = input.value.toLowerCase().trim();
+  list.innerHTML = "";
+  if(!value){ list.style.display="none"; return; }
+  hotels.filter(h=>h.toLowerCase().startsWith(value[0])).forEach(hotel=>{
+    const div=document.createElement("div");
+    div.textContent=hotel;
+    div.onclick=()=>{ input.value=hotel; list.style.display="none"; };
+    list.appendChild(div);
+  });
+  list.style.display="block";
+});
+
 function sendWhatsApp(){
   const message = `
-Hello! I would like to confirm my excursion booking.
+Hello! I would like to confirm my Zip Line Punta Cana booking.
 
-📍 Zip Line Punta Cana
-👤 Name: ${name.value}
-🏨 Hotel: ${hotelInput.value}
-👥 People: ${people.value}
-📅 Date: ${date.value}
+Name: ${name.value}
+Hotel: ${hotelInput.value}
+People: ${people.value}
+Date: ${date.value}
+Notes: ${notes.value}
 
 Deposit paid via PayPal.
 Please confirm pickup time.
 `;
-
-  window.open(
-    "https://wa.me/18097980816?text=" + encodeURIComponent(message),
-    "_blank"
-  );
+  window.open("https://wa.me/18097980816?text="+encodeURIComponent(message),"_blank");
 }
 </script>
 
-<!-- Pasarela de pago -->
+<!-- PAYPAL SDK -->
 <script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
 
 <script>
-  paypal.Buttons({
-    style: {
-      layout: 'vertical',
-      color: 'blue',
-      shape: 'pill',
-      label: 'paypal'
-    },
+paypal.Buttons({
+  style:{ layout:'vertical', color:'blue', shape:'pill', label:'paypal' },
 
-    createOrder: function(data, actions) {
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: '20.00'
-          },
-          description: 'Santo Domingo City Tour Deposit'
-        }]
-      });
-    },
+  createOrder: function(data, actions){
+    return actions.order.create({
+      purchase_units:[{
+        amount:{ value:'20.00' },
+        description:'Zip Line Punta Cana Deposit'
+      }]
+    });
+  },
 
-    onApprove: function(data, actions) {
-      return actions.order.capture().then(function(details) {
-        alert('Payment completed by ' + details.payer.name.given_name);
-        
-        // Aquí luego podemos mandar los datos del formulario
-        window.location.href = "thank-you.html";
-      });
-    }
+  onApprove: function(data, actions){
+    return actions.order.capture().then(function(details){
+      alert('Payment completed by ' + details.payer.name.given_name);
+    });
+  }
 
-  }).render('#paypal-button-container');
+}).render('#paypal-button-container');
 </script>
-<!-- Pasarela de pago -->
 
 </body>
 </html>
