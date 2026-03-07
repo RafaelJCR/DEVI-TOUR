@@ -66,6 +66,7 @@ var swiper = new Swiper(".review-slider", {
 
 
 
+
 var swiper = new Swiper(".brand-slider", {
  spaceBetween: 20,
  loop:true,
@@ -88,14 +89,3 @@ var swiper = new Swiper(".brand-slider", {
   },
  },
 });
-
-
-
-
-
-
-
-
-
-
-// refresh contributors
