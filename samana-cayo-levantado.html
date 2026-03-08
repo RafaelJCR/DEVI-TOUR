@@ -6,190 +6,229 @@
 <title>Book Excursion | Samaná & Cayo Levantado</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"Poppins",sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
 
 body{
-  background:url("Images/HD-wallpaper-orange-waves-12-background-gradient-iphone-pro-wave-thumbnail.jpg") no-repeat center center/cover;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  position:relative;
+background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+url("https://tainotour.com/wp-content/uploads/2021/03/cayo-levantado.jpg") no-repeat center center/cover;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
 }
-select option{
-  color:black; /* los números y texto del dropdown se ven */
-}
+
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  z-index:-1;
+content:"";
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.55);
+z-index:-1;
 }
 
 .booking-container{
-  width:95%;
-  max-width:1200px;
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:60px;
-  padding:60px;
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(14px);
-  border-radius:30px;
-  box-shadow:0 40px 90px rgba(0,0,0,0.5);
-  color:white;
-  justify-items:center;
+width:95%;
+max-width:1200px;
+display:grid;
+grid-template-columns:1.2fr 1fr;
+gap:60px;
+padding:50px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(16px);
+border-radius:30px;
+box-shadow:0 30px 60px rgba(0,0,0,0.5);
+color:white;
+align-items:center;
+justify-items:center;
 }
 
+.left-side,.right-side{width:100%;}
+
 .left-side h1{
-  font-size:38px;
-  font-weight:300;
-  margin-bottom:10px;
-  text-align:center;
+font-size:36px;
+font-weight:300;
+margin-bottom:10px;
+text-align:center;
 }
 
 .subtitle{
-  opacity:0.8;
-  margin-bottom:50px;
-  text-align:center;
+font-size:18px;
+color:#ffffff;
+margin-bottom:20px;
+}
+
+.tour-description{
+margin-bottom:35px;
+line-height:1.7;
+font-size:14px;
+opacity:0.9;
+}
+
+.tour-description h3{
+margin-bottom:15px;
+font-weight:500;
+}
+
+.tour-description h4{
+margin-top:15px;
+margin-bottom:10px;
+}
+
+.tour-description ul{
+padding-left:18px;
 }
 
 .booking-form{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  width:100%;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
 }
 
 label{
-  font-size:14px;
-  opacity:0.8;
-  margin-bottom:6px;
-  display:block;
+font-size:14px;
+opacity:0.8;
+margin-bottom:6px;
+display:block;
 }
 
 input,select,textarea{
-  width:100%;
-  padding:12px 10px;
-  border:none;
-  border-bottom:1px solid rgba(255,255,255,0.4);
-  background:rgba(255,255,255,0.1);
-  color:white;
-  font-size:15px;
-  border-radius:5px;
+width:100%;
+padding:14px 16px;
+border:none;
+border-radius:12px;
+background:rgba(255,255,255,0.08);
+color:white;
+font-size:15px;
+outline:none;
+transition:0.3s;
 }
 
-select option{
-  color:black;
-}
-
-input::placeholder,
-textarea::placeholder{
-  color:rgba(255,255,255,0.7);
-}
-
-input:focus, select:focus, textarea:focus{
-  outline:none;
-  border-bottom:1px solid white;
+input:focus,select:focus,textarea:focus{
+background:rgba(255,255,255,0.15);
+box-shadow:0 0 0 2px rgba(255,255,255,0.4);
+transform:scale(1.02);
 }
 
 textarea{
-  grid-column:span 2;
-  height:100px;
-  resize:none;
+grid-column:span 2;
+height:110px;
+resize:none;
+}
+
+input::placeholder,textarea::placeholder{
+color:rgba(255,255,255,0.6);
 }
 
 .right-side{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:100%;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 .tour-card{
-  width:100%;
-  max-width:400px;
-  padding:40px;
-  border:1px solid rgba(255,255,255,0.3);
-  border-radius:25px;
-  backdrop-filter:blur(12px);
-  text-align:center;
+width:100%;
+padding:30px 25px;
+border:1px solid rgba(255,255,255,0.3);
+border-radius:25px;
+backdrop-filter:blur(12px);
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
 }
 
 .tour-card h2{
-  margin-bottom:20px;
-  font-weight:400;
-  font-size:24px;
+margin-bottom:20px;
+font-weight:400;
 }
 
 .tour-card p{
-  font-size:14px;
-  line-height:1.6;
-  opacity:0.85;
-  margin-bottom:25px;
+font-size:14px;
+line-height:1.6;
+opacity:0.85;
+margin-bottom:25px;
 }
 
 .price{
-  font-size:28px;
-  font-weight:600;
-  margin-bottom:25px;
+font-size:28px;
+font-weight:600;
+margin-bottom:25px;
+color:#f77f00;
+}
+
+.private-badge{
+background:#ffd166;
+padding:4px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:bold;
+margin-left:10px;
+color:#000;
 }
 
 .btn-book{
-  width:100%;
-  padding:16px;
-  border:none;
-  border-radius:40px;
-  background:linear-gradient(135deg,#25D366,#1ebe5d);
-  color:white;
-  font-size:16px;
-  cursor:pointer;
-  margin-top:20px;
-  transition:0.3s;
+width:100%;
+max-width:300px;
+padding:14px;
+border:none;
+border-radius:40px;
+background:linear-gradient(135deg,#25D366,#1ebe5d);
+color:white;
+font-size:16px;
+cursor:pointer;
+margin-top:20px;
+transition:0.3s;
 }
 
 .btn-book:hover{
-  transform:translateY(-4px);
-  box-shadow:0 20px 40px rgba(37,211,102,0.4);
+transform:translateY(-4px);
+box-shadow:0 15px 30px rgba(37,211,102,0.4);
 }
 
 .note{
-  margin-top:20px;
-  font-size:13px;
-  opacity:0.7;
-  text-align:center;
+margin-top:15px;
+font-size:13px;
+opacity:0.7;
 }
 
-/* RESPONSIVE */
+.hotel-box{position:relative;}
+
+#hotelList{
+position:absolute;
+width:101%;
+background:#fff;
+color:#000;
+border-radius:5px;
+max-height:180px;
+overflow-y:auto;
+display:none;
+z-index:10;
+}
+
+#hotelList div{padding:10px;cursor:pointer;}
+#hotelList div:hover{background:#f1f1f1;}
+
+select option{color:black;}
+
 @media(max-width:992px){
-  .booking-container{
-    grid-template-columns:1fr;
-    padding:40px 25px;
-    justify-items:center;
-  }
 
-  .booking-form{
-    grid-template-columns:1fr;
-  }
+.booking-container{
+grid-template-columns:1fr;
+padding:30px 20px;
+}
 
-  textarea{
-    grid-column:span 1;
-  }
+.booking-form{
+grid-template-columns:1fr;
+}
 
-  .left-side h1, .subtitle{
-    text-align:center;
-  }
+textarea{
+grid-column:span 1;
+}
 
-  .tour-card{
-    max-width:100%;
-  }
+.tour-card{
+margin-top:30px;
+}
+
 }
 </style>
 </head>
@@ -199,31 +238,60 @@ textarea{
 <div class="booking-container">
 
 <div class="left-side">
+
 <h1>🐋 Book Your Excursion</h1>
-<p class="subtitle">Samaná, Whales, Cayo Levantado & El Limón</p>
+<p class="subtitle"></p>
+
+<div class="tour-description">
+
+<h3>About this Excursion ESTO NO ES VERIFDICO</h3>
+
+<p>
+Discover one of the most complete excursions in the Dominican Republic visiting the beautiful Samaná Peninsula.
+</p>
+
+<p>
+The adventure begins with transportation from your hotel to Samaná where you will enjoy a boat ride across the bay and visit the famous Cayo Levantado island.
+</p>
+
+<p>
+During whale season you will have the chance to see the incredible humpback whales that migrate to the warm waters of Samaná Bay every year.
+</p>
+
+<p>
+The tour also includes a visit to El Limón Waterfall where you can enjoy nature and explore one of the most beautiful natural attractions in the country.
+</p>
+
+<h4>The excursion includes:</h4>
+
+<ul>
+<li>Round-trip transportation</li>
+<li>Professional tour guide</li>
+<li>Boat transportation</li>
+<li>Visit to Cayo Levantado (Bacardi Island)</li>
+<li>Visit to El Limón Waterfall</li>
+<li>Lunch included</li>
+<li>Drinks during the tour</li>
+</ul>
+
+</div>
 
 <form class="booking-form" onsubmit="return false;">
+
 <div>
 <label>Full Name</label>
 <input type="text" id="name" placeholder="John Doe">
 </div>
 
 <div class="hotel-box">
-<label>Hotel / Accommodation</label>
-<input type="text" id="hotelInput" placeholder="Start typing your hotel...">
+<label>Hotel / Pickup Location</label>
+<input type="text" id="hotelInput" placeholder="Start typing hotel...">
 <div id="hotelList"></div>
 </div>
 
 <div>
 <label>Number of People</label>
-<select id="people">
-<option value="">Select</option>
-<option value="1">1 Person</option>
-<option value="2">2 People</option>
-<option value="3">3 People</option>
-<option value="4">4 People</option>
-<option value="5+">5+ People</option>
-</select>
+<select id="people"></select>
 </div>
 
 <div>
@@ -233,25 +301,25 @@ textarea{
 
 <div>
 <label>Additional Information</label>
-<textarea id="notes" placeholder="Kids, horseback ride, special requests..."></textarea>
+<textarea id="notes" placeholder="Special requests..."></textarea>
 </div>
+
 </form>
+
 </div>
 
 <div class="right-side">
+
 <div class="tour-card">
-<h2>Samaná, Whales & Cayo Levantado</h2>
 
-<p>
-Experience the Caribbean: whale watching, Cayo Levantado (Bacardi Island), and El Limón waterfall tour.
-</p>
-
-<div class="price">$125 USD</div>
+<h2></h2>
+<p></p>
+<div class="price"></div>
 
 <div id="paypal-button-container"></div>
 
 <button class="btn-book" onclick="sendWhatsApp()">
-Confirm Reservation via WhatsApp
+Confirm Booking via WhatsApp
 </button>
 
 <p class="note">
@@ -259,91 +327,112 @@ Deposit via PayPal. Remaining balance paid on excursion day.
 </p>
 
 </div>
+
 </div>
 
 </div>
 
 <script>
-const hotels = [
-"Hard Rock Hotel & Casino Punta Cana","Royalton Punta Cana","Royalton Bavaro",
-"Royalton Splash Punta Cana","Royalton CHIC Punta Cana",
-"Riu Palace Bavaro","Riu Palace Punta Cana","Riu Palace Macao","Riu Bambu","Riu Republica",
-"Majestic Mirage Punta Cana","Majestic Elegance Punta Cana","Majestic Colonial Punta Cana",
-"Bahia Principe Fantasia","Bahia Principe Grand Bavaro","Bahia Principe Luxury Ambar",
-"Barceló Bávaro Palace","Barceló Bávaro Beach",
-"Iberostar Selection Bavaro","Iberostar Grand Bavaro","JOIA Bavaro by Iberostar",
-"Dreams Royal Beach","Dreams Macao","Secrets Royal Beach","Secrets Cap Cana",
-"Melia Caribe Beach","Paradisus Palma Real","Lopesan Costa Bavaro",
-"Ocean Blue & Sand","Ocean El Faro",
-"Grand Palladium Punta Cana","Catalonia Bavaro","Excellence Punta Cana",
-"Hyatt Zilara Cap Cana","Hyatt Ziva Cap Cana","TRS Cap Cana","Eden Roc Cap Cana",
-"Nickelodeon Punta Cana","Impressive Punta Cana","Vista Sol Punta Cana"
+
+const tour={
+name:"Samaná, Whales & Cayo Levantado",
+description:"Full-day excursion including whale watching (seasonal), Cayo Levantado island visit and El Limón waterfall experience.",
+price:"125",
+peopleOptions:["1","2","3","4","5+"],
+isPrivate:false
+};
+
+const hotels=[
+"Hard Rock Hotel & Casino Punta Cana","Royalton Punta Cana","Royalton Bavaro","Royalton Splash Punta Cana",
+"Royalton CHIC Punta Cana","Riu Palace Bavaro","Riu Palace Punta Cana","Riu Palace Macao","Riu Bambu",
+"Riu Republica","Majestic Mirage Punta Cana","Majestic Elegance Punta Cana","Majestic Colonial Punta Cana",
+"Bahia Principe Fantasia","Bahia Principe Grand Bavaro","Bahia Principe Luxury Ambar","Barceló Bávaro Palace",
+"Barceló Bávaro Beach","Iberostar Selection Bavaro","Iberostar Grand Bavaro","JOIA Bavaro by Iberostar",
+"Dreams Royal Beach","Dreams Macao","Secrets Royal Beach","Secrets Cap Cana","Melia Caribe Beach",
+"Paradisus Palma Real","Lopesan Costa Bavaro","Ocean Blue & Sand","Ocean El Faro",
+"Grand Palladium Punta Cana","Catalonia Bavaro","Excellence Punta Cana","Hyatt Zilara Cap Cana",
+"Hyatt Ziva Cap Cana","TRS Cap Cana","Eden Roc Cap Cana","Nickelodeon Punta Cana","Impressive Punta Cana",
+"Vista Sol Punta Cana","Santo Domingo Hotel"
 ];
 
-const input = document.getElementById("hotelInput");
-const list = document.getElementById("hotelList");
+document.title=`Book Excursion | ${tour.name}`;
+document.querySelector(".subtitle").innerText=tour.name;
 
-input.addEventListener("input", () => {
-  const value = input.value.toLowerCase().trim();
-  list.innerHTML = "";
+const h2=document.querySelector(".tour-card h2");
+h2.innerText=tour.name;
+if(tour.isPrivate){h2.innerHTML+=` <span class="private-badge">PRIVATE</span>`;}
 
-  if (!value) {
-    list.style.display = "none";
-    return;
-  }
+document.querySelector(".tour-card p").innerText=tour.description;
+document.querySelector(".tour-card .price").innerText=`$${tour.price} USD`;
 
-  hotels.filter(h => h.toLowerCase().startsWith(value))
-    .forEach(hotel => {
-      const div = document.createElement("div");
-      div.textContent = hotel;
-      div.onclick = () => {
-        input.value = hotel;
-        list.style.display = "none";
-      };
-      list.appendChild(div);
-    });
+const peopleSelect=document.getElementById("people");
+peopleSelect.innerHTML="";
+tour.peopleOptions.forEach(opt=>{
+const option=document.createElement("option");
+option.textContent=opt;
+peopleSelect.appendChild(option);
+});
 
-  list.style.display = "block";
+const input=document.getElementById("hotelInput");
+const list=document.getElementById("hotelList");
+
+input.addEventListener("input",()=>{
+const value=input.value.toLowerCase().trim();
+list.innerHTML="";
+if(!value){list.style.display="none";return;}
+
+hotels.filter(h=>h.toLowerCase().startsWith(value[0])).forEach(h=>{
+const div=document.createElement("div");
+div.textContent=h;
+div.onclick=()=>{input.value=h;list.style.display="none";};
+list.appendChild(div);
+});
+
+list.style.display="block";
 });
 
 function sendWhatsApp(){
-const message = `
-Hello! I would like to confirm my Samaná excursion booking.
+const message=`Hello! I would like to book ${tour.name}.
 
-Name: ${name.value}
+Group Leader: ${name.value}
 Hotel: ${hotelInput.value}
 People: ${people.value}
 Date: ${date.value}
 Notes: ${notes.value}
 
 Deposit via PayPal completed.
-Please confirm pickup time.
-`;
+Please confirm pickup time and full quote.`;
+
 window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
 }
+
 </script>
 
 <script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
-<script>
-paypal.Buttons({
-style:{ layout:'vertical', color:'blue', shape:'pill', label:'paypal' },
 
-createOrder: function(data, actions){
+<script>
+
+paypal.Buttons({
+
+style:{layout:'vertical',color:'blue',shape:'pill',label:'paypal'},
+
+createOrder:function(data,actions){
 return actions.order.create({
 purchase_units:[{
-amount:{ value:'30.00' },
-description:'Samaná Excursion Deposit'
+amount:{value:tour.price},
+description:`${tour.name} Deposit`
 }]
 });
 },
 
-onApprove: function(data, actions){
-return actions.order.capture().then(function(details){
-alert('Payment completed by ' + details.payer.name.given_name);
+onApprove:function(data,actions){
+return actions.order.capture().then(details=>{
+alert('Payment completed by '+details.payer.name.given_name);
 });
 }
 
 }).render('#paypal-button-container');
+
 </script>
 
 </body>

@@ -6,206 +6,211 @@
 <title>Book Excursion | Higüey City Tour</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"Poppins",sans-serif;
-}
-select option{
-  color:black; /* los números y texto del dropdown se ven */
-}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
 
 body{
-  background:url("Images/HD-wallpaper-orange-waves-12-background-gradient-iphone-pro-wave-thumbnail.jpg") no-repeat center center/cover;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  position:relative;
+background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+url("https://tainotour.com/wp-content/uploads/2021/03/basilica_higuey.jpg") no-repeat center center/cover;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
 }
 
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.65);
-  z-index:-1;
-}
-
-/* CONTENEDOR PRINCIPAL */
 .booking-container{
-  width:100%;
-  max-width:1100px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  padding:40px;
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(14px);
-  border-radius:30px;
-  box-shadow:0 40px 90px rgba(0,0,0,0.5);
-  color:white;
-  justify-items:center;
-  align-items:center;
-  text-align:center;
+width:95%;
+max-width:1200px;
+display:grid;
+grid-template-columns:1.2fr 1fr;
+gap:60px;
+padding:50px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(16px);
+border-radius:30px;
+box-shadow:0 30px 60px rgba(0,0,0,0.5);
+color:white;
+align-items:center;
+justify-items:center;
 }
 
-/* LADO IZQUIERDO */
-.left-side h1, .left-side p, .tour-card h2, .tour-card p, .tour-card .price, .tour-card .note {
-  text-align:center;
-}
+.left-side,.right-side{width:100%;}
 
 .left-side h1{
-  font-size:36px;
-  font-weight:300;
-  margin-bottom:10px;
+font-size:36px;
+font-weight:300;
+margin-bottom:10px;
+text-align:center;
 }
 
 .subtitle{
-  opacity:0.8;
-  margin-bottom:30px;
+font-size:18px;
+margin-bottom:20px;
+text-align:center;
+}
+
+.tour-description{
+margin-bottom:35px;
+line-height:1.7;
+font-size:14px;
+opacity:0.9;
+}
+
+.tour-description h3{
+margin-bottom:15px;
+font-weight:500;
+}
+
+.tour-description h4{
+margin-top:15px;
+margin-bottom:10px;
+}
+
+.tour-description ul{
+padding-left:18px;
 }
 
 .booking-form{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:20px;
-  justify-items:center;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
 }
 
 label{
-  font-size:14px;
-  opacity:0.8;
-  margin-bottom:6px;
-  display:block;
+font-size:14px;
+opacity:0.8;
+margin-bottom:6px;
+display:block;
 }
 
-input, select, textarea{
-  width:100%;
-  max-width:320px;
-  padding:12px 10px;
-  border:none;
-  border-bottom:1px solid rgba(255,255,255,0.4);
-  background:transparent;
-  color:white;
-  font-size:15px;
-  text-align:center;
+input,select,textarea{
+width:100%;
+padding:14px 16px;
+border:none;
+border-radius:12px;
+background:rgba(255,255,255,0.08);
+color:white;
+font-size:15px;
+outline:none;
+transition:0.3s;
 }
 
-input::placeholder,
-textarea::placeholder{
-  color:rgba(255,255,255,0.6);
-  text-align:center;
-}
-
-input:focus, select:focus, textarea:focus{
-  outline:none;
-  border-bottom:1px solid white;
+input:focus,select:focus,textarea:focus{
+background:rgba(255,255,255,0.15);
+box-shadow:0 0 0 2px rgba(255,255,255,0.4);
+transform:scale(1.02);
 }
 
 textarea{
-  height:100px;
-  resize:none;
+grid-column:span 2;
+height:110px;
+resize:none;
 }
 
-/* HOTEL DROPDOWN */
-.hotel-box{ position:relative; }
-
-#hotelList{
-  position:absolute;
-  width:100%;
-  background:#1f1f1f;
-  border-radius:10px;
-  max-height:180px;
-  overflow-y:auto;
-  display:none;
-  z-index:10;
-  text-align:center;
+input::placeholder,textarea::placeholder{
+color:rgba(255,255,255,0.6);
 }
 
-#hotelList div{
-  padding:10px;
-  cursor:pointer;
-  color:white;
-}
-
-#hotelList div:hover{
-  background:#333;
-}
-
-/* LADO DERECHO */
 .right-side{
-  display:flex;
-  justify-content:center;
-  align-items:center;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 .tour-card{
-  width:100%;
-  max-width:400px;
-  padding:30px;
-  border:1px solid rgba(255,255,255,0.3);
-  border-radius:25px;
-  backdrop-filter:blur(12px);
+width:100%;
+padding:30px 25px;
+border:1px solid rgba(255,255,255,0.3);
+border-radius:25px;
+backdrop-filter:blur(12px);
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
 }
 
 .tour-card h2{
-  margin-bottom:15px;
-  font-weight:400;
+margin-bottom:20px;
+font-weight:400;
 }
 
 .tour-card p{
-  font-size:14px;
-  line-height:1.6;
-  opacity:0.85;
-  margin-bottom:20px;
+font-size:14px;
+line-height:1.6;
+opacity:0.85;
+margin-bottom:25px;
 }
 
 .price{
-  font-size:28px;
-  font-weight:600;
-  margin-bottom:20px;
-  color:#f77f00;
+font-size:28px;
+font-weight:600;
+margin-bottom:25px;
+color:#f77f00;
 }
 
 .btn-book{
-  width:100%;
-  max-width:320px;
-  padding:16px;
-  border:none;
-  border-radius:40px;
-  background:linear-gradient(135deg,#25D366,#1ebe5d);
-  color:white;
-  font-size:16px;
-  cursor:pointer;
-  margin-top:20px;
-  transition:0.3s;
+width:100%;
+max-width:300px;
+padding:14px;
+border:none;
+border-radius:40px;
+background:linear-gradient(135deg,#25D366,#1ebe5d);
+color:white;
+font-size:16px;
+cursor:pointer;
+margin-top:20px;
+transition:0.3s;
 }
 
 .btn-book:hover{
-  transform:translateY(-4px);
-  box-shadow:0 20px 40px rgba(37,211,102,0.4);
+transform:translateY(-4px);
+box-shadow:0 15px 30px rgba(37,211,102,0.4);
 }
 
 .note{
-  margin-top:20px;
-  font-size:13px;
-  opacity:0.7;
+margin-top:15px;
+font-size:13px;
+opacity:0.7;
 }
 
-/* RESPONSIVE */
+.hotel-box{
+position:relative;
+}
+
+#hotelList{
+position:absolute;
+width:101%;
+background:#fff;
+color:#000;
+border-radius:5px;
+max-height:180px;
+overflow-y:auto;
+display:none;
+z-index:10;
+}
+
+select option{
+color:black;
+}
+
 @media(max-width:992px){
-  .booking-container{
-    grid-template-columns:1fr;
-    padding:30px 20px;
-  }
 
-  .booking-form{
-    grid-template-columns:1fr;
-  }
+.booking-container{
+grid-template-columns:1fr;
+padding:30px 20px;
 }
+
+.booking-form{
+grid-template-columns:1fr;
+}
+
+textarea{
+grid-column:span 1;
+}
+
+}
+
 </style>
 </head>
 
@@ -213,138 +218,197 @@ textarea{
 
 <div class="booking-container">
 
-  <!-- LEFT -->
-  <div class="left-side">
-    <h1>📍 Book Your Excursion</h1>
-    <p class="subtitle">Higüey City Tour – Private</p>
+<div class="left-side">
 
-    <form class="booking-form">
+<h1>📍 Book Your Excursion</h1>
+<p class="subtitle">Higüey City Tour – Private</p>
 
-      <div>
-        <label>Full Name</label>
-        <input type="text" id="name" placeholder="John Doe" required>
-      </div>
+<div class="tour-description">
 
-      <div class="hotel-box">
-        <label>Hotel / Accommodation</label>
-        <input type="text" id="hotelInput" placeholder="Start typing your hotel..." required>
-        <div id="hotelList"></div>
-      </div>
+<h3>About this Excursion</h3>
 
-      <div>
-        <label>Number of People</label>
-        <select id="people" required>
-          <option value="">Select</option>
-          <option>1 Person</option>
-          <option>2 People</option>
-          <option>3 People</option>
-          <option>4 People</option>
-          <option>5+ People</option>
-        </select>
-      </div>
+<p>
+This private excursion is designed for small groups who want to discover the authentic culture of the Dominican countryside.
+</p>
 
-      <div>
-        <label>Excursion Date</label>
-        <input type="date" id="date" required>
-      </div>
+<p>
+After picking you up at your hotel we will drive through local villages and countryside areas where you will see how traditional Dominican products are made.
+</p>
 
-      <div>
-        <label>Additional Information</label>
-        <textarea id="notes" placeholder="Private group details, kids, special requests..."></textarea>
-      </div>
+<h4>You will learn about:</h4>
 
-    </form>
-  </div>
+<ul>
+<li>Cigar and tobacco production</li>
+<li>Traditional handmade chocolate</li>
+<li>Dominican Mamajuana preparation</li>
+</ul>
 
-  <!-- RIGHT -->
-  <div class="right-side">
-    <div class="tour-card">
-      <h2>Higüey City Tour – Private</h2>
+<h4>During the tour we will visit:</h4>
 
-      <p>
-        Explore Higüey, visit the Basilica, discover local culture and enjoy a private guided experience with transportation included.
-      </p>
+<ul>
+<li>Sugar cane fields</li>
+<li>The famous Basilica of Higüey</li>
+<li>San Dionisio Historical Church</li>
+<li>The local Higüey market</li>
+</ul>
 
-      <div class="price">$105.00 USD</div>
-
-      <div id="paypal-button-container"></div>
-
-      <button class="btn-book" onclick="sendWhatsApp()">
-        Confirm Reservation via WhatsApp
-      </button>
-
-      <p class="note">
-        Deposit via PayPal. Remaining balance paid on tour day.
-      </p>
-    </div>
-  </div>
+<p>
+This tour offers a unique opportunity to experience Dominican history, religion, and local culture in a relaxed private environment.
+</p>
 
 </div>
 
-<!-- PAYPAL SDK -->
+<form class="booking-form" onsubmit="return false;">
+
+<div>
+<label>Full Name</label>
+<input type="text" id="name" placeholder="John Doe">
+</div>
+
+<div class="hotel-box">
+<label>Hotel / Pickup Location</label>
+<input type="text" id="hotelInput" placeholder="Start typing hotel...">
+<div id="hotelList"></div>
+</div>
+
+<div>
+<label>Number of People</label>
+<select id="people">
+<option>1 Person</option>
+<option>2 People</option>
+<option>3 People</option>
+<option>4 People</option>
+<option>5+ People</option>
+</select>
+</div>
+
+<div>
+<label>Excursion Date</label>
+<input type="date" id="date">
+</div>
+
+<div>
+<label>Additional Information</label>
+<textarea id="notes" placeholder="Private group details, kids, special requests..."></textarea>
+</div>
+
+</form>
+
+</div>
+
+<div class="right-side">
+
+<div class="tour-card">
+
+<h2>Higüey City Tour – Private</h2>
+
+<p>
+Discover Dominican culture, visit the Basilica of Higüey, explore the local market and learn about traditional products during this private guided tour.
+</p>
+
+<div class="price">$105 USD</div>
+
+<div id="paypal-button-container"></div>
+
+<button class="btn-book" onclick="sendWhatsApp()">
+Confirm Reservation via WhatsApp
+</button>
+
+<p class="note">
+Deposit via PayPal. Remaining balance paid on tour day.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 <script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
 
 <script>
+
 paypal.Buttons({
-  style:{ layout:'vertical', color:'blue', shape:'pill', label:'paypal' },
 
-  createOrder:(data,actions)=>{
-    return actions.order.create({
-      purchase_units:[{
-        amount:{ value:'20.00' },
-        description:'Higüey City Tour Deposit'
-      }]
-    });
-  },
+style:{layout:'vertical',color:'blue',shape:'pill',label:'paypal'},
 
-  onApprove:(data,actions)=>{
-    return actions.order.capture().then(function(details){
-      alert('Payment completed by ' + details.payer.name.given_name);
-    });
-  }
+createOrder:function(data,actions){
+return actions.order.create({
+purchase_units:[{
+amount:{value:'20.00'},
+description:'Higüey City Tour Deposit'
+}]
+});
+},
+
+onApprove:function(data,actions){
+return actions.order.capture().then(function(details){
+alert('Payment completed by '+details.payer.name.given_name);
+});
+}
 
 }).render('#paypal-button-container');
-</script>
 
-<script>
-// HOTEL AUTOCOMPLETE
-const hotels=["Hard Rock Hotel & Casino Punta Cana","Royalton Punta Cana","Riu Palace Bavaro","Majestic Mirage Punta Cana","Bahia Principe Fantasia","Hyatt Zilara Cap Cana"];
+const hotels=[
+"Hard Rock Hotel & Casino Punta Cana",
+"Royalton Punta Cana",
+"Royalton Bavaro",
+"Riu Palace Bavaro",
+"Majestic Mirage Punta Cana",
+"Bahia Principe Fantasia",
+"Hyatt Ziva Cap Cana",
+"Dreams Royal Beach",
+"Melia Caribe Beach"
+];
 
 const input=document.getElementById("hotelInput");
 const list=document.getElementById("hotelList");
 
 input.addEventListener("input",()=>{
-  const value=input.value.toLowerCase().trim();
-  list.innerHTML="";
-  if(!value){list.style.display="none";return;}
+const value=input.value.toLowerCase().trim();
+list.innerHTML="";
 
-  hotels.filter(h=>h.toLowerCase().includes(value))
-  .forEach(hotel=>{
-    const div=document.createElement("div");
-    div.textContent=hotel;
-    div.onclick=()=>{input.value=hotel; list.style.display="none";}
-    list.appendChild(div);
-  });
-  list.style.display="block";
+if(!value){
+list.style.display="none";
+return;
+}
+
+hotels.filter(h=>h.toLowerCase().includes(value))
+.forEach(h=>{
+const div=document.createElement("div");
+div.textContent=h;
+
+div.onclick=()=>{
+input.value=h;
+list.style.display="none";
+};
+
+list.appendChild(div);
 });
 
-// WHATSAPP
+list.style.display="block";
+
+});
+
 function sendWhatsApp(){
-  const message=`Hello! I would like to confirm my excursion booking.
 
-📍 Higüey City Tour – Private
-👤 Name: ${name.value}
-🏨 Hotel: ${hotelInput.value}
-👥 People: ${people.value}
-📅 Date: ${date.value}
-📝 Notes: ${notes.value}
+const message=`Hello! I would like to confirm my excursion booking.
 
-💰 Deposit via PayPal.
-Please confirm pickup time.
-`;
+Higüey City Tour – Private
 
-  window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
+Name: ${name.value}
+Hotel: ${hotelInput.value}
+People: ${people.value}
+Date: ${date.value}
+Notes: ${notes.value}
+
+Deposit via PayPal completed.
+Please confirm pickup time.`;
+
+window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
+
 }
+
 </script>
 
 </body>

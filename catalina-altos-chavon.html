@@ -3,20 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book Excursion | Santo Domingo City Tour</title>
-
+<title>Book Excursion | Catalina Island & Altos de Chavón</title>
 <style>
-
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
 
 body{
   background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-  url("https://denomades.imgix.net/destinos/punta-cana/1160/monumento-cristobal-colon.jpg") no-repeat center/cover;
+  url("https://beditour.com/wp-content/uploads/2023/11/3-1-scaled-e1701017731754.jpg") no-repeat center center/cover;
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:20px;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  z-index:-1;
 }
 
 .booking-container{
@@ -35,7 +41,7 @@ body{
   justify-items:center;
 }
 
-.left-side,.right-side{width:100%;}
+.left-side, .right-side{ width:100%; }
 
 .left-side h1{
   font-size:36px;
@@ -46,6 +52,7 @@ body{
 
 .subtitle{
   font-size:18px;
+  color:#ffffff;
   margin-bottom:20px;
 }
 
@@ -76,14 +83,9 @@ padding-left:18px;
   gap:30px;
 }
 
-label{
-  font-size:14px;
-  opacity:0.8;
-  margin-bottom:6px;
-  display:block;
-}
+label{ font-size:14px; opacity:0.8; margin-bottom:6px; display:block; }
 
-input,select,textarea{
+input, select, textarea{
   width:100%;
   padding:14px 16px;
   border:none;
@@ -95,7 +97,7 @@ input,select,textarea{
   transition:0.3s;
 }
 
-input:focus,select:focus,textarea:focus{
+input:focus, select:focus, textarea:focus{
   background:rgba(255,255,255,0.15);
   box-shadow:0 0 0 2px rgba(255,255,255,0.4);
   transform:scale(1.02);
@@ -107,109 +109,74 @@ textarea{
   resize:none;
 }
 
-input::placeholder,textarea::placeholder{
-color:rgba(255,255,255,0.6);
-}
+input::placeholder, textarea::placeholder{ color:rgba(255,255,255,0.6); }
 
 .right-side{
-display:flex;
-align-items:center;
-justify-content:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .tour-card{
-width:100%;
-padding:30px 25px;
-border:1px solid rgba(255,255,255,0.3);
-border-radius:25px;
-backdrop-filter:blur(12px);
-display:flex;
-flex-direction:column;
-align-items:center;
-text-align:center;
+  width:100%;
+  padding:30px 25px;
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:25px;
+  backdrop-filter:blur(12px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
 }
 
-.tour-card h2{
-margin-bottom:20px;
-font-weight:400;
-}
+.tour-card h2{ margin-bottom:20px; font-weight:400; }
+.tour-card p{ font-size:14px; line-height:1.6; opacity:0.85; margin-bottom:25px; }
 
-.tour-card p{
-font-size:14px;
-line-height:1.6;
-opacity:0.85;
-margin-bottom:25px;
-}
-
-.price{
-font-size:28px;
-font-weight:600;
-margin-bottom:25px;
-color:#f77f00;
-}
+.price{ font-size:28px; font-weight:600; margin-bottom:25px; color:#f77f00; }
 
 .btn-book{
-width:100%;
-max-width:300px;
-padding:14px;
-border:none;
-border-radius:40px;
-background:linear-gradient(135deg,#25D366,#1ebe5d);
-color:white;
-font-size:16px;
-cursor:pointer;
-margin-top:20px;
-transition:0.3s;
+  width:100%;
+  max-width:300px;
+  padding:14px;
+  border:none;
+  border-radius:40px;
+  background:linear-gradient(135deg,#25D366,#1ebe5d);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:20px;
+  transition:0.3s;
 }
 
 .btn-book:hover{
-transform:translateY(-4px);
-box-shadow:0 15px 30px rgba(37,211,102,0.4);
+  transform:translateY(-4px);
+  box-shadow:0 15px 30px rgba(37,211,102,0.4);
 }
 
-.note{
-margin-top:15px;
-font-size:13px;
-opacity:0.7;
-}
+.note{ margin-top:15px; font-size:13px; opacity:0.7; }
 
-.hotel-box{
-position:relative;
-}
+.hotel-box{ position:relative; }
 
 #hotelList{
-position:absolute;
-width:101%;
-background:#fff;
-color:#000;
-border-radius:5px;
-max-height:180px;
-overflow-y:auto;
-display:none;
-z-index:10;
+  position:absolute;
+  width:101%;
+  background:#fff;
+  color:#000;
+  border-radius:5px;
+  max-height:180px;
+  overflow-y:auto;
+  display:none;
+  z-index:10;
 }
 
-select option{
-color:black;
-}
+select option{ color:black; }
 
 @media(max-width:992px){
-
-.booking-container{
-grid-template-columns:1fr;
-padding:30px 20px;
+  .booking-container{ grid-template-columns:1fr; padding:30px 20px; }
+  .booking-form{ grid-template-columns:1fr; }
+  textarea{ grid-column:span 1; }
+  .tour-card{ margin-top:30px; }
 }
-
-.booking-form{
-grid-template-columns:1fr;
-}
-
-textarea{
-grid-column:span 1;
-}
-
-}
-
 </style>
 </head>
 
@@ -219,44 +186,43 @@ grid-column:span 1;
 
 <div class="left-side">
 
-<h1>🏛️ Book Your Excursion</h1>
-<p class="subtitle">Santo Domingo City Tour</p>
+<h1>📍 Book Your Excursion</h1>
+<p class="subtitle">Catalina Island & Altos de Chavón</p>
 
 <div class="tour-description">
 
-<h3>About this Excursion</h3>
+<h3>About this Excursion ESTO NO ES VERIDICO</h3>
 
 <p>
-After picking you up from your hotel, we travel to the historic capital city of Santo Domingo.
+This excursion combines the beauty of Catalina Island with a cultural visit to the famous village of Altos de Chavón.
+The day begins with hotel pickup and transportation to La Romana where the adventure starts.
 </p>
 
 <p>
-Our first stop will be the famous <strong>Los Tres Ojos National Park</strong>, a natural cave system
-with beautiful underground lagoons.
+Our first stop is Altos de Chavón, a stunning Mediterranean-style village located above the Chavón River. 
+Here you will have time to walk through its stone streets, visit artisan shops, and enjoy breathtaking views.
 </p>
 
 <p>
-After that we will visit some of the most important historical landmarks of the city such as:
+After visiting Altos de Chavón we continue to the port where the boat will take us to Catalina Island,
+one of the most beautiful snorkeling destinations in the Dominican Republic.
 </p>
 
-<ul>
-<li>The First Cathedral of America</li>
-<li>The Columbus Lighthouse</li>
-<li>The Colonial Zone</li>
-<li>The Santo Domingo Malecon</li>
-<li>The Presidential Palace</li>
-<li>The National Museum</li>
-<li>Souvenir shops and local cultural spots</li>
-</ul>
+<p>
+Once on Catalina Island you can relax on white sand beaches, swim in turquoise waters,
+and enjoy the tropical atmosphere of the Caribbean.
+</p>
 
 <h4>The excursion includes:</h4>
 
 <ul>
-<li>Entrance tickets to parks and museums</li>
 <li>Round-trip transportation</li>
-<li>Buffet style lunch</li>
-<li>Non-alcoholic beverages (water & soft drinks)</li>
 <li>Professional tour guide</li>
+<li>Snorkeling equipment</li>
+<li>Open bar with drinks</li>
+<li>Water and soft drinks</li>
+<li>Dominican buffet lunch</li>
+<li>Beach time on Catalina Island</li>
 </ul>
 
 </div>
@@ -302,14 +268,13 @@ After that we will visit some of the most important historical landmarks of the 
 
 <div class="tour-card">
 
-<h2>Santo Domingo City Tour</h2>
+<h2>Catalina Island & Altos de Chavón</h2>
 
 <p>
-Explore the oldest city in the Americas and discover Dominican history,
-culture and architecture.
+Snorkeling adventure, Caribbean beaches and a cultural visit to Altos de Chavón village.
 </p>
 
-<div class="price">$55 USD</div>
+<div class="price">$85 USD</div>
 
 <div id="paypal-button-container"></div>
 
@@ -328,8 +293,7 @@ Deposit via PayPal. Remaining balance paid on excursion day.
 </div>
 
 <script>
-
-const hotels=[
+const hotels = [
 "Hard Rock Hotel & Casino Punta Cana","Royalton Punta Cana","Royalton Bavaro",
 "Royalton Splash Punta Cana","Royalton CHIC Punta Cana",
 "Riu Palace Bavaro","Riu Palace Punta Cana","Riu Palace Macao","Riu Bambu","Riu Republica",
@@ -342,34 +306,30 @@ const hotels=[
 "Ocean Blue & Sand","Ocean El Faro",
 "Grand Palladium Punta Cana","Catalonia Bavaro","Excellence Punta Cana",
 "Hyatt Zilara Cap Cana","Hyatt Ziva Cap Cana","TRS Cap Cana","Eden Roc Cap Cana",
-"Nickelodeon Punta Cana","Impressive Punta Cana","Vista Sol Punta Cana"
+"Nickelodeon Punta Cana","Impressive Punta Cana","Vista Sol Punta Cana",
+"Santo Domingo Hotel"
 ];
 
-const input=document.getElementById("hotelInput");
-const list=document.getElementById("hotelList");
+const input = document.getElementById("hotelInput");
+const list = document.getElementById("hotelList");
 
-input.addEventListener("input",()=>{
-const value=input.value.toLowerCase().trim();
-list.innerHTML="";
-if(!value){list.style.display="none";return;}
+input.addEventListener("input", () => {
+  const value = input.value.toLowerCase().trim();
+  list.innerHTML = "";
+  if(!value){ list.style.display="none"; return; }
 
-hotels.filter(h=>h.toLowerCase().includes(value))
-.forEach(h=>{
-const div=document.createElement("div");
-div.textContent=h;
-div.onclick=()=>{
-input.value=h;
-list.style.display="none";
-};
-list.appendChild(div);
-});
+  hotels.filter(h => h.toLowerCase().startsWith(value[0])).forEach(h=>{
+    const div=document.createElement("div");
+    div.textContent=h;
+    div.onclick=()=>{ input.value=h; list.style.display="none"; };
+    list.appendChild(div);
+  });
 
-list.style.display="block";
+  list.style.display="block";
 });
 
 function sendWhatsApp(){
-
-const message=`Hello! I would like to confirm my Santo Domingo City Tour booking.
+  const message = `Hello! I would like to confirm my Catalina Island & Altos de Chavón booking.
 
 Name: ${name.value}
 Hotel: ${hotelInput.value}
@@ -377,28 +337,23 @@ People: ${people.value}
 Date: ${date.value}
 Notes: ${notes.value}
 
-Deposit via PayPal completed.
-Please confirm pickup time.`;
+Deposit via PayPal completed. Please confirm pickup time.`;
 
-window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
-
+  window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
 }
-
 </script>
 
 <script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
 
 <script>
-
 paypal.Buttons({
-
-style:{layout:'vertical',color:'blue',shape:'pill',label:'paypal'},
+style:{ layout:'vertical', color:'blue', shape:'pill', label:'paypal' },
 
 createOrder:function(data,actions){
 return actions.order.create({
 purchase_units:[{
 amount:{value:'20.00'},
-description:'Santo Domingo City Tour Deposit'
+description:'Catalina Island & Altos de Chavón Deposit'
 }]
 });
 },
@@ -410,7 +365,6 @@ alert('Payment completed by '+details.payer.name.given_name);
 }
 
 }).render('#paypal-button-container');
-
 </script>
 
 </body>

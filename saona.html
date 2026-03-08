@@ -8,13 +8,13 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
 
 body{
-  background:url("Images/HD-wallpaper-orange-waves-12-background-gradient-iphone-pro-wave-thumbnail.jpg") no-repeat center/cover;
+  background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+  url("https://media.istockphoto.com/id/1315005752/es/foto/paradise-fondo-de-la-naturaleza-de-la-isla-tropical-vista-a%C3%A9rea-de-drones-de-la-hermosa-playa.jpg?s=612x612&w=0&k=20&c=NpOC9sTz_xuxecAguuZxdvNO-ohqjEfFK4rJkaiioRo=") no-repeat center center/cover;
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:20px;
-  position:relative;
 }
 
 body::before{
@@ -51,10 +51,32 @@ body::before{
 }
 
 .subtitle{
-  opacity:0.85;
-  margin-bottom:40px;
-  text-align:center;
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 20px;
 }
+
+.tour-description{
+margin-bottom:35px;
+line-height:1.7;
+font-size:14px;
+opacity:0.9;
+}
+
+.tour-description h3{
+margin-bottom:15px;
+font-weight:500;
+}
+
+.tour-description h4{
+margin-top:15px;
+margin-bottom:10px;
+}
+
+.tour-description ul{
+padding-left:18px;
+}
+
 
 .booking-form{
   display:grid;
@@ -65,13 +87,26 @@ body::before{
 label{ font-size:14px; opacity:0.8; margin-bottom:6px; display:block; }
 input, select, textarea{
   width:100%;
-  padding:12px 10px;
+  padding:14px 16px;
   border:none;
-  border-bottom:1px solid rgba(255,255,255,0.4);
-  background:transparent;
+  border-radius:12px;
+  background:rgba(255,255,255,0.08);
   color:white;
   font-size:15px;
-  border-radius:4px;
+  outline:none;
+  transition:0.3s;
+}
+
+input:focus, select:focus, textarea:focus{
+  background:rgba(255,255,255,0.15);
+  box-shadow:0 0 0 2px rgba(255,255,255,0.4);
+  transform:scale(1.02);
+}
+
+textarea{
+  grid-column:span 2;
+  height:110px;
+  resize:none;
 }
 
 input::placeholder, textarea::placeholder{ color:rgba(255,255,255,0.6); }
@@ -95,6 +130,7 @@ textarea{ grid-column:span 2; height:100px; resize:none; }
   align-items:center;
   text-align:center;
 }
+
 
 .tour-card h2{ margin-bottom:20px; font-weight:400; }
 .tour-card p{ font-size:14px; line-height:1.6; opacity:0.85; margin-bottom:25px; }
@@ -120,19 +156,21 @@ textarea{ grid-column:span 2; height:100px; resize:none; }
 
 .note{ margin-top:15px; font-size:13px; opacity:0.7; }
 
+.hotel-box{
+  position: relative;
+}
+
 #hotelList{
   position:absolute;
-  width:100%;
+  width:101%;
   background:#fff;
   color:#000;
-  border-radius:8px;
+  border-radius:5px;
   max-height:180px;
   overflow-y:auto;
   display:none;
   z-index:10;
 }
-#hotelList div{ padding:10px; cursor:pointer; }
-#hotelList div:hover{ background:#f1f1f1; }
 
 select option{ color:black; }
 
@@ -151,6 +189,46 @@ select option{ color:black; }
   <div class="left-side">
     <h1>🛥️ Book Your Excursion</h1>
     <p class="subtitle">Saona Island – Catamaran & Speed Boat</p>
+
+    <div class="tour-description">
+
+<h3>About this Excursion</h3>
+
+<p>
+The Saona Island excursion begins when we pick you up directly from your hotel. 
+From there we travel to the beautiful fishing village of Bayahibe where the adventure starts.
+</p>
+
+<p>
+Depending on the departure schedule, you will travel either by speed boat or by catamaran. 
+If we depart by speed boat, we will first stop at the famous Natural Pool for about 
+25–35 minutes where you can enjoy the shallow crystal-clear waters.
+</p>
+
+<p>
+After the stop, we continue to Saona Island where you will spend the rest of the day 
+relaxing on the beach, swimming in turquoise waters, and enjoying the tropical scenery.
+</p>
+
+<p>
+The return trip is done on the opposite boat type — if you went by speed boat you will return 
+by catamaran, and vice versa. During the catamaran ride you will enjoy music, entertainment, 
+and drinks on board.
+</p>
+
+<h4>The excursion includes:</h4>
+
+<ul>
+<li>Round-trip transportation</li>
+<li>Professional tour guide</li>
+<li>Entertainment on the boat</li>
+<li>Alcoholic beverages</li>
+<li>Water</li>
+<li>Soft drinks</li>
+<li>Buffet style lunch</li>
+</ul>
+
+</div>
 
     <form class="booking-form" onsubmit="return false;">
       <div>
@@ -261,3 +339,4 @@ onApprove:function(data,actions){
 
 </body>
 </html>
+

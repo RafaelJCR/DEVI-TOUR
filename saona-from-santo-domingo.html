@@ -6,21 +6,16 @@
 <title>Book Excursion | Saona Island From Santo Domingo</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"Poppins",sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
 
 body{
-  background:url("Images/HD-wallpaper-orange-waves-12-background-gradient-iphone-pro-wave-thumbnail.jpg") no-repeat center center/cover;
+  background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+  url("https://media.tacdn.com/media/attractions-splice-spp-674x446/13/2b/5a/91.jpg") no-repeat center center/cover;
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:20px;
-  position:relative;
 }
 
 body::before{
@@ -47,9 +42,7 @@ body::before{
   justify-items:center;
 }
 
-.left-side, .right-side{
-  width:100%;
-}
+.left-side, .right-side{ width:100%; }
 
 .left-side h1{
   font-size:36px;
@@ -59,9 +52,30 @@ body::before{
 }
 
 .subtitle{
-  opacity:0.85;
-  margin-bottom:40px;
-  text-align:center;
+  font-size:18px;
+  color:#ffffff;
+  margin-bottom:20px;
+}
+
+.tour-description{
+margin-bottom:35px;
+line-height:1.7;
+font-size:14px;
+opacity:0.9;
+}
+
+.tour-description h3{
+margin-bottom:15px;
+font-weight:500;
+}
+
+.tour-description h4{
+margin-top:15px;
+margin-bottom:10px;
+}
+
+.tour-description ul{
+padding-left:18px;
 }
 
 .booking-form{
@@ -70,39 +84,33 @@ body::before{
   gap:30px;
 }
 
-label{
-  font-size:14px;
-  opacity:0.8;
-  margin-bottom:6px;
-  display:block;
-}
+label{ font-size:14px; opacity:0.8; margin-bottom:6px; display:block; }
 
 input, select, textarea{
   width:100%;
-  padding:12px 10px;
+  padding:14px 16px;
   border:none;
-  border-bottom:1px solid rgba(255,255,255,0.4);
-  background:transparent;
+  border-radius:12px;
+  background:rgba(255,255,255,0.08);
   color:white;
   font-size:15px;
-  border-radius:4px;
-}
-
-input::placeholder,
-textarea::placeholder{
-  color:rgba(255,255,255,0.6);
+  outline:none;
+  transition:0.3s;
 }
 
 input:focus, select:focus, textarea:focus{
-  outline:none;
-  border-bottom:1px solid white;
+  background:rgba(255,255,255,0.15);
+  box-shadow:0 0 0 2px rgba(255,255,255,0.4);
+  transform:scale(1.02);
 }
 
 textarea{
   grid-column:span 2;
-  height:100px;
+  height:110px;
   resize:none;
 }
+
+input::placeholder, textarea::placeholder{ color:rgba(255,255,255,0.6); }
 
 .right-side{
   display:flex;
@@ -122,10 +130,7 @@ textarea{
   text-align:center;
 }
 
-.tour-card h2{
-  margin-bottom:20px;
-  font-weight:400;
-}
+.tour-card h2{ margin-bottom:20px; font-weight:400; }
 
 .tour-card p{
   font-size:14px;
@@ -138,6 +143,7 @@ textarea{
   font-size:28px;
   font-weight:600;
   margin-bottom:25px;
+  color:#f77f00;
 }
 
 .btn-book{
@@ -159,38 +165,26 @@ textarea{
   box-shadow:0 15px 30px rgba(37,211,102,0.4);
 }
 
-.note{
-  margin-top:15px;
-  font-size:13px;
-  opacity:0.7;
-}
+.note{ margin-top:15px; font-size:13px; opacity:0.7; }
+
+.hotel-box{ position:relative; }
 
 #hotelList{
   position:absolute;
-  width:100%;
+  width:101%;
   background:#fff;
   color:#000;
-  border-radius:8px;
+  border-radius:5px;
   max-height:180px;
   overflow-y:auto;
   display:none;
   z-index:10;
 }
 
-#hotelList div{
-  padding:10px;
-  cursor:pointer;
-}
-
-#hotelList div:hover{
-  background:#f1f1f1;
-}
-
-select option{
-  color:black;
-}
+select option{ color:black; }
 
 @media(max-width:992px){
+
   .booking-container{
     grid-template-columns:1fr;
     padding:30px 20px;
@@ -207,6 +201,7 @@ select option{
   .tour-card{
     margin-top:30px;
   }
+
 }
 </style>
 </head>
@@ -216,8 +211,46 @@ select option{
 <div class="booking-container">
 
 <div class="left-side">
+
 <h1>🏝️ Book Your Excursion</h1>
 <p class="subtitle">Saona Island From Santo Domingo</p>
+
+<div class="tour-description">
+
+<h3>About this Excursion ESTO NO ES VERIDICO</h3>
+
+<p>
+This excursion takes you from Santo Domingo to the famous Saona Island,
+one of the most beautiful places in the Dominican Republic.
+</p>
+
+<p>
+The tour includes transportation from Santo Domingo to Bayahibe where
+the boat departure takes place.
+</p>
+
+<p>
+During the trip you will visit the famous Natural Pool, a shallow area
+in the Caribbean Sea where you can swim and relax in crystal clear water.
+</p>
+
+<p>
+After that we continue to Saona Island where you will enjoy white sand
+beaches, palm trees and a relaxing Caribbean atmosphere.
+</p>
+
+<h4>The excursion includes:</h4>
+
+<ul>
+<li>Transportation from Santo Domingo</li>
+<li>Boat transfer to Saona Island</li>
+<li>Stop at the Natural Pool</li>
+<li>Buffet lunch</li>
+<li>Drinks</li>
+<li>Free time on the island</li>
+</ul>
+
+</div>
 
 <form class="booking-form" onsubmit="return false;">
 
@@ -257,60 +290,50 @@ select option{
 </div>
 
 <div class="right-side">
+
 <div class="tour-card">
+
 <h2>Saona Island From Santo Domingo</h2>
-<p>Full-day excursion with transport from Santo Domingo, natural pools, pristine beaches, and authentic Dominican experience.</p>
+
+<p>
+Full-day excursion from Santo Domingo including transportation,
+natural pools, pristine beaches and a true Caribbean experience.
+</p>
+
 <div class="price">$75 USD</div>
+
 <div id="paypal-button-container"></div>
-<button class="btn-book" onclick="sendWhatsApp()">Confirm Reservation via WhatsApp</button>
-<p class="note">Deposit via PayPal. Remaining balance paid on excursion day.</p>
+
+<button class="btn-book" onclick="sendWhatsApp()">
+Confirm Reservation via WhatsApp
+</button>
+
+<p class="note">
+Deposit via PayPal. Remaining balance paid on excursion day.
+</p>
+
 </div>
+
 </div>
 
 </div>
 
 <script>
+
 const hotels = [
-"Hard Rock Hotel & Casino Punta Cana",
-"Royalton Punta Cana",
-"Royalton Bavaro",
-"Royalton Splash Punta Cana",
-"Royalton CHIC Punta Cana",
-"Riu Palace Bavaro",
-"Riu Palace Punta Cana",
-"Riu Palace Macao",
-"Riu Bambu",
-"Riu Republica",
-"Majestic Mirage Punta Cana",
-"Majestic Elegance Punta Cana",
-"Majestic Colonial Punta Cana",
-"Bahia Principe Fantasia",
-"Bahia Principe Grand Bavaro",
-"Bahia Principe Luxury Ambar",
-"Barceló Bávaro Palace",
-"Barceló Bávaro Beach",
-"Iberostar Selection Bavaro",
-"Iberostar Grand Bavaro",
-"JOIA Bavaro by Iberostar",
-"Dreams Royal Beach",
-"Dreams Macao",
-"Secrets Royal Beach",
-"Secrets Cap Cana",
-"Melia Caribe Beach",
-"Paradisus Palma Real",
-"Lopesan Costa Bavaro",
-"Ocean Blue & Sand",
-"Ocean El Faro",
-"Grand Palladium Punta Cana",
-"Catalonia Bavaro",
-"Excellence Punta Cana",
-"Hyatt Zilara Cap Cana",
-"Hyatt Ziva Cap Cana",
-"TRS Cap Cana",
-"Eden Roc Cap Cana",
-"Nickelodeon Punta Cana",
-"Impressive Punta Cana",
-"Vista Sol Punta Cana",
+"Hard Rock Hotel & Casino Punta Cana","Royalton Punta Cana","Royalton Bavaro",
+"Royalton Splash Punta Cana","Royalton CHIC Punta Cana",
+"Riu Palace Bavaro","Riu Palace Punta Cana","Riu Palace Macao","Riu Bambu","Riu Republica",
+"Majestic Mirage Punta Cana","Majestic Elegance Punta Cana","Majestic Colonial Punta Cana",
+"Bahia Principe Fantasia","Bahia Principe Grand Bavaro","Bahia Principe Luxury Ambar",
+"Barceló Bávaro Palace","Barceló Bávaro Beach",
+"Iberostar Selection Bavaro","Iberostar Grand Bavaro","JOIA Bavaro by Iberostar",
+"Dreams Royal Beach","Dreams Macao","Secrets Royal Beach","Secrets Cap Cana",
+"Melia Caribe Beach","Paradisus Palma Real","Lopesan Costa Bavaro",
+"Ocean Blue & Sand","Ocean El Faro",
+"Grand Palladium Punta Cana","Catalonia Bavaro","Excellence Punta Cana",
+"Hyatt Zilara Cap Cana","Hyatt Ziva Cap Cana","TRS Cap Cana","Eden Roc Cap Cana",
+"Nickelodeon Punta Cana","Impressive Punta Cana","Vista Sol Punta Cana",
 "Santo Domingo Hotel"
 ];
 
@@ -318,23 +341,40 @@ const input = document.getElementById("hotelInput");
 const list = document.getElementById("hotelList");
 
 input.addEventListener("input", () => {
-  const value = input.value.toLowerCase().trim();
-  list.innerHTML = "";
-  if (!value) { list.style.display = "none"; return; }
-  hotels
-    .filter(h => h.toLowerCase().startsWith(value[0]))
-    .forEach(hotel => {
-      const div = document.createElement("div");
-      div.textContent = hotel;
-      div.onclick = () => { input.value = hotel; list.style.display="none"; };
-      list.appendChild(div);
-    });
-  list.style.display="block";
+
+const value = input.value.toLowerCase().trim();
+
+list.innerHTML="";
+
+if(!value){
+list.style.display="none";
+return;
+}
+
+hotels
+.filter(h => h.toLowerCase().startsWith(value[0]))
+.forEach(h => {
+
+const div = document.createElement("div");
+
+div.textContent = h;
+
+div.onclick = () => {
+input.value = h;
+list.style.display = "none";
+};
+
+list.appendChild(div);
+
+});
+
+list.style.display="block";
+
 });
 
 function sendWhatsApp(){
-const message = `
-Hello! I would like to confirm my Saona Island From Santo Domingo booking.
+
+const message = `Hello! I would like to confirm my Saona Island From Santo Domingo booking.
 
 Name: ${name.value}
 Hotel: ${hotelInput.value}
@@ -347,27 +387,52 @@ Please confirm pickup time.
 `;
 
 window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
+
 }
+
 </script>
 
 <script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
+
 <script>
+
 paypal.Buttons({
-style:{ layout:'vertical', color:'blue', shape:'pill', label:'paypal' },
-createOrder: function(data, actions){
-return actions.order.create({
-purchase_units:[{
-amount:{ value:'20.00' },
-description:'Saona Island From Santo Domingo Deposit'
-}]
-});
+
+style:{
+layout:'vertical',
+color:'blue',
+shape:'pill',
+label:'paypal'
 },
-onApprove: function(data, actions){
-return actions.order.capture().then(function(details){
-alert('Payment completed by ' + details.payer.name.given_name);
+
+createOrder:function(data,actions){
+
+return actions.order.create({
+
+purchase_units:[{
+
+amount:{value:'20.00'},
+
+description:'Saona Island From Santo Domingo Deposit'
+
+}]
+
 });
+
+},
+
+onApprove:function(data,actions){
+
+return actions.order.capture().then(function(details){
+
+alert('Payment completed by '+details.payer.name.given_name);
+
+});
+
 }
+
 }).render('#paypal-button-container');
+
 </script>
 
 </body>
