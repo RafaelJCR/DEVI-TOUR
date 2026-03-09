@@ -4,37 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book Excursion | Samaná & Cayo Levantado</title>
+<title>Book Excursion | Dolphin Experience</title>
 
 <style>
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
 
-/* TEXTO DEL SELECT */
-select{
-color:white;
-}
-
-/* OPCIONES DEL SELECT */
-select option{
-color:black;
-background:white;
-}
-
-/* PLACEHOLDER */
-input::placeholder,
-textarea::placeholder{
-color:rgba(255,255,255,0.8);
-}
-
-/* LABELS */
-label{
-color:white;
-font-weight:500;
-}
 body{
 background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-url("https://tainotour.com/wp-content/uploads/2021/03/cayo-levantado.jpg") no-repeat center center/cover;
+url("https://www.puntacanatours.com/wp-content/uploads/2019/10/dolphin-swim-punta-cana.jpg") no-repeat center center/cover;
 min-height:100vh;
 display:flex;
 align-items:center;
@@ -96,6 +74,11 @@ background:rgba(255,255,255,0.08);
 color:white;
 }
 
+select option{
+color:black;
+background:white;
+}
+
 textarea{
 grid-column:span 2;
 height:100px;
@@ -140,27 +123,29 @@ font-size:13px;
 opacity:0.8;
 }
 
-.whale-banner{
+/* DOLPHIN BANNER */
+
+.dolphin-banner{
 display:flex;
 align-items:center;
 gap:15px;
-background:linear-gradient(135deg,#0ea5e9,#2563eb);
+background:linear-gradient(135deg,#06b6d4,#0ea5e9);
 padding:18px;
 border-radius:14px;
 margin-bottom:25px;
 box-shadow:0 10px 30px rgba(0,0,0,0.35);
 }
 
-.whale-icon{
+.dolphin-icon{
 font-size:34px;
 }
 
-.whale-text h4{
+.dolphin-text h4{
 font-size:16px;
 margin-bottom:5px;
 }
 
-.whale-text p{
+.dolphin-text p{
 font-size:13px;
 opacity:0.95;
 }
@@ -180,23 +165,6 @@ textarea{
 grid-column:span 1;
 }
 
-}.btn-back{
-display:inline-block;
-margin-bottom:20px;
-padding:10px 20px;
-background:rgba(255,255,255,0.15);
-color:white;
-text-decoration:none;
-border-radius:30px;
-font-size:14px;
-transition:0.3s;
-border:1px solid rgba(255,255,255,0.3);
-}
-
-.btn-back:hover{
-background:white;
-color:black;
-transform:translateY(-2px);
 }
 
 </style>
@@ -208,37 +176,37 @@ transform:translateY(-2px);
 <div class="booking-container">
 
 <div class="left-side">
-<a href="index.html" class="btn-back">⬅ Back to Home</a>
-<h1>🐋 Book Your Excursion</h1>
 
-<div class="whale-banner">
-<div class="whale-icon">🐋</div>
+<h1>🐬 Book Your Experience</h1>
 
-<div class="whale-text">
-<h4>Whale Watching Season</h4>
+<div class="dolphin-banner">
+
+<div class="dolphin-icon">🐬</div>
+
+<div class="dolphin-text">
+<h4>Dolphin Programs</h4>
 <p>
-Humpback whales can be seen in Samaná Bay only from 
-<strong>January 30 to March 15</strong>. Outside this season the excursion still includes 
-<strong>Cayo Levantado</strong> and <strong>El Limón Waterfall</strong>.
+Choose between two amazing dolphin experiences: 
+<strong>Explorer (50 minutes swimming)</strong> or 
+<strong>Funtastic (40 minutes interaction)</strong>.  
+Both include a <strong>bird show and a sea lion kiss</strong>.  
+Children under <strong>1 meter tall participate free</strong>.
 </p>
 </div>
 
 </div>
 
-<p class="subtitle">Samaná, Whales & Cayo Levantado</p>
+<p class="subtitle">Dolphin Experience</p>
 
 <div class="tour-description">
 
 <p>
-Discover one of the most complete excursions in the Dominican Republic visiting the beautiful Samaná Peninsula.
+Enjoy an unforgettable experience interacting with dolphins in Punta Cana. 
+You will learn about these incredible marine animals while enjoying fun and educational activities.
 </p>
 
 <p>
-The adventure begins with transportation from your hotel to Samaná where you will enjoy a boat ride across the bay and visit the famous Cayo Levantado island.
-</p>
-
-<p>
-The tour also includes a visit to El Limón Waterfall where you can enjoy nature and explore one of the most beautiful natural attractions in the country.
+Professional trainers will guide the experience and ensure safety while you swim, interact, and take photos with the dolphins.
 </p>
 
 </div>
@@ -256,13 +224,21 @@ The tour also includes a visit to El Limón Waterfall where you can enjoy nature
 </div>
 
 <div>
+<label>Program</label>
+<select id="program">
+<option value="110">Explorer (50 minutes) - $110</option>
+<option value="110">Funtastic (40 minutes) - $110</option>
+</select>
+</div>
+
+<div>
 <label>Number of People</label>
 <select id="people">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5+</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
 </select>
 </div>
 
@@ -284,13 +260,13 @@ The tour also includes a visit to El Limón Waterfall where you can enjoy nature
 
 <div class="tour-card">
 
-<h2>Samaná, Whales & Cayo Levantado</h2>
+<h2>Dolphin Experience</h2>
 
 <p>
-Full-day excursion including whale watching (seasonal), Cayo Levantado island and El Limón waterfall.
+Swim and interact with dolphins in one of the most popular activities in Punta Cana.
 </p>
 
-<div class="price" id="totalPrice">$125 USD</div>
+<div class="price" id="totalPrice">$110 USD</div>
 
 <div id="paypal-button-container"></div>
 
@@ -310,19 +286,41 @@ Deposit via PayPal. Remaining balance paid on excursion day.
 
 <script>
 
+const people=document.getElementById("people");
+const program=document.getElementById("program");
+const totalPrice=document.getElementById("totalPrice");
+
+function updatePrice(){
+
+const p=people.value;
+const price=program.value;
+
+const total=p*price;
+
+totalPrice.innerText="$"+total+" USD";
+
+}
+
+people.addEventListener("change",updatePrice);
+program.addEventListener("change",updatePrice);
+
+updatePrice();
+
 function sendWhatsApp(){
 
 const name=document.getElementById("name").value;
 const hotel=document.getElementById("hotel").value;
-const people=document.getElementById("people").value;
+const p=people.value;
+const prog=program.options[program.selectedIndex].text;
 const date=document.getElementById("date").value;
 const notes=document.getElementById("notes").value;
 
-const message=`Hello! I would like to book Samana Whale Excursion.
+const message=`Hello! I would like to book the Dolphin Experience.
 
+Program: ${prog}
 Name: ${name}
 Hotel: ${hotel}
-People: ${people}
+People: ${p}
 Date: ${date}
 Notes: ${notes}`;
 
@@ -344,7 +342,7 @@ createOrder:function(data,actions){
 return actions.order.create({
 purchase_units:[{
 amount:{value:'20.00'},
-description:'Samana Whale Excursion Deposit'
+description:'Dolphin Experience Deposit'
 }]
 });
 },
@@ -358,27 +356,6 @@ alert("Payment completed by "+details.payer.name.given_name);
 }).render('#paypal-button-container');
 
 </script>
-<script>
 
-const pricePerPerson = 125;
-
-const peopleSelect = document.getElementById("people");
-const totalPrice = document.getElementById("totalPrice");
-
-function updatePrice(){
-
-const people = parseInt(peopleSelect.value);
-
-const total = people * pricePerPerson;
-
-totalPrice.innerText = "$" + total + " USD";
-
-}
-
-peopleSelect.addEventListener("change", updatePrice);
-
-updatePrice();
-
-</script>
 </body>
 </html>

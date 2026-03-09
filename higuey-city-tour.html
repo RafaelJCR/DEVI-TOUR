@@ -208,7 +208,65 @@ grid-template-columns:1fr;
 textarea{
 grid-column:span 1;
 }
+.btn-back{
+display:inline-block;
+margin-bottom:20px;
+padding:10px 20px;
+background:rgba(255,255,255,0.15);
+color:white;
+text-decoration:none;
+border-radius:30px;
+font-size:14px;
+transition:0.3s;
+border:1px solid rgba(255,255,255,0.3);
+}
 
+.btn-back:hover{
+background:white;
+color:black;
+transform:translateY(-2px);
+}
+}.btn-back{
+display:inline-block;
+margin-bottom:20px;
+padding:10px 20px;
+background:rgba(255,255,255,0.15);
+color:white;
+text-decoration:none;
+border-radius:30px;
+font-size:14px;
+transition:0.3s;
+border:1px solid rgba(255,255,255,0.3);
+}
+
+.btn-back:hover{
+background:white;
+color:black;
+transform:translateY(-2px);
+}.private-banner{
+display:flex;
+align-items:center;
+gap:15px;
+background:linear-gradient(135deg,#f59e0b,#f97316);
+padding:18px;
+border-radius:14px;
+margin-bottom:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+
+.private-icon{
+font-size:32px;
+}
+
+.private-text h4{
+font-size:16px;
+margin-bottom:5px;
+font-weight:600;
+}
+
+.private-text p{
+font-size:13px;
+opacity:0.95;
 }
 
 </style>
@@ -218,9 +276,29 @@ grid-column:span 1;
 
 <div class="booking-container">
 
+
 <div class="left-side">
+    
+<a href="index.html" class="btn-back">⬅ Back to Home</a>
+
 
 <h1>📍 Book Your Excursion</h1>
+<div class="private-banner">
+
+<div class="private-icon">🏛</div>
+
+
+<div class="private-text">
+<h4>Private Excursion Notice</h4>
+<p>
+Private excursions are <strong>fully customizable</strong>. You can choose your preferred 
+<strong>departure time, return time, and itinerary</strong>.  
+The experience is <strong>100% flexible and personalized</strong>.  
+Prices vary depending on the <strong>number of people</strong> in the group.
+</p>
+</div>
+
+</div>
 <p class="subtitle">Higüey City Tour – Private</p>
 
 <div class="tour-description">

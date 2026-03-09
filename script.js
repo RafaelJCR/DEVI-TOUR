@@ -1,3 +1,5 @@
+
+
 let searchBtn = document.querySelector('#search-btn');
 let searchBar = document.querySelector('.search-bar-container');
 let formBtn = document.querySelector('#login-btn');
@@ -89,5 +91,6 @@ var swiper = new Swiper(".brand-slider", {
   },
  },
 });
+
 
 
