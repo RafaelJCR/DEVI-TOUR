@@ -271,6 +271,70 @@ background:white;
 color:black;
 transform:translateY(-2px);
 }
+
+.group-box{
+grid-column:span 2;
+margin-top:-10px;
+}
+
+.group-option{
+display:flex;
+align-items:center;
+gap:10px;
+padding:8px 12px;
+border-radius:8px;
+background:rgba(255,255,255,0.07);
+margin-bottom:6px;
+cursor:pointer;
+font-size:13px;
+transition:0.2s;
+}
+
+.group-option:hover{
+background:rgba(255,255,255,0.14);
+}
+
+.group-option input{
+appearance:none;
+width:11px;
+height:11px;
+border:2px solid #ffffff;
+border-radius:3px;
+cursor:pointer;
+position:relative;
+transform:scale(0.7);
+}
+
+.group-option input:checked{
+background:#25D366;
+border-color:#ffffff;
+}
+
+.group-option input:checked::after{
+content:"✔";
+color:white;
+font-size:18px;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
+.hotel-box{
+position:relative;
+}
+
+#hotelList{
+position:absolute;
+width:101%;
+background:#fff;
+color:#000;
+border-radius:5px;
+max-height:180px;
+overflow-y:auto;
+display:none;
+z-index:10;
+}
 </style>
 </head>
 
@@ -302,40 +366,23 @@ Prices vary depending on the <strong>number of people</strong> in the group.
 
 <div class="tour-description">
 
-<h3>About this Excursion ESTO NO ES VERIFDICO</h3>
+<h3>About this Excursion</h3>
 
-<p>
-The Saona Island excursion begins when we pick you up directly from your hotel.
-From there we travel to the beautiful fishing village of Bayahibe where the adventure starts.
-</p>
+<p>Book an all-inclusive boat to visit Saona Island surrounded by all your loved ones. and spend one of the best moments of your vacation in the Caribbean.
 
-<p>
-Depending on the departure schedule, you will travel either by speed boat or by catamaran.
-If we depart by speed boat, we will first stop at the famous Natural Pool for about
-25–35 minutes where you can enjoy the shallow crystal-clear waters.
-</p>
+On this beautiful excursion we will visit the natural pool where we will take a delicious dip and then go directly to the Saona Island where we will spend the entire day sunbathing and having fun.</p>
 
-<p>
-After the stop, we continue to Saona Island where you will spend the rest of the day
-relaxing on the beach, swimming in turquoise waters, and enjoying the tropical scenery.
-</p>
-
-<p>
-The return trip is done on the opposite boat type — if you went by speed boat you will return
-by catamaran, and vice versa. During the catamaran ride you will enjoy music,
-entertainment and drinks on board.
-</p>
 
 <h4>The excursion includes:</h4>
 
 <ul>
-<li>Round-trip transportation</li>
-<li>Professional tour guide</li>
-<li>Entertainment on the boat</li>
 <li>Alcoholic beverages</li>
-<li>Water</li>
-<li>Soft drinks</li>
-<li>Buffet style lunch</li>
+<li>Tropical fruits</li>
+<li>Lunch</li>
+<li>Private land transportation</li>
+<li>Tour guide</li>
+<li>Animation</li>
+<li>Music on board…</li>
 </ul>
 
 </div>
@@ -347,15 +394,36 @@ entertainment and drinks on board.
 <input type="text" id="name" placeholder="John Doe">
 </div>
 
+
 <div class="hotel-box">
 <label>Hotel / Pickup Location</label>
 <input type="text" id="hotelInput" placeholder="Start typing hotel...">
 <div id="hotelList"></div>
 </div>
+<div class="group-box">
 
-<div>
-<label>Number of People</label>
-<select id="people"></select>
+<label>Group Size</label>
+
+<label class="group-option">
+<input type="radio" name="group" value="2600" checked>
+<span>10 – 20 People — $2600</span>
+</label>
+
+<label class="group-option">
+<input type="radio" name="group" value="3200">
+<span>21 – 30 People — $3200</span>
+</label>
+
+<label class="group-option">
+<input type="radio" name="group" value="3800">
+<span>31 – 45 People — $3800</span>
+</label>
+
+<label class="group-option">
+<input type="radio" name="group" value="4400">
+<span>46 – 60 People — $4400</span>
+</label>
+
 </div>
 
 <div>
@@ -365,7 +433,7 @@ entertainment and drinks on board.
 
 <div>
 <label>Additional Information</label>
-<textarea id="notes" placeholder="Special requests..."></textarea>
+<textarea id="notes" placeholder="Additional information or special requests..."></textarea>
 </div>
 
 </form>
@@ -418,6 +486,23 @@ const hotels=[
 "Hyatt Ziva Cap Cana","TRS Cap Cana","Eden Roc Cap Cana","Nickelodeon Punta Cana","Impressive Punta Cana",
 "Vista Sol Punta Cana","Santo Domingo Hotel"
 ];
+
+const groupOptions = document.querySelectorAll('input[name="group"]');
+const priceBox = document.querySelector(".price");
+
+function updateGroupPrice(){
+
+const selected = document.querySelector('input[name="group"]:checked').value;
+
+priceBox.innerText = "$" + selected + " USD";
+
+}
+
+groupOptions.forEach(option=>{
+option.addEventListener("change",updateGroupPrice);
+});
+
+updateGroupPrice();
 
 document.title=`Book Excursion | ${tour.name}`;
 document.querySelector(".subtitle").innerText=tour.name;

@@ -7,7 +7,12 @@
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
 
 body{
 background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
@@ -36,33 +41,70 @@ color:white;
 .booking-form{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:25px;
+gap:30px;
 }
 
-label{font-size:14px;margin-bottom:5px;display:block;}
+label{
+font-size:14px;
+opacity:0.8;
+margin-bottom:6px;
+display:block;
+}
+
+/* INPUTS ESTILO BONITO */
 
 input,select,textarea{
 width:100%;
-padding:12px;
-border-radius:10px;
+padding:14px 16px;
 border:none;
-background:rgba(255,255,255,0.15);
+border-radius:12px;
+background:rgba(255,255,255,0.08);
 color:white;
+font-size:15px;
+outline:none;
+transition:0.3s;
 }
 
-textarea{grid-column:span 2;}
+input:focus,select:focus,textarea:focus{
+background:rgba(255,255,255,0.15);
+box-shadow:0 0 0 2px rgba(255,255,255,0.4);
+transform:scale(1.02);
+}
+
+textarea{
+grid-column:span 2;
+height:110px;
+resize:none;
+}
+
+input::placeholder,
+textarea::placeholder{
+color:rgba(255,255,255,0.6);
+}
+
+select option{
+color:black;
+}
 
 .tour-card{
 padding:30px;
-border-radius:20px;
+border-radius:25px;
 border:1px solid rgba(255,255,255,0.3);
 text-align:center;
+backdrop-filter:blur(12px);
 }
 
 .price{
 font-size:28px;
+font-weight:600;
+margin:20px 0 5px 0;
 color:#f77f00;
-margin:20px 0;
+}
+
+.deposit{
+font-size:16px;
+color:#FFD54F;
+margin-bottom:15px;
 }
 
 .btn-book{
@@ -70,77 +112,20 @@ width:100%;
 padding:14px;
 border:none;
 border-radius:40px;
-background:#25D366;
+background:linear-gradient(135deg,#25D366,#1ebe5d);
 color:white;
 font-size:16px;
 cursor:pointer;
 margin-top:15px;
-}
-/* MOBILE FIX */
-@media (max-width: 768px){
-
-.booking-container{
-grid-template-columns:1fr;
-gap:30px;
-padding:25px;
-}
-
-.booking-form{
-grid-template-columns:1fr;
-gap:20px;
-}
-
-textarea{
-grid-column:span 1;
-}
-
-.tour-card{
-margin-top:10px;
-padding:25px;
-}
-
-.tour-card h2{
-font-size:22px;
-}
-
-.price{
-font-size:24px;
-}
-
-.btn-book{
-width:100%;
-}
-
-}
-/* INPUTS Y SELECT */
-input, select, textarea{
-width:100%;
-padding:14px 16px;
-border:none;
-border-radius:12px;
-background:#ffffff;   /* fondo blanco */
-color:#111;           /* texto oscuro */
-font-size:15px;
-outline:none;
 transition:0.3s;
 }
 
-/* OPCIONES DEL SELECT */
-select option{
-background:white;
-color:black;
+.btn-book:hover{
+transform:translateY(-4px);
+box-shadow:0 15px 30px rgba(37,211,102,0.4);
 }
 
-/* PLACEHOLDER */
-input::placeholder,
-textarea::placeholder{
-color:#666;
-}
-
-/* CUANDO SE SELECCIONA */
-input:focus, select:focus, textarea:focus{
-box-shadow:0 0 0 2px rgba(255,255,255,0.4);
-}.btn-back{
+.btn-back{
 display:inline-block;
 margin-bottom:20px;
 padding:10px 20px;
@@ -159,6 +144,62 @@ color:black;
 transform:translateY(-2px);
 }
 
+.included{
+margin-top:15px;
+text-align:left;
+font-size:14px;
+opacity:0.9;
+}
+
+.included h4{
+margin-bottom:8px;
+font-weight:500;
+}
+
+.included ul{
+padding-left:18px;
+}
+
+.included li{
+margin-bottom:4px;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px){
+
+.booking-container{
+grid-template-columns:1fr;
+gap:30px;
+padding:25px;
+}
+
+.booking-form{
+grid-template-columns:1fr;
+}
+
+textarea{
+grid-column:span 1;
+}
+
+}
+
+.hotel-box{
+position:relative;
+}
+
+#hotelList{
+position:absolute;
+width:101%;
+background:#fff;
+color:#000;
+border-radius:5px;
+max-height:180px;
+overflow-y:auto;
+display:none;
+z-index:10;
+}
+
 </style>
 </head>
 
@@ -168,60 +209,62 @@ transform:translateY(-2px);
 
 <div>
 
-
 <a href="index.html" class="btn-back">⬅ Back to Home</a>
+
 <h1>🛥️ Book Your Excursion</h1>
+
+<div class="included">
+<h2>What’s Included</h2>
+
+<ul>
+<li>Lunch: Salad, Dominican Typical Lunch, Fruits, Bread, Coffee, Sodas</li>
+<li>Alcoholic Beverages</li>
+<li>Bottled water</li>
+<li>Air-conditioned vehicle</li>
+
+</ul>
+</div>
+
+<br>
+<br>
 
 <form class="booking-form">
 
 <div>
 <label>Full Name</label>
-<input type="text" id="name">
+<input type="text" id="name" placeholder="John Doe">
 </div>
 
-<div>
-<label>Hotel</label>
-<input type="text" id="hotelInput">
+<div class="hotel-box">
+<label>Hotel / Accommodation</label>
+<input type="text" id="hotelInput" placeholder="Hotel / Pickup Location">
+<div id="hotelList"></div>
 </div>
 
 <div>
 <label>Adults (9+) $55</label>
-<select id="adults">
-<option value="0">0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-</select>
+<input type="number" id="adults" value="1" min="1">
 </div>
 
 <div>
 <label>Children (4-8) $45</label>
-<select id="children">
-<option value="0">0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-</select>
+<input type="number" id="children" value="0" min="0">
 </div>
 
 <div>
 <label>Babies (0-3) Free</label>
-<select id="babies">
-<option value="0">0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-</select>
+<input type="number" id="babies" value="0" min="0">
 </div>
+
 
 <div>
 <label>Date</label>
-<input type="date" id="date">
+<input type="date" id="date" placeholder="Select date">
 </div>
 
 <div>
 <label>Notes</label>
-<textarea id="notes"></textarea>
+<textarea id="notes" placeholder="Additional information or special requests..."></textarea>
 </div>
 
 </form>
@@ -236,9 +279,12 @@ transform:translateY(-2px);
 
 <div class="price" id="totalPrice">$0 USD</div>
 
+<div class="deposit" id="deposit">$20 deposit per person</div>
+
 <div id="paypal-button-container"></div>
 
 <button class="btn-book" onclick="sendWhatsApp()">Confirm Reservation via WhatsApp</button>
+
 
 </div>
 
@@ -246,8 +292,60 @@ transform:translateY(-2px);
 
 <script>
 
+    const hotels = [
+"Hard Rock Hotel & Casino Punta Cana","Royalton Punta Cana","Royalton Bavaro",
+"Royalton Splash Punta Cana","Royalton CHIC Punta Cana",
+"Riu Palace Bavaro","Riu Palace Punta Cana","Riu Palace Macao","Riu Bambu","Riu Republica",
+"Majestic Mirage Punta Cana","Majestic Elegance Punta Cana","Majestic Colonial Punta Cana",
+"Bahia Principe Fantasia","Bahia Principe Grand Bavaro","Bahia Principe Luxury Ambar",
+"Barceló Bávaro Palace","Barceló Bávaro Beach",
+"Iberostar Selection Bavaro","Iberostar Grand Bavaro","JOIA Bavaro by Iberostar",
+"Dreams Royal Beach","Dreams Macao","Secrets Royal Beach","Secrets Cap Cana",
+"Melia Caribe Beach","Paradisus Palma Real","Lopesan Costa Bavaro",
+"Ocean Blue & Sand","Ocean El Faro",
+"Grand Palladium Punta Cana","Catalonia Bavaro","Excellence Punta Cana",
+"Hyatt Zilara Cap Cana","Hyatt Ziva Cap Cana","TRS Cap Cana","Eden Roc Cap Cana",
+"Nickelodeon Punta Cana","Impressive Punta Cana","Vista Sol Punta Cana",
+"Santo Domingo Hotel"
+];
+
+const input = document.getElementById("hotelInput");
+const list = document.getElementById("hotelList");
+
+input.addEventListener("input", () => {
+
+const value = input.value.toLowerCase().trim();
+list.innerHTML="";
+
+if(!value){
+list.style.display="none";
+return;
+}
+
+hotels
+.filter(h => h.toLowerCase().startsWith(value[0]))
+.forEach(h => {
+
+const div = document.createElement("div");
+div.textContent = h;
+
+div.onclick = () => {
+input.value = h;
+list.style.display = "none";
+};
+
+list.appendChild(div);
+
+});
+
+list.style.display="block";
+
+});
+
 const adultPrice=55;
 const childPrice=45;
+
+let depositAmount=20;
 
 const adults=document.getElementById("adults");
 const children=document.getElementById("children");
@@ -258,14 +356,17 @@ function updatePrice(){
 
 let total=(adults.value*adultPrice)+(children.value*childPrice);
 
+depositAmount=(parseInt(adults.value)+parseInt(children.value))*20;
+
 totalPrice.innerText="$"+total+" USD";
+
+document.getElementById("deposit").innerText="$"+depositAmount+" deposit today ($20 per person)";
 
 }
 
-adults.addEventListener("change",updatePrice);
-children.addEventListener("change",updatePrice);
-babies.addEventListener("change",updatePrice);
-
+adults.addEventListener("input",updatePrice);
+children.addEventListener("input",updatePrice);
+babies.addEventListener("input",updatePrice);
 updatePrice();
 
 function sendWhatsApp(){
@@ -283,7 +384,9 @@ Total Price: ${totalPrice.innerText}
 
 Date: ${date.value}
 
-Notes: ${notes.value}`;
+Notes: ${notes.value}
+
+Deposit via PayPal completed.`;
 
 window.open("https://wa.me/18090000000?text="+encodeURIComponent(message));
 
@@ -300,7 +403,7 @@ paypal.Buttons({
 createOrder:function(data,actions){
 return actions.order.create({
 purchase_units:[{
-amount:{value:'20.00'},
+amount:{value: depositAmount.toString()},
 description:'Saona Island Deposit'
 }]
 });

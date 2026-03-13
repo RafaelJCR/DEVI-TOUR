@@ -215,12 +215,12 @@ Professional trainers will guide the experience and ensure safety while you swim
 
 <div>
 <label>Full Name</label>
-<input type="text" id="name">
+<input type="text" id="name" placeholder="John Doe" required>
 </div>
 
 <div>
 <label>Hotel</label>
-<input type="text" id="hotel">
+<input type="text" id="hotelInput" placeholder="Start typing hotel..." required>
 </div>
 
 <div>
@@ -233,13 +233,7 @@ Professional trainers will guide the experience and ensure safety while you swim
 
 <div>
 <label>Number of People</label>
-<select id="people">
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-</select>
+<input type="number" id="people" value="1" min="1" oninput="updateTotal()">
 </div>
 
 <div>
@@ -249,7 +243,7 @@ Professional trainers will guide the experience and ensure safety while you swim
 
 <div>
 <label>Notes</label>
-<textarea id="notes"></textarea>
+<textarea id="notes" placeholder="Extra information, Special requests..."></textarea>
 </div>
 
 </form>

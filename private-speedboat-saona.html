@@ -286,6 +286,56 @@ background:white;
 color:black;
 transform:translateY(-2px);
 }
+
+
+
+.group-box{
+grid-column:span 2;
+margin-top:-10px;
+}
+
+.group-option{
+display:flex;
+align-items:center;
+gap:10px;
+padding:8px 12px;
+border-radius:8px;
+background:rgba(255,255,255,0.07);
+margin-bottom:6px;
+cursor:pointer;
+font-size:13px;
+transition:0.2s;
+}
+
+.group-option:hover{
+background:rgba(255,255,255,0.14);
+}
+
+.group-option input{
+appearance:none;
+width:11px;
+height:11px;
+border:2px solid #ffffff;
+border-radius:3px;
+cursor:pointer;
+position:relative;
+transform:scale(0.7);
+}
+
+.group-option input:checked{
+background:#25D366;
+border-color:#ffffff;
+}
+
+.group-option input:checked::after{
+content:"✔";
+color:white;
+font-size:18px;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
 </style>
 </head>
 
@@ -318,28 +368,18 @@ Prices vary depending on the <strong>number of people</strong> in the group.
 
 <div class="tour-description">
 
-<h3>About this Excursion ESTO NO ES VERIDICO</h3>
+<h3>About this Excursion</h3>
 
-<p>
-Enjoy a completely private speedboat experience to Saona Island with your own group.
-</p>
+<p>This is an all-inclusive excursion to Saona Island, you and your loved ones will travel in private land transportation and the water transportation is also private and exclusive to you. On this excursion we will visit the town of Bayahibe where we will board the boat and then head to Saona Island. towards the natural pool, where we can see the starfish. Here we will last around 30 to 40 minutes, then we will continue our trip to Saona Island where we will spend the whole day enjoying the beach taking some beautiful photos.</p>
 
-<p>
-This exclusive excursion allows you to travel directly by private boat with flexible schedule and personalized service.
-</p>
-
-<p>
-You will visit the famous Natural Pool in the Caribbean Sea before continuing to Saona Island where you can relax on white sand beaches.
-</p>
 
 <h4>The excursion includes:</h4>
 
 <ul>
-<li>Private speedboat transportation</li>
-<li>Stop at the Natural Pool</li>
-<li>Professional captain</li>
-<li>Drinks on board</li>
-<li>Free time on Saona Island</li>
+<li>Lunch of typical Dominican food</li>
+<li>Alcoholic and carbonated drinks</li>
+<li>Professional tourist guide</li>
+<li>Private ground transportation</li>
 </ul>
 
 </div>
@@ -357,16 +397,30 @@ You will visit the famous Natural Pool in the Caribbean Sea before continuing to
 <div id="hotelList"></div>
 </div>
 
-<div>
-<label>Number of People</label>
-<select id="people" required>
-<option value="">Select</option>
-<option>2 People</option>
-<option>3 People</option>
-<option>4 People</option>
-<option>5 People</option>
-<option>6+ People</option>
-</select>
+<div class="group-box">
+
+<label>Group Size</label>
+
+<label class="group-option">
+<input type="radio" name="group" value="1050" checked>
+<span>2 – 5 People — $1050</span>
+</label>
+
+<label class="group-option">
+<input type="radio" name="group" value="1400">
+<span>6 – 10 People — $1400</span>
+</label>
+
+<label class="group-option">
+<input type="radio" name="group" value="1930">
+<span>11 – 15 People — $1930</span>
+</label>
+
+<label class="group-option">
+<input type="radio" name="group" value="2800">
+<span>16 – 20 People — $2800</span>
+</label>
+
 </div>
 
 <div>
@@ -426,6 +480,20 @@ const hotels=[
 "TRS Cap Cana","Eden Roc Cap Cana","Nickelodeon Punta Cana","Impressive Punta Cana",
 "Vista Sol Punta Cana","Santo Domingo Hotel"
 ];
+
+const groupOptions = document.querySelectorAll('input[name="group"]');
+const priceBox = document.querySelector(".price");
+
+function updateGroupPrice(){
+const selected = document.querySelector('input[name="group"]:checked').value;
+priceBox.innerText = "$" + selected + " USD";
+}
+
+groupOptions.forEach(option=>{
+option.addEventListener("change",updateGroupPrice);
+});
+
+updateGroupPrice();
 
 const input=document.getElementById("hotelInput");
 const list=document.getElementById("hotelList");

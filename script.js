@@ -92,5 +92,24 @@ var swiper = new Swiper(".brand-slider", {
  },
 });
 
+const pricePerCouple = 55;
+
+const peopleInput = document.getElementById("people");
+const totalPrice = document.getElementById("totalPrice");
+
+function updatePrice(){
+
+const people = parseInt(peopleInput.value) || 0;
+
+const total = people * pricePerCouple;
+
+totalPrice.innerHTML = "$" + total + " USD";
+
+}
+
+peopleInput.addEventListener("input", updatePrice);
+
+updatePrice();
+
 
 

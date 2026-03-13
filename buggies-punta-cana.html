@@ -152,6 +152,53 @@ z-index:10;
 .booking-form{grid-template-columns:1fr;}
 textarea{grid-column:span 1;}
 }
+
+
+.schedule-box{
+grid-column:span 2;
+margin-top:-10px;
+}
+
+.schedule-option{
+display:flex;
+align-items:center;
+gap:10px;
+padding:8px 12px;
+border-radius:8px;
+background:rgba(255,255,255,0.07);
+margin-bottom:6px;
+cursor:pointer;
+font-size:13px;
+transition:0.2s;
+}
+
+.schedule-option:hover{
+background:rgba(255,255,255,0.14);
+}
+
+.schedule-option input{
+appearance:none;
+width:11px;
+height:11px;
+border:2px solid #ffffff;
+border-radius:3px;
+cursor:pointer;
+position:relative;
+transform:scale(0.8);
+}
+.schedule-option input:checked{
+background:#00ff62;
+}
+
+.schedule-option input:checked::after{
+content:"✔";
+color:white;
+font-size:18px;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
 </style>
 </head>
 
@@ -216,6 +263,28 @@ textarea{grid-column:span 1;}
 <input type="date" id="date">
 </div>
 
+<div class="schedule-box">
+
+<h4>Excursion Schedule</h4>
+<br>
+
+<label class="schedule-option">
+<input type="radio" name="schedule" value="First shift (7:15am - 8:40am)" checked>
+<span>First shift. Pickup from 7:15am - 8:40am</span>
+</label>
+
+<label class="schedule-option">
+<input type="radio" name="schedule" value="Second shift (10:20am - 11:40am)">
+<span>Second shift. Pickup from 10:20am - 11:40am</span>
+</label>
+
+<label class="schedule-option">
+<input type="radio" name="schedule" value="Third shift (1:20pm - 2:40pm)">
+<span>Third shift. Pickup from 1:20pm - 2:40pm</span>
+</label>
+
+</div>
+
 <div>
 <label>Additional Information</label>
 <textarea id="notes" placeholder="Special requests, kids, etc..."></textarea>
@@ -233,7 +302,7 @@ textarea{grid-column:span 1;}
 
 <p>Drive through muddy trails and explore the Dominican countryside.</p>
 
-<div class="price">$90 USD / Couple</div>
+<div class="price">$<span id="priceTotal">90</span> USD</div>
 
 <div class="deposit">
 Deposit: $20 per couple  
@@ -291,10 +360,16 @@ list.style.display="block";
 
 const couplesInput=document.getElementById("couples");
 const depositText=document.getElementById("depositTotal");
+const priceText=document.getElementById("priceTotal");
 
 couplesInput.addEventListener("input",()=>{
+
 let couples=parseInt(couplesInput.value)||1;
+
 depositText.textContent=couples*20;
+
+priceText.textContent=couples*90;
+
 });
 
 function sendWhatsApp(){

@@ -229,41 +229,44 @@ Humpback whales can be seen in Samaná Bay only from
 
 <div class="tour-description">
 
-<p>
-Discover one of the most complete excursions in the Dominican Republic visiting the beautiful Samaná Peninsula.
-</p>
+<h3>About this Excursion</h3>
 
-<p>
-The adventure begins with transportation from your hotel to Samaná where you will enjoy a boat ride across the bay and visit the famous Cayo Levantado island.
-</p>
+<p>Take a guided day trip from Punta Cana to explore the eastern coastal region of the Dominican Republic. The tour begins with transportation from your hotel and a boat ride from Las Cañitas Pier to Samaná. From there, a safari-style truck takes you through the countryside to a ranch.
 
-<p>
-The tour also includes a visit to El Limón Waterfall where you can enjoy nature and explore one of the most beautiful natural attractions in the country.
-</p>
+At the ranch, you will ride a horse for about 40 minutes to reach El Limón Waterfall, one of the most impressive waterfalls in the Caribbean with a 67-meter drop. After spending time enjoying the waterfall, you return to the ranch for a traditional Dominican lunch.
 
+The tour continues with a visit to Cayo Levantado, also known as Isla Bacardí, where you can relax on white-sand beaches, swim in crystal-clear waters, or rest under coconut trees. After about an hour and a half on the island, the trip returns by boat to Las Cañitas.</p>
+
+<br>
+
+<h4>what will you do?</h4>
+<ul>
+<li>Safari Truck will take you to make the tour through the Town</li>
+<li>Ride a horse for about 40 minutes one way to visit La Cascada Limón</li>
+<li>Cayo Levantado or Isla Bacardi, to enjoy its white sands and crystal clear water</li>
+</ul>
 </div>
 
 <form class="booking-form">
 
 <div>
 <label>Full Name</label>
-<input type="text" id="name">
+<input type="text" id="name" placeholder="John Doe" required>
 </div>
 
 <div>
 <label>Hotel</label>
-<input type="text" id="hotel">
+<input type="text" id="hotelInput" placeholder="Start typing hotel..." required>
 </div>
 
 <div>
-<label>Number of People</label>
-<select id="people">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5+</option>
-</select>
+<label>Adults (9+) $125</label>
+<input type="number" id="adults" value="1" min="1" oninput="updateTotal()">
+</div>
+
+<div>
+<label>Children (0-8) $60</label>
+<input type="number" id="children" value="0" min="0" oninput="updateTotal()">
 </div>
 
 <div>
@@ -273,7 +276,7 @@ The tour also includes a visit to El Limón Waterfall where you can enjoy nature
 
 <div>
 <label>Notes</label>
-<textarea id="notes"></textarea>
+<textarea id="notes" placeholder="Extra information, Special requests..."></textarea>
 </div>
 
 </form>
@@ -309,6 +312,28 @@ Deposit via PayPal. Remaining balance paid on excursion day.
 </div>
 
 <script>
+
+    const adultPrice = 125;
+const childPrice = 60;
+
+const adultsInput = document.getElementById("adults");
+const childrenInput = document.getElementById("children");
+
+const priceBox = document.querySelector(".price");
+
+function updateTotal(){
+
+let adults = parseInt(adultsInput.value) || 0;
+let children = parseInt(childrenInput.value) || 0;
+
+let total = (adults * adultPrice) + (children * childPrice);
+
+priceBox.innerText = "$" + total + " USD";
+
+}
+
+// calcular al cargar la página
+updateTotal();
 
 function sendWhatsApp(){
 

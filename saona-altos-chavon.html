@@ -242,31 +242,24 @@ transform:translateY(-2px);
 
 <div class="tour-description">
 
-<h3>About this Excursion   ESTO NO ES VERIDICO</h3>
+<h3>About this Excursion</h3>
 
-<p>
-Discover one of the most complete excursions in Punta Cana combining paradise beaches with Dominican history and culture.
-</p>
+<p>The tour begins with a visit to Altos de Chavón, a replica of a 16th-century Mediterranean village located above the Chavón River. There, visitors can admire the detailed craftsmanship created by Dominican artisans and enjoy the unique architecture and views of the river and surrounding landscape.
 
-<p>
-Our adventure begins with transportation from your hotel to La Romana where we will visit the famous Mediterranean-style village of Altos de Chavón.
-</p>
+After exploring the village, the experience continues with a catamaran trip to Saona Island, a beautiful tropical island located on the southeast coast of the country and part of a protected natural reserve. Once on the island, visitors can relax on the beach, swim in the crystal-clear turquoise waters, or explore the tropical surroundings.
 
-<p>
-Altos de Chavón is a stunning replica of a 16th century Mediterranean village located above the Chavón River. Here you can explore its stone streets, art galleries and breathtaking viewpoints.
-</p>
+Saona Island is known for having some of the most beautiful beaches in the Caribbean, with white sand, coconut palms, and calm waters. During the visit, guests can enjoy a BBQ buffet lunch with typical Dominican flavors and drinks from the open bar. After spending time relaxing and enjoying the island’s natural beauty, the tour ends with the return trip to Punta Cana.</p>
 
-<h4>After Altos de Chavón we continue to:</h4>
+<h4>Included services:</h4>
 
 <ul>
-<li>Bayahibe village</li>
-<li>Natural swimming pool in the Caribbean Sea</li>
-<li>Saona Island paradise beaches</li>
+<li>Pickup and drop-off at your accommodation Yes, Hotel lobby or specified</li>
+<li>Professional guide</li>
+<li>Entrance fee to the East National park</li>
+<li>Buffet lunch (salad, and typical Dominican fare)</li>
+<li>30 to 40-minute stop at the biggest natural swimming pool</li>
+<li>3 hours at Saona Island</li>
 </ul>
-
-<p>
-Enjoy a relaxing day with turquoise waters, white sand beaches, Dominican buffet lunch and tropical drinks while discovering one of the most beautiful islands in the Caribbean.
-</p>
 
 </div>
 
@@ -284,14 +277,13 @@ Enjoy a relaxing day with turquoise waters, white sand beaches, Dominican buffet
 </div>
 
 <div>
-<label>Number of People</label>
-<select id="people">
-<option>1 Person</option>
-<option>2 People</option>
-<option>3 People</option>
-<option>4 People</option>
-<option>5+ People</option>
-</select>
+<label>Adults (9+) $155</label>
+<input type="number" id="adults" value="1" min="1" oninput="updateTotal()">
+</div>
+
+<div>
+<label>Children (0-8) $95</label>
+<input type="number" id="children" value="0" min="0" oninput="updateTotal()">
 </div>
 
 <div>
@@ -339,6 +331,28 @@ Deposit via PayPal. Remaining balance paid on excursion day.
 <script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
 
 <script>
+
+    const adultPrice = 155;
+const childPrice = 95;
+
+const adultsInput = document.getElementById("adults");
+const childrenInput = document.getElementById("children");
+
+const priceBox = document.querySelector(".price");
+
+function updateTotal(){
+
+let adults = parseInt(adultsInput.value) || 0;
+let children = parseInt(childrenInput.value) || 0;
+
+let total = (adults * adultPrice) + (children * childPrice);
+
+priceBox.innerText = "$" + total + " USD";
+
+}
+
+// calcular al cargar la página
+updateTotal();
 
 paypal.Buttons({
 

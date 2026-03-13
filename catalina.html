@@ -271,18 +271,22 @@ swimming and enjoying the beach.
 
 <div>
 <label>Hotel / Pickup Location</label>
-<input type="text" id="hotelInput" placeholder="Your hotel">
+<input type="text" id="hotelInput" placeholder="Hotel / Pickup Location">
 </div>
 
 <div>
-<label>Number of People</label>
-<select id="people">
-<option>1 Person</option>
-<option>2 People</option>
-<option>3 People</option>
-<option>4 People</option>
-<option>5+ People</option>
-</select>
+<label>Adults (9+ years) — $55</label>
+<input type="number" id="adults" value="1" min="0" oninput="updateTotal()">
+</div>
+
+<div>
+<label>Kids 4-8 years — $45</label>
+<input type="number" id="kids" value="0" min="0" oninput="updateTotal()">
+</div>
+
+<div>
+<label>Kids 0-3 years — Free</label>
+<input type="number" id="babies" value="0" min="0">
 </div>
 
 <div>
@@ -328,6 +332,29 @@ Deposit via PayPal. Remaining balance paid on excursion day.
 </div>
 
 <script>
+
+
+const adultPrice = 55;
+const kidPrice = 45;
+
+const adults = document.getElementById("adults");
+const kids = document.getElementById("kids");
+const babies = document.getElementById("babies");
+
+const priceBox = document.querySelector(".price");
+
+function updateTotal(){
+
+let total =
+(adults.value * adultPrice) +
+(kids.value * kidPrice);
+
+priceBox.innerText = "$" + total + " USD";
+
+}
+
+// calcular al cargar la página
+updateTotal();
 
 function sendWhatsApp(){
 

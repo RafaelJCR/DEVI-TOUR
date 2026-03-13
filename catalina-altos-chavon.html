@@ -209,38 +209,21 @@ transform:translateY(-2px);
 
 <div class="tour-description">
 
-<h3>About this Excursion ESTO NO ES VERIDICO</h3>
+<h3>About this Excursion</h3>
 
 <p>
-This excursion combines the beauty of Catalina Island with a cultural visit to the famous village of Altos de Chavón.
-The day begins with hotel pickup and transportation to La Romana where the adventure starts.
+Explore Punta Cana’s surrounding landscape by land and water during a 9-hour tour. Step back in time with a visit to Altos de Chavón, a replica of a medieval Mediterranean village. Hop aboard a double-decker boat for a cruise along the Chavón River, then hop on a catamaran for a sailing adventure to Catalina Island. While on the island, enjoy a buffet lunch and use the provided diving equipment to explore the underwater world. Round-trip transportation from select Punta Cana hotels available.
 </p>
 
-<p>
-Our first stop is Altos de Chavón, a stunning Mediterranean-style village located above the Chavón River. 
-Here you will have time to walk through its stone streets, visit artisan shops, and enjoy breathtaking views.
-</p>
-
-<p>
-After visiting Altos de Chavón we continue to the port where the boat will take us to Catalina Island,
-one of the most beautiful snorkeling destinations in the Dominican Republic.
-</p>
-
-<p>
-Once on Catalina Island you can relax on white sand beaches, swim in turquoise waters,
-and enjoy the tropical atmosphere of the Caribbean.
-</p>
-
-<h4>The excursion includes:</h4>
+<h4>Included services:</h4>
 
 <ul>
-<li>Round-trip transportation</li>
-<li>Professional tour guide</li>
-<li>Snorkeling equipment</li>
-<li>Open bar with drinks</li>
-<li>Water and soft drinks</li>
-<li>Dominican buffet lunch</li>
-<li>Beach time on Catalina Island</li>
+<li>Alcoholic and non-alcoholic drinks</li>
+<li>Buffet lunch and snacks</li>
+<li>Professional guide</li>
+<li>Hotel pickup and drop-off</li>
+<li>Vehicle with air conditioning</li>
+<li>snorkeling equipment</li>
 </ul>
 
 </div>
@@ -259,14 +242,13 @@ and enjoy the tropical atmosphere of the Caribbean.
 </div>
 
 <div>
-<label>Number of People</label>
-<select id="people">
-<option>1 Person</option>
-<option>2 People</option>
-<option>3 People</option>
-<option>4 People</option>
-<option>5+ People</option>
-</select>
+<label>Adults (9+) $155</label>
+<input type="number" id="adults" value="1" min="1" oninput="updateTotal()">
+</div>
+
+<div>
+<label>Children (0-8) $95</label>
+<input type="number" id="children" value="0" min="0" oninput="updateTotal()">
 </div>
 
 <div>
@@ -327,6 +309,28 @@ const hotels = [
 "Nickelodeon Punta Cana","Impressive Punta Cana","Vista Sol Punta Cana",
 "Santo Domingo Hotel"
 ];
+
+const adultPrice = 155;
+const childPrice = 95;
+
+const adultsInput = document.getElementById("adults");
+const childrenInput = document.getElementById("children");
+
+const priceBox = document.querySelector(".price");
+
+function updateTotal(){
+
+let adults = parseInt(adultsInput.value) || 0;
+let children = parseInt(childrenInput.value) || 0;
+
+let total = (adults * adultPrice) + (children * childPrice);
+
+priceBox.innerText = "$" + total + " USD";
+
+}
+
+// calcular al cargar la página
+updateTotal();
 
 const input = document.getElementById("hotelInput");
 const list = document.getElementById("hotelList");

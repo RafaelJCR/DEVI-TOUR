@@ -220,6 +220,54 @@ background:white;
 color:black;
 transform:translateY(-2px);
 }
+
+.meeting-box{
+grid-column:span 2;
+margin-top:-10px;
+}
+
+.meeting-option{
+display:flex;
+align-items:center;
+gap:10px;
+padding:8px 12px;
+border-radius:8px;
+background:rgba(255,255,255,0.07);
+margin-bottom:6px;
+cursor:pointer;
+font-size:13px;
+transition:0.2s;
+}
+
+.meeting-option:hover{
+background:rgba(255,255,255,0.14);
+}
+
+.meeting-option input{
+appearance:none;
+width:11px;
+height:11px;
+border:2px solid #ffffff;
+border-radius:3px;
+cursor:pointer;
+position:relative;
+transform:scale(0.7);
+}
+
+.meeting-option input:checked{
+background:#25D366;
+border-color:#ffffff;
+}
+
+.meeting-option input:checked::after{
+content:"✔";
+color:white;
+font-size:18px;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
 </style>
 </head>
 
@@ -234,37 +282,21 @@ transform:translateY(-2px);
 
 <div class="tour-description">
 
-<h3>About this Excursion ESTO NO ES VERIDICO</h3>
+<h3>About this Excursion</h3>
 
-<p>
-This excursion takes you from Santo Domingo to the famous Saona Island,
-one of the most beautiful places in the Dominican Republic.
-</p>
-
-<p>
-The tour includes transportation from Santo Domingo to Bayahibe where
-the boat departure takes place.
-</p>
-
-<p>
-During the trip you will visit the famous Natural Pool, a shallow area
-in the Caribbean Sea where you can swim and relax in crystal clear water.
-</p>
-
-<p>
-After that we continue to Saona Island where you will enjoy white sand
-beaches, palm trees and a relaxing Caribbean atmosphere.
-</p>
+<p>This excursion begins in the city of Santo Domingo, after we leave Santo Domingo we will head to Bayahibe. There we will board a speed boat or a catamaran. If we go out by speedboat, we will make a stop in the morning at the natural pool for about 25 to 35 minutes, then we will go to Saona Island where we will spend the entire day and on the way back we will return on a catamran. If we board the motomaran in the morning, the stop at the natural pool will be in the afternoon.</p>
 
 <h4>The excursion includes:</h4>
 
 <ul>
-<li>Transportation from Santo Domingo</li>
-<li>Boat transfer to Saona Island</li>
-<li>Stop at the Natural Pool</li>
-<li>Buffet lunch</li>
-<li>Drinks</li>
-<li>Free time on the island</li>
+<li>Round trip transportation</li>
+<li>Buffet style lunch</li>
+<li>Professional tourist guide</li>
+<li>Transportation</li>
+<li>maritime by speedboat and catamran</li>
+<li>Stop at the natural pool for 25 to 35 minutes</li>
+<li>Alcoholic beverages</li>
+<li>water and sodas</li>
 </ul>
 
 </div>
@@ -283,19 +315,34 @@ beaches, palm trees and a relaxing Caribbean atmosphere.
 </div>
 
 <div>
-<label>Number of People</label>
-<select id="people">
-<option>1 Person</option>
-<option>2 People</option>
-<option>3 People</option>
-<option>4 People</option>
-<option>5+ People</option>
-</select>
+<label>Adults (10+) $75</label>
+<input type="number" id="adults" value="1" min="1" oninput="updateTotal()">
+</div>
+
+<div>
+<label>Children (0-9) $55</label>
+<input type="number" id="children" value="0" min="0" oninput="updateTotal()">
 </div>
 
 <div>
 <label>Excursion Date</label>
 <input type="date" id="date">
+</div>
+
+<div class="meeting-box">
+
+<label>Meeting Point</label>
+
+<label class="meeting-option">
+<input type="radio" name="meeting" value="Colon Park - Colonial Area (6:10 AM)">
+<span>Colon Park Colonial Area, in front of Pizzarelli – 6:10 AM</span>
+</label>
+
+<label class="meeting-option">
+<input type="radio" name="meeting" value="Texaco Pump - Juan Carlos Bridge (6:25 AM)" checked>
+<span>Texaco Pump next to Juan Carlos Bridge – 6:25 AM</span>
+</label>
+
 </div>
 
 <div>
@@ -353,6 +400,28 @@ const hotels = [
 "Nickelodeon Punta Cana","Impressive Punta Cana","Vista Sol Punta Cana",
 "Santo Domingo Hotel"
 ];
+
+const adultPrice = 75;
+const childPrice = 55;
+
+const adultsInput = document.getElementById("adults");
+const childrenInput = document.getElementById("children");
+
+const priceBox = document.querySelector(".price");
+
+function updateTotal(){
+
+let adults = parseInt(adultsInput.value) || 0;
+let children = parseInt(childrenInput.value) || 0;
+
+let total = (adults * adultPrice) + (children * childPrice);
+
+priceBox.innerText = "$" + total + " USD";
+
+}
+
+// calcular al cargar la página
+updateTotal();
 
 const input = document.getElementById("hotelInput");
 const list = document.getElementById("hotelList");

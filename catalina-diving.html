@@ -210,6 +210,30 @@ color:black;
 transform:translateY(-2px);
 }
 
+.taxi-box{
+background:rgba(255,255,255,0.08);
+border-radius:12px;
+padding:14px 16px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.taxi-option{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:14px;
+cursor:pointer;
+}
+
+.taxi-option input{
+width:24px;
+height:24px;
+cursor:pointer;
+accent-color:#25D366;
+}
+
 </style>
 </head>
 
@@ -276,18 +300,23 @@ for an additional cost of <strong>$25 USD per person</strong>.
 
 <div>
 <label>Number of People</label>
-<select id="people">
-<option>1 Person</option>
-<option>2 People</option>
-<option>3 People</option>
-<option>4 People</option>
-<option>5+ People</option>
-</select>
+<input type="number" id="people" value="1" min="1">
 </div>
+
 
 <div>
 <label>Excursion Date</label>
 <input type="date" id="date">
+</div>
+
+<div class="taxi-box">
+<label>Additional services</label>
+
+<label class="taxi-option">
+<input type="checkbox" id="taxiService">
+Taxi Service. Only for hotels located in Bayahibe.
+</label>
+
 </div>
 
 <div>
@@ -328,6 +357,21 @@ Deposit via PayPal. Remaining balance paid on excursion day.
 </div>
 
 <script>
+
+    people.addEventListener("input",updatePrice);
+
+   const pricePerPerson = 125;
+
+function updatePrice(){
+
+let total = people.value * pricePerPerson;
+
+document.querySelector(".price").innerText = "$" + total + " USD";
+
+}
+
+// calcular cuando cargue la página
+updatePrice();
 
 function sendWhatsApp(){
 

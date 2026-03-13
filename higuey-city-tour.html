@@ -269,6 +269,54 @@ font-size:13px;
 opacity:0.95;
 }
 
+.pickup-box{
+grid-column:span 2;
+margin-top:-10px;
+}
+
+.pickup-option{
+display:flex;
+align-items:center;
+gap:10px;
+padding:8px 12px;
+border-radius:8px;
+background:rgba(255,255,255,0.07);
+margin-bottom:6px;
+cursor:pointer;
+font-size:13px;
+transition:0.2s;
+}
+
+.pickup-option:hover{
+background:rgba(255,255,255,0.14);
+}
+
+.pickup-option input{
+appearance:none;
+width:11px;
+height:11px;
+border:2px solid #ffffff;
+border-radius:3px;
+cursor:pointer;
+position:relative;
+transform:scale(0.7);
+}
+
+.pickup-option input:checked{
+background:#25D366;
+border-color:#ffffff;
+}
+
+.pickup-option input:checked::after{
+content:"✔";
+color:white;
+font-size:18px;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
 </style>
 </head>
 
@@ -306,33 +354,24 @@ Prices vary depending on the <strong>number of people</strong> in the group.
 <h3>About this Excursion</h3>
 
 <p>
-This private excursion is designed for small groups who want to discover the authentic culture of the Dominican countryside.
+This excursion is designed for small groups. After picking you up, we will visit several local countryside areas where you can see how some traditional Dominican products are made, such as:
 </p>
-
-<p>
-After picking you up at your hotel we will drive through local villages and countryside areas where you will see how traditional Dominican products are made.
-</p>
-
-<h4>You will learn about:</h4>
+<br>
 
 <ul>
-<li>Cigar and tobacco production</li>
-<li>Traditional handmade chocolate</li>
-<li>Dominican Mamajuana preparation</li>
+<li>Cigars or tobacco</li>
+<li>Handmade chocolate</li>
+<li>Mamajuana preparation</li>
 </ul>
 
-<h4>During the tour we will visit:</h4>
+<h4>During the tour we will also visit:</h4>
 
 <ul>
 <li>Sugar cane fields</li>
-<li>The famous Basilica of Higüey</li>
-<li>San Dionisio Historical Church</li>
+<li>The Basilica of Higüey</li>
+<li>San Dionisio Parish Historical Monument</li>
 <li>The local Higüey market</li>
 </ul>
-
-<p>
-This tour offers a unique opportunity to experience Dominican history, religion, and local culture in a relaxed private environment.
-</p>
 
 </div>
 
@@ -350,20 +389,51 @@ This tour offers a unique opportunity to experience Dominican history, religion,
 </div>
 
 <div>
-<label>Number of People</label>
-<select id="people">
-<option>1 Person</option>
-<option>2 People</option>
-<option>3 People</option>
-<option>4 People</option>
-<option>5+ People</option>
-</select>
+<label>Adults (12+) $105</label>
+<input type="number" id="adults" value="1" min="1" oninput="updateTotal()">
+</div>
+
+<div>
+<label>Children (0-11) $55</label>
+<input type="number" id="children" value="0" min="0" oninput="updateTotal()">
 </div>
 
 <div>
 <label>Excursion Date</label>
 <input type="date" id="date">
 </div>
+
+<div class="pickup-box">
+
+<label>Pick up time</label>
+
+<label class="pickup-option">
+<input type="radio" name="pickup" value="7:00 AM" checked>
+<span>Pick up at 7:00am</span>
+</label>
+
+<label class="pickup-option">
+<input type="radio" name="pickup" value="8:00 AM">
+<span>Pick up at 8:00am</span>
+</label>
+
+<label class="pickup-option">
+<input type="radio" name="pickup" value="9:00 AM">
+<span>Pick up at 9:00am</span>
+</label>
+
+<label class="pickup-option">
+<input type="radio" name="pickup" value="10:00 AM">
+<span>Pick up at 10:00am</span>
+</label>
+
+<label class="pickup-option">
+<input type="radio" name="pickup" value="11:00 AM">
+<span>Pick up at 11:00am</span>
+</label>
+
+</div>
+
 
 <div>
 <label>Additional Information</label>
@@ -438,6 +508,28 @@ const hotels=[
 "Dreams Royal Beach",
 "Melia Caribe Beach"
 ];
+
+const adultPrice = 105;
+const childPrice = 55;
+
+const adultsInput = document.getElementById("adults");
+const childrenInput = document.getElementById("children");
+
+const priceBox = document.querySelector(".price");
+
+function updateTotal(){
+
+let adults = parseInt(adultsInput.value) || 0;
+let children = parseInt(childrenInput.value) || 0;
+
+let total = (adults * adultPrice) + (children * childPrice);
+
+priceBox.innerText = "$" + total + " USD";
+
+}
+
+// calcular al cargar la página
+updateTotal();
 
 const input=document.getElementById("hotelInput");
 const list=document.getElementById("hotelList");

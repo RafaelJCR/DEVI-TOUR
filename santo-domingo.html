@@ -10,60 +10,45 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
 
 body{
-  background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-  url("https://denomades.imgix.net/destinos/punta-cana/1160/monumento-cristobal-colon.jpg") no-repeat center/cover;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+url("https://denomades.imgix.net/destinos/punta-cana/1160/monumento-cristobal-colon.jpg") no-repeat center/cover;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
 }
 
 .booking-container{
-  width:95%;
-  max-width:1200px;
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:60px;
-  padding:50px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(16px);
-  border-radius:30px;
-  box-shadow:0 30px 60px rgba(0,0,0,0.5);
-  color:white;
-  align-items:center;
-  justify-items:center;
+width:95%;
+max-width:1200px;
+display:grid;
+grid-template-columns:1.2fr 1fr;
+gap:60px;
+padding:50px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(16px);
+border-radius:30px;
+box-shadow:0 30px 60px rgba(0,0,0,0.5);
+color:white;
 }
 
-.left-side,.right-side{width:100%;}
-
 .left-side h1{
-  font-size:36px;
-  font-weight:300;
-  margin-bottom:10px;
-  text-align:center;
+font-size:36px;
+font-weight:300;
+margin-bottom:10px;
+text-align:center;
 }
 
 .subtitle{
-  font-size:18px;
-  margin-bottom:20px;
+text-align:center;
+margin-bottom:20px;
 }
 
 .tour-description{
-margin-bottom:35px;
+margin-bottom:30px;
 line-height:1.7;
 font-size:14px;
-opacity:0.9;
-}
-
-.tour-description h3{
-margin-bottom:15px;
-font-weight:500;
-}
-
-.tour-description h4{
-margin-top:15px;
-margin-bottom:10px;
 }
 
 .tour-description ul{
@@ -71,44 +56,32 @@ padding-left:18px;
 }
 
 .booking-form{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
 }
 
 label{
-  font-size:14px;
-  opacity:0.8;
-  margin-bottom:6px;
-  display:block;
+font-size:14px;
+opacity:0.8;
+margin-bottom:6px;
+display:block;
 }
 
-input,select,textarea{
-  width:100%;
-  padding:14px 16px;
-  border:none;
-  border-radius:12px;
-  background:rgba(255,255,255,0.08);
-  color:white;
-  font-size:15px;
-  outline:none;
-  transition:0.3s;
-}
-
-input:focus,select:focus,textarea:focus{
-  background:rgba(255,255,255,0.15);
-  box-shadow:0 0 0 2px rgba(255,255,255,0.4);
-  transform:scale(1.02);
+input,textarea{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:rgba(255,255,255,0.08);
+color:white;
+font-size:15px;
+outline:none;
 }
 
 textarea{
-  grid-column:span 2;
-  height:110px;
-  resize:none;
-}
-
-input::placeholder,textarea::placeholder{
-color:rgba(255,255,255,0.6);
+grid-column:span 2;
+height:100px;
 }
 
 .right-side{
@@ -119,52 +92,35 @@ justify-content:center;
 
 .tour-card{
 width:100%;
-padding:30px 25px;
+padding:30px;
 border:1px solid rgba(255,255,255,0.3);
 border-radius:25px;
-backdrop-filter:blur(12px);
-display:flex;
-flex-direction:column;
-align-items:center;
 text-align:center;
 }
 
-.tour-card h2{
-margin-bottom:20px;
-font-weight:400;
-}
-
-.tour-card p{
-font-size:14px;
-line-height:1.6;
-opacity:0.85;
-margin-bottom:25px;
-}
-
 .price{
-font-size:28px;
+font-size:32px;
 font-weight:600;
-margin-bottom:25px;
+margin-bottom:5px;
 color:#f77f00;
+}
+
+.deposit{
+font-size:16px;
+margin-bottom:20px;
+color:#FFD54F;
 }
 
 .btn-book{
 width:100%;
-max-width:300px;
 padding:14px;
 border:none;
 border-radius:40px;
-background:linear-gradient(135deg,#25D366,#1ebe5d);
+background:#25D366;
 color:white;
 font-size:16px;
 cursor:pointer;
 margin-top:20px;
-transition:0.3s;
-}
-
-.btn-book:hover{
-transform:translateY(-4px);
-box-shadow:0 15px 30px rgba(37,211,102,0.4);
 }
 
 .note{
@@ -173,58 +129,28 @@ font-size:13px;
 opacity:0.7;
 }
 
-.hotel-box{
-position:relative;
+.taxi-box{
+background:rgba(255,255,255,0.08);
+border-radius:12px;
+padding:14px 16px;
+display:flex;
+flex-direction:column;
+justify-content:center;
 }
 
-#hotelList{
-position:absolute;
-width:101%;
-background:#fff;
-color:#000;
-border-radius:5px;
-max-height:180px;
-overflow-y:auto;
-display:none;
-z-index:10;
-}
-
-select option{
-color:black;
-}
-
-@media(max-width:992px){
-
-.booking-container{
-grid-template-columns:1fr;
-padding:30px 20px;
-}
-
-.booking-form{
-grid-template-columns:1fr;
-}
-
-textarea{
-grid-column:span 1;
-}
-
-}.btn-back{
-display:inline-block;
-margin-bottom:20px;
-padding:10px 20px;
-background:rgba(255,255,255,0.15);
-color:white;
-text-decoration:none;
-border-radius:30px;
+.taxi-option{
+display:flex;
+align-items:center;
+gap:10px;
 font-size:14px;
-transition:0.3s;
-border:1px solid rgba(255,255,255,0.3);
+cursor:pointer;
 }
 
-.btn-back:hover{
-background:white;
-color:black;
-transform:translateY(-2px);
+.taxi-option input{
+width:24px;
+height:24px;
+cursor:pointer;
+accent-color:#25D366;
 }
 
 </style>
@@ -235,7 +161,7 @@ transform:translateY(-2px);
 <div class="booking-container">
 
 <div class="left-side">
-<a href="index.html" class="btn-back">⬅ Back to Home</a>
+
 <h1>🏛️ Book Your Excursion</h1>
 <p class="subtitle">Santo Domingo City Tour</p>
 
@@ -272,39 +198,52 @@ After that we will visit some of the most important historical landmarks of the 
 <li>Entrance tickets to parks and museums</li>
 <li>Round-trip transportation</li>
 <li>Buffet style lunch</li>
-<li>Non-alcoholic beverages (water & soft drinks)</li>
+<li>Non-alcoholic beverages</li>
 <li>Professional tour guide</li>
 </ul>
 
 </div>
 
-<form class="booking-form" onsubmit="return false;">
+<form class="booking-form">
 
 <div>
 <label>Full Name</label>
 <input type="text" id="name" placeholder="John Doe">
 </div>
 
-<div class="hotel-box">
+<div>
 <label>Hotel / Pickup Location</label>
-<input type="text" id="hotelInput" placeholder="Start typing hotel...">
-<div id="hotelList"></div>
+<input type="text" id="hotelInput" placeholder="Hotel / Pickup Location">
 </div>
 
 <div>
-<label>Number of People</label>
-<select id="people">
-<option>1 Person</option>
-<option>2 People</option>
-<option>3 People</option>
-<option>4 People</option>
-<option>5+ People</option>
-</select>
+<label>Adults (9+ years) — $55</label>
+<input type="number" id="adults" value="1" min="0" oninput="updateTotal()">
+</div>
+
+<div>
+<label>Kids 4-8 years — $45</label>
+<input type="number" id="kids" value="0" min="0" oninput="updateTotal()">
+</div>
+
+<div>
+<label>Kids 0-3 years — Free</label>
+<input type="number" id="babies" value="0" min="0">
 </div>
 
 <div>
 <label>Excursion Date</label>
 <input type="date" id="date">
+</div>
+
+<div class="taxi-box">
+<label>Additional services</label>
+
+<label class="taxi-option">
+<input type="checkbox" id="taxiService">
+Taxi Service. Only for hotels located in Bayahibe.
+</label>
+
 </div>
 
 <div>
@@ -313,6 +252,7 @@ After that we will visit some of the most important historical landmarks of the 
 </div>
 
 </form>
+
 </div>
 
 <div class="right-side">
@@ -321,18 +261,16 @@ After that we will visit some of the most important historical landmarks of the 
 
 <h2>Santo Domingo City Tour</h2>
 
-<p>
-Explore the oldest city in the Americas and discover Dominican history,
-culture and architecture.
-</p>
+<div class="price" id="total">$55 USD</div>
 
-<div class="price">$55 USD</div>
+<div class="deposit" id="deposit">$20 deposit per person</div>
 
 <div id="paypal-button-container"></div>
 
 <button class="btn-book" onclick="sendWhatsApp()">
 Confirm Reservation via WhatsApp
 </button>
+
 
 <p class="note">
 Deposit via PayPal. Remaining balance paid on excursion day.
@@ -346,58 +284,51 @@ Deposit via PayPal. Remaining balance paid on excursion day.
 
 <script>
 
-const hotels=[
-"Hard Rock Hotel & Casino Punta Cana","Royalton Punta Cana","Royalton Bavaro",
-"Royalton Splash Punta Cana","Royalton CHIC Punta Cana",
-"Riu Palace Bavaro","Riu Palace Punta Cana","Riu Palace Macao","Riu Bambu","Riu Republica",
-"Majestic Mirage Punta Cana","Majestic Elegance Punta Cana","Majestic Colonial Punta Cana",
-"Bahia Principe Fantasia","Bahia Principe Grand Bavaro","Bahia Principe Luxury Ambar",
-"Barceló Bávaro Palace","Barceló Bávaro Beach",
-"Iberostar Selection Bavaro","Iberostar Grand Bavaro","JOIA Bavaro by Iberostar",
-"Dreams Royal Beach","Dreams Macao","Secrets Royal Beach","Secrets Cap Cana",
-"Melia Caribe Beach","Paradisus Palma Real","Lopesan Costa Bavaro",
-"Ocean Blue & Sand","Ocean El Faro",
-"Grand Palladium Punta Cana","Catalonia Bavaro","Excellence Punta Cana",
-"Hyatt Zilara Cap Cana","Hyatt Ziva Cap Cana","TRS Cap Cana","Eden Roc Cap Cana",
-"Nickelodeon Punta Cana","Impressive Punta Cana","Vista Sol Punta Cana"
-];
+let depositAmount = 20;
 
-const input=document.getElementById("hotelInput");
-const list=document.getElementById("hotelList");
+function updateTotal(){
 
-input.addEventListener("input",()=>{
-const value=input.value.toLowerCase().trim();
-list.innerHTML="";
-if(!value){list.style.display="none";return;}
+let adults=parseInt(document.getElementById("adults").value) || 0
+let kids=parseInt(document.getElementById("kids").value) || 0
 
-hotels.filter(h=>h.toLowerCase().includes(value))
-.forEach(h=>{
-const div=document.createElement("div");
-div.textContent=h;
-div.onclick=()=>{
-input.value=h;
-list.style.display="none";
-};
-list.appendChild(div);
-});
+let total=(adults*55)+(kids*45)
 
-list.style.display="block";
-});
+depositAmount=(adults+kids)*20
+
+document.getElementById("total").innerHTML="$"+total+" USD"
+
+document.getElementById("deposit").innerHTML="$"+depositAmount+" deposit today ($20 per person)"
+
+}
+
+updateTotal()
 
 function sendWhatsApp(){
+
+let adults=document.getElementById("adults").value
+let kids=document.getElementById("kids").value
+let babies=document.getElementById("babies").value
+
+let total=document.getElementById("total").innerText
 
 const message=`Hello! I would like to confirm my Santo Domingo City Tour booking.
 
 Name: ${name.value}
-Hotel: ${hotelInput.value}
-People: ${people.value}
+Hotel: ${hotel.value}
+
+Adults: ${adults}
+Kids 4-8: ${kids}
+Kids 0-3: ${babies}
+
 Date: ${date.value}
+
+Total: ${total}
+
 Notes: ${notes.value}
 
-Deposit via PayPal completed.
-Please confirm pickup time.`;
+Deposit via PayPal completed.`
 
-window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
+window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank")
 
 }
 
@@ -409,24 +340,22 @@ window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blan
 
 paypal.Buttons({
 
-style:{layout:'vertical',color:'blue',shape:'pill',label:'paypal'},
-
 createOrder:function(data,actions){
 return actions.order.create({
 purchase_units:[{
-amount:{value:'20.00'},
+amount:{value: depositAmount.toString()},
 description:'Santo Domingo City Tour Deposit'
 }]
-});
+})
 },
 
 onApprove:function(data,actions){
-return actions.order.capture().then(details=>{
-alert('Payment completed by '+details.payer.name.given_name);
-});
+return actions.order.capture().then(function(details){
+alert("Payment completed by "+details.payer.name.given_name)
+})
 }
 
-}).render('#paypal-button-container');
+}).render('#paypal-button-container')
 
 </script>
 
