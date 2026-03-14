@@ -50,27 +50,6 @@ margin-bottom:20px;
 text-align:center;
 }
 
-.tour-description{
-margin-bottom:35px;
-line-height:1.7;
-font-size:14px;
-opacity:0.9;
-}
-
-.tour-description h3{
-margin-bottom:15px;
-font-weight:500;
-}
-
-.tour-description h4{
-margin-top:15px;
-margin-bottom:10px;
-}
-
-.tour-description ul{
-padding-left:18px;
-}
-
 .booking-form{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -84,7 +63,7 @@ margin-bottom:6px;
 display:block;
 }
 
-input,select,textarea{
+input,textarea{
 width:100%;
 padding:14px 16px;
 border:none;
@@ -92,24 +71,12 @@ border-radius:12px;
 background:rgba(255,255,255,0.08);
 color:white;
 font-size:15px;
-outline:none;
-transition:0.3s;
-}
-
-input:focus,select:focus,textarea:focus{
-background:rgba(255,255,255,0.15);
-box-shadow:0 0 0 2px rgba(255,255,255,0.4);
-transform:scale(1.02);
 }
 
 textarea{
 grid-column:span 2;
 height:110px;
 resize:none;
-}
-
-input::placeholder,textarea::placeholder{
-color:rgba(255,255,255,0.6);
 }
 
 .right-side{
@@ -123,23 +90,10 @@ width:100%;
 padding:30px 25px;
 border:1px solid rgba(255,255,255,0.3);
 border-radius:25px;
-backdrop-filter:blur(12px);
 display:flex;
 flex-direction:column;
 align-items:center;
 text-align:center;
-}
-
-.tour-card h2{
-margin-bottom:20px;
-font-weight:400;
-}
-
-.tour-card p{
-font-size:14px;
-line-height:1.6;
-opacity:0.85;
-margin-bottom:25px;
 }
 
 .price{
@@ -160,56 +114,28 @@ color:white;
 font-size:16px;
 cursor:pointer;
 margin-top:20px;
-transition:0.3s;
 }
 
-.btn-book:hover{
-transform:translateY(-4px);
-box-shadow:0 15px 30px rgba(37,211,102,0.4);
+.taxi-box{
+background:rgba(255,255,255,0.08);
+border-radius:12px;
+padding:14px;
 }
 
-.note{
-margin-top:15px;
-font-size:13px;
-opacity:0.7;
+.taxi-option{
+display:flex;
+align-items:center;
+gap:10px;
+cursor:pointer;
 }
 
-.hotel-box{
-position:relative;
+.taxi-option input{
+width:20px;
+height:20px;
+accent-color:#25D366;
 }
 
-#hotelList{
-position:absolute;
-width:101%;
-background:#fff;
-color:#000;
-border-radius:5px;
-max-height:180px;
-overflow-y:auto;
-display:none;
-z-index:10;
-}
-
-select option{
-color:black;
-}
-
-@media(max-width:992px){
-
-.booking-container{
-grid-template-columns:1fr;
-padding:30px 20px;
-}
-
-.booking-form{
-grid-template-columns:1fr;
-}
-
-textarea{
-grid-column:span 1;
-}
-
-}.btn-back{
+.btn-back{
 display:inline-block;
 margin-bottom:20px;
 padding:10px 20px;
@@ -218,14 +144,7 @@ color:white;
 text-decoration:none;
 border-radius:30px;
 font-size:14px;
-transition:0.3s;
 border:1px solid rgba(255,255,255,0.3);
-}
-
-.btn-back:hover{
-background:white;
-color:black;
-transform:translateY(-2px);
 }
 
 </style>
@@ -236,32 +155,11 @@ transform:translateY(-2px);
 <div class="booking-container">
 
 <div class="left-side">
+
 <a href="index.html" class="btn-back">⬅ Back to Home</a>
+
 <h1>🏝️ Book Your Excursion</h1>
 <p class="subtitle">Saona Island & Altos de Chavón</p>
-
-<div class="tour-description">
-
-<h3>About this Excursion</h3>
-
-<p>The tour begins with a visit to Altos de Chavón, a replica of a 16th-century Mediterranean village located above the Chavón River. There, visitors can admire the detailed craftsmanship created by Dominican artisans and enjoy the unique architecture and views of the river and surrounding landscape.
-
-After exploring the village, the experience continues with a catamaran trip to Saona Island, a beautiful tropical island located on the southeast coast of the country and part of a protected natural reserve. Once on the island, visitors can relax on the beach, swim in the crystal-clear turquoise waters, or explore the tropical surroundings.
-
-Saona Island is known for having some of the most beautiful beaches in the Caribbean, with white sand, coconut palms, and calm waters. During the visit, guests can enjoy a BBQ buffet lunch with typical Dominican flavors and drinks from the open bar. After spending time relaxing and enjoying the island’s natural beauty, the tour ends with the return trip to Punta Cana.</p>
-
-<h4>Included services:</h4>
-
-<ul>
-<li>Pickup and drop-off at your accommodation Yes, Hotel lobby or specified</li>
-<li>Professional guide</li>
-<li>Entrance fee to the East National park</li>
-<li>Buffet lunch (salad, and typical Dominican fare)</li>
-<li>30 to 40-minute stop at the biggest natural swimming pool</li>
-<li>3 hours at Saona Island</li>
-</ul>
-
-</div>
 
 <form class="booking-form" onsubmit="return false;">
 
@@ -270,15 +168,14 @@ Saona Island is known for having some of the most beautiful beaches in the Carib
 <input type="text" id="name" placeholder="John Doe">
 </div>
 
-<div class="hotel-box">
+<div>
 <label>Hotel / Pickup Location</label>
-<input type="text" id="hotelInput" placeholder="Start typing hotel...">
-<div id="hotelList"></div>
+<input type="text" id="hotelInput" placeholder="Hotel / Pickup Location">
 </div>
 
 <div>
 <label>Adults (9+) $155</label>
-<input type="number" id="adults" value="1" min="1" oninput="updateTotal()">
+<input type="number" id="adults" value="1" min="0" oninput="updateTotal()">
 </div>
 
 <div>
@@ -289,6 +186,17 @@ Saona Island is known for having some of the most beautiful beaches in the Carib
 <div>
 <label>Excursion Date</label>
 <input type="date" id="date">
+</div>
+
+<div class="taxi-box">
+
+<label>Additional Services</label>
+
+<label class="taxi-option">
+<input type="checkbox" id="taxiService" onchange="updateTotal()">
+Taxi Service (Only Bayahibe hotels) + $30 USD
+</label>
+
 </div>
 
 <div>
@@ -328,31 +236,70 @@ Deposit via PayPal. Remaining balance paid on excursion day.
 
 </div>
 
-<script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
-
 <script>
 
-    const adultPrice = 155;
+const adultPrice = 155;
 const childPrice = 95;
+const taxiPrice = 30;
 
-const adultsInput = document.getElementById("adults");
-const childrenInput = document.getElementById("children");
+const adults = document.getElementById("adults");
+const children = document.getElementById("children");
+const taxiService = document.getElementById("taxiService");
 
 const priceBox = document.querySelector(".price");
 
+let total = 0;
+
 function updateTotal(){
 
-let adults = parseInt(adultsInput.value) || 0;
-let children = parseInt(childrenInput.value) || 0;
+total =
+(adults.value * adultPrice) +
+(children.value * childPrice);
 
-let total = (adults * adultPrice) + (children * childPrice);
+if(taxiService.checked){
+total += taxiPrice;
+}
 
 priceBox.innerText = "$" + total + " USD";
 
 }
 
-// calcular al cargar la página
 updateTotal();
+
+function sendWhatsApp(){
+
+let taxi = taxiService.checked ? "Yes (+$30)" : "No";
+
+const message=`Hello! I would like to confirm my excursion booking.
+
+Excursion: Saona Island & Altos de Chavón
+
+Name: ${name.value}
+Hotel: ${hotelInput.value}
+
+Adults: ${adults.value}
+Children: ${children.value}
+
+Date: ${date.value}
+
+Taxi Service: ${taxi}
+
+Total Price: $${total} USD
+
+Notes: ${notes.value}
+
+Deposit via PayPal completed.
+Please confirm pickup time.`;
+
+window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
+
+}
+
+</script>
+
+<script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
+
+<script>
 
 paypal.Buttons({
 
@@ -368,75 +315,12 @@ description:'Saona Island & Altos de Chavón Deposit'
 },
 
 onApprove:function(data,actions){
-return actions.order.capture().then(function(details){
+return actions.order.capture().then(details=>{
 alert('Payment completed by '+details.payer.name.given_name);
 });
 }
 
 }).render('#paypal-button-container');
-
-const hotels=[
-"Hard Rock Hotel & Casino Punta Cana",
-"Royalton Punta Cana",
-"Royalton Bavaro",
-"Riu Palace Bavaro",
-"Majestic Mirage Punta Cana",
-"Bahia Principe Fantasia",
-"Hyatt Ziva Cap Cana",
-"Dreams Royal Beach",
-"Melia Caribe Beach"
-];
-
-const input=document.getElementById("hotelInput");
-const list=document.getElementById("hotelList");
-
-input.addEventListener("input",()=>{
-
-const value=input.value.toLowerCase().trim();
-list.innerHTML="";
-
-if(!value){
-list.style.display="none";
-return;
-}
-
-hotels.filter(h=>h.toLowerCase().includes(value))
-.forEach(h=>{
-
-const div=document.createElement("div");
-div.textContent=h;
-
-div.onclick=()=>{
-input.value=h;
-list.style.display="none";
-};
-
-list.appendChild(div);
-
-});
-
-list.style.display="block";
-
-});
-
-function sendWhatsApp(){
-
-const message=`Hello! I would like to confirm my excursion booking.
-
-Saona Island & Altos de Chavón
-
-Name: ${name.value}
-Hotel: ${hotelInput.value}
-People: ${people.value}
-Date: ${date.value}
-Notes: ${notes.value}
-
-Deposit via PayPal completed.
-Please confirm pickup time.`;
-
-window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
-
-}
 
 </script>
 

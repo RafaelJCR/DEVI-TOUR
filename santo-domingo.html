@@ -45,16 +45,6 @@ text-align:center;
 margin-bottom:20px;
 }
 
-.tour-description{
-margin-bottom:30px;
-line-height:1.7;
-font-size:14px;
-}
-
-.tour-description ul{
-padding-left:18px;
-}
-
 .booking-form{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -165,45 +155,6 @@ accent-color:#25D366;
 <h1>🏛️ Book Your Excursion</h1>
 <p class="subtitle">Santo Domingo City Tour</p>
 
-<div class="tour-description">
-
-<h3>About this Excursion</h3>
-
-<p>
-After picking you up from your hotel, we travel to the historic capital city of Santo Domingo.
-</p>
-
-<p>
-Our first stop will be the famous <strong>Los Tres Ojos National Park</strong>, a natural cave system
-with beautiful underground lagoons.
-</p>
-
-<p>
-After that we will visit some of the most important historical landmarks of the city such as:
-</p>
-
-<ul>
-<li>The First Cathedral of America</li>
-<li>The Columbus Lighthouse</li>
-<li>The Colonial Zone</li>
-<li>The Santo Domingo Malecon</li>
-<li>The Presidential Palace</li>
-<li>The National Museum</li>
-<li>Souvenir shops and local cultural spots</li>
-</ul>
-
-<h4>The excursion includes:</h4>
-
-<ul>
-<li>Entrance tickets to parks and museums</li>
-<li>Round-trip transportation</li>
-<li>Buffet style lunch</li>
-<li>Non-alcoholic beverages</li>
-<li>Professional tour guide</li>
-</ul>
-
-</div>
-
 <form class="booking-form">
 
 <div>
@@ -237,11 +188,12 @@ After that we will visit some of the most important historical landmarks of the 
 </div>
 
 <div class="taxi-box">
+
 <label>Additional services</label>
 
 <label class="taxi-option">
-<input type="checkbox" id="taxiService">
-Taxi Service. Only for hotels located in Bayahibe.
+<input type="checkbox" id="taxiService" onchange="updateTotal()">
+Taxi Service. Only for hotels located in Bayahibe (+$30 USD)
 </label>
 
 </div>
@@ -271,7 +223,6 @@ Taxi Service. Only for hotels located in Bayahibe.
 Confirm Reservation via WhatsApp
 </button>
 
-
 <p class="note">
 Deposit via PayPal. Remaining balance paid on excursion day.
 </p>
@@ -284,14 +235,19 @@ Deposit via PayPal. Remaining balance paid on excursion day.
 
 <script>
 
-let depositAmount = 20;
+let depositAmount = 20
 
 function updateTotal(){
 
 let adults=parseInt(document.getElementById("adults").value) || 0
 let kids=parseInt(document.getElementById("kids").value) || 0
+let taxi=document.getElementById("taxiService").checked
 
 let total=(adults*55)+(kids*45)
+
+if(taxi){
+total+=30
+}
 
 depositAmount=(adults+kids)*20
 
@@ -308,23 +264,26 @@ function sendWhatsApp(){
 let adults=document.getElementById("adults").value
 let kids=document.getElementById("kids").value
 let babies=document.getElementById("babies").value
+let taxi=document.getElementById("taxiService").checked ? "Yes (+$30)" : "No"
 
 let total=document.getElementById("total").innerText
 
 const message=`Hello! I would like to confirm my Santo Domingo City Tour booking.
 
-Name: ${name.value}
-Hotel: ${hotel.value}
+Name: ${document.getElementById("name").value}
+Hotel: ${document.getElementById("hotelInput").value}
 
 Adults: ${adults}
 Kids 4-8: ${kids}
 Kids 0-3: ${babies}
 
-Date: ${date.value}
+Date: ${document.getElementById("date").value}
+
+Taxi Service: ${taxi}
 
 Total: ${total}
 
-Notes: ${notes.value}
+Notes: ${document.getElementById("notes").value}
 
 Deposit via PayPal completed.`
 

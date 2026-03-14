@@ -12,7 +12,6 @@
 body{
 background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
 url("https://res.cloudinary.com/simpleview/image/upload/v1548270991/clients/catalinaislandccvb/TwoBoysSnorkeling_22c65f85-64d1-445d-9afc-e06fb9e7a7d8.jpg") no-repeat center/cover;
-
 min-height:100vh;
 display:flex;
 align-items:center;
@@ -32,8 +31,6 @@ backdrop-filter:blur(16px);
 border-radius:30px;
 box-shadow:0 30px 60px rgba(0,0,0,0.5);
 color:white;
-align-items:center;
-justify-items:center;
 }
 
 .left-side,.right-side{width:100%;}
@@ -51,27 +48,6 @@ margin-bottom:20px;
 text-align:center;
 }
 
-.tour-description{
-margin-bottom:35px;
-line-height:1.7;
-font-size:14px;
-opacity:0.9;
-}
-
-.tour-description h3{
-margin-bottom:15px;
-font-weight:500;
-}
-
-.tour-description h4{
-margin-top:15px;
-margin-bottom:10px;
-}
-
-.tour-description ul{
-padding-left:18px;
-}
-
 .booking-form{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -85,7 +61,7 @@ margin-bottom:6px;
 display:block;
 }
 
-input,select,textarea{
+input,textarea{
 width:100%;
 padding:14px 16px;
 border:none;
@@ -93,14 +69,6 @@ border-radius:12px;
 background:rgba(255,255,255,0.08);
 color:white;
 font-size:15px;
-outline:none;
-transition:0.3s;
-}
-
-input:focus,select:focus,textarea:focus{
-background:rgba(255,255,255,0.15);
-box-shadow:0 0 0 2px rgba(255,255,255,0.4);
-transform:scale(1.02);
 }
 
 textarea{
@@ -109,38 +77,12 @@ height:110px;
 resize:none;
 }
 
-input::placeholder,textarea::placeholder{
-color:rgba(255,255,255,0.6);
-}
-
-.right-side{
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
 .tour-card{
 width:100%;
-padding:30px 25px;
+padding:30px;
 border:1px solid rgba(255,255,255,0.3);
 border-radius:25px;
-backdrop-filter:blur(12px);
-display:flex;
-flex-direction:column;
-align-items:center;
 text-align:center;
-}
-
-.tour-card h2{
-margin-bottom:20px;
-font-weight:400;
-}
-
-.tour-card p{
-font-size:14px;
-line-height:1.6;
-opacity:0.85;
-margin-bottom:25px;
 }
 
 .price{
@@ -161,40 +103,9 @@ color:white;
 font-size:16px;
 cursor:pointer;
 margin-top:20px;
-transition:0.3s;
 }
 
-.btn-book:hover{
-transform:translateY(-4px);
-box-shadow:0 15px 30px rgba(37,211,102,0.4);
-}
-
-.note{
-margin-top:15px;
-font-size:13px;
-opacity:0.7;
-}
-
-select option{
-color:black;
-}
-
-@media(max-width:992px){
-
-.booking-container{
-grid-template-columns:1fr;
-padding:30px 20px;
-}
-
-.booking-form{
-grid-template-columns:1fr;
-}
-
-textarea{
-grid-column:span 1;
-}
-
-}.btn-back{
+.btn-back{
 display:inline-block;
 margin-bottom:20px;
 padding:10px 20px;
@@ -203,14 +114,26 @@ color:white;
 text-decoration:none;
 border-radius:30px;
 font-size:14px;
-transition:0.3s;
 border:1px solid rgba(255,255,255,0.3);
 }
 
-.btn-back:hover{
-background:white;
-color:black;
-transform:translateY(-2px);
+.taxi-box{
+background:rgba(255,255,255,0.08);
+border-radius:12px;
+padding:14px;
+}
+
+.taxi-option{
+display:flex;
+align-items:center;
+gap:10px;
+cursor:pointer;
+}
+
+.taxi-option input{
+width:22px;
+height:22px;
+accent-color:#25D366;
 }
 
 </style>
@@ -222,45 +145,10 @@ transform:translateY(-2px);
 
 <div class="left-side">
 
-
 <a href="index.html" class="btn-back">⬅ Back to Home</a>
+
 <h1>🐠 Book Your Excursion</h1>
 <p class="subtitle">Catalina Island & Snorkeling</p>
-
-<div class="tour-description">
-
-<h3>About this Excursion</h3>
-
-<p>
-After picking you up from your hotel, we will head to the city of <strong>La Romana</strong>.
-There we will board a <strong>motomaran</strong>, a boat that is smaller than a catamaran
-but faster and perfect for this adventure.
-</p>
-
-<p>
-Once on board, we will sail to the coral reef where we will enjoy an incredible
-<strong>snorkeling experience for approximately 25 to 35 minutes</strong>
-in the crystal clear Caribbean waters.
-</p>
-
-<p>
-After snorkeling, we will continue our journey to the beautiful
-<strong>Catalina Island</strong>, where you will spend the rest of the day relaxing,
-swimming and enjoying the beach.
-</p>
-
-<h4>The excursion includes:</h4>
-
-<ul>
-<li>Round-trip transportation</li>
-<li>Professional tour guide</li>
-<li>Buffet style lunch</li>
-<li>Alcoholic beverages</li>
-<li>Entertainment and music</li>
-<li>Snorkeling equipment</li>
-</ul>
-
-</div>
 
 <form class="booking-form" onsubmit="return false;">
 
@@ -276,12 +164,12 @@ swimming and enjoying the beach.
 
 <div>
 <label>Adults (9+ years) — $55</label>
-<input type="number" id="adults" value="1" min="0" oninput="updateTotal()">
+<input type="number" id="adults" value="1" min="0">
 </div>
 
 <div>
 <label>Kids 4-8 years — $45</label>
-<input type="number" id="kids" value="0" min="0" oninput="updateTotal()">
+<input type="number" id="kids" value="0" min="0">
 </div>
 
 <div>
@@ -292,6 +180,17 @@ swimming and enjoying the beach.
 <div>
 <label>Excursion Date</label>
 <input type="date" id="date">
+</div>
+
+<div class="taxi-box">
+
+<label>Additional Services</label>
+
+<label class="taxi-option">
+<input type="checkbox" id="taxiService">
+Taxi Service (Only Bayahibe hotels) + $30 USD
+</label>
+
 </div>
 
 <div>
@@ -309,8 +208,7 @@ swimming and enjoying the beach.
 <h2>Catalina Island & Snorkeling</h2>
 
 <p>
-Enjoy crystal-clear waters, snorkeling at the coral reef and a relaxing
-day on the beautiful beaches of Catalina Island.
+Enjoy crystal-clear waters, snorkeling at the coral reef and a relaxing day on Catalina Island.
 </p>
 
 <div class="price">$55 USD</div>
@@ -333,39 +231,65 @@ Deposit via PayPal. Remaining balance paid on excursion day.
 
 <script>
 
-
 const adultPrice = 55;
 const kidPrice = 45;
+const taxiPrice = 30;
 
 const adults = document.getElementById("adults");
 const kids = document.getElementById("kids");
 const babies = document.getElementById("babies");
+const taxiService = document.getElementById("taxiService");
+
+const nameInput = document.getElementById("name");
+const hotelInput = document.getElementById("hotelInput");
+const dateInput = document.getElementById("date");
+const notesInput = document.getElementById("notes");
 
 const priceBox = document.querySelector(".price");
 
+let total = 0;
+
 function updateTotal(){
 
-let total =
+total =
 (adults.value * adultPrice) +
 (kids.value * kidPrice);
+
+if(taxiService.checked){
+total += taxiPrice;
+}
 
 priceBox.innerText = "$" + total + " USD";
 
 }
 
-// calcular al cargar la página
+adults.addEventListener("input",updateTotal);
+kids.addEventListener("input",updateTotal);
+taxiService.addEventListener("change",updateTotal);
+
 updateTotal();
 
 function sendWhatsApp(){
 
+let taxi = taxiService.checked ? "Yes (+$30)" : "No";
+
 const message=`Hello! I would like to confirm my excursion booking.
 
 Excursion: Catalina Island & Snorkeling
-Name: ${name.value}
+Name: ${nameInput.value}
 Hotel: ${hotelInput.value}
-People: ${people.value}
-Date: ${date.value}
-Notes: ${notes.value}
+
+Adults: ${adults.value}
+Kids: ${kids.value}
+Babies: ${babies.value}
+
+Date: ${dateInput.value}
+
+Taxi Service: ${taxi}
+
+Total Price: $${total} USD
+
+Notes: ${notesInput.value}
 
 Deposit via PayPal completed.
 Please confirm pickup time.`;
