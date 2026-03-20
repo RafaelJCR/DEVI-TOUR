@@ -7,7 +7,12 @@
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
 
 body{
 background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
@@ -19,8 +24,9 @@ justify-content:center;
 padding:20px;
 }
 
+/* CONTAINER */
 .booking-container{
-width:95%;
+width:100%;
 max-width:1200px;
 display:grid;
 grid-template-columns:1.2fr 1fr;
@@ -37,48 +43,50 @@ justify-items:center;
 
 .left-side,.right-side{width:100%;}
 
+/* TEXT */
 .left-side h1{
-font-size:36px;
+font-size:clamp(24px,4vw,36px);
 font-weight:300;
 margin-bottom:10px;
 text-align:center;
 }
 
 .subtitle{
-font-size:18px;
+font-size:clamp(14px,2vw,18px);
 margin-bottom:20px;
 text-align:center;
 }
 
 .tour-description{
-margin-bottom:35px;
-line-height:1.7;
+margin-bottom:30px;
+line-height:1.6;
 font-size:14px;
 opacity:0.9;
 }
 
 .tour-description h3{
-margin-bottom:15px;
+margin-bottom:10px;
 font-weight:500;
 }
 
 .tour-description h4{
-margin-top:15px;
-margin-bottom:10px;
+margin-top:10px;
+margin-bottom:8px;
 }
 
 .tour-description ul{
 padding-left:18px;
 }
 
+/* FORM */
 .booking-form{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:30px;
+gap:20px;
 }
 
 label{
-font-size:14px;
+font-size:13px;
 opacity:0.8;
 margin-bottom:6px;
 display:block;
@@ -86,22 +94,45 @@ display:block;
 
 input,select,textarea{
 width:100%;
-padding:14px 16px;
+padding:12px 14px;
 border:none;
-border-radius:12px;
+border-radius:10px;
 background:rgba(255,255,255,0.08);
 color:white;
-font-size:15px;
+font-size:14px;
 outline:none;
-transition:0.3s;
 }
 
 textarea{
 grid-column:span 2;
-height:110px;
+height:100px;
 resize:none;
 }
 
+/* TAXI */
+.taxi-box{
+grid-column:span 2;
+background:rgba(255,255,255,0.08);
+border-radius:10px;
+padding:12px;
+}
+
+.taxi-option{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:13px;
+cursor:pointer;
+}
+
+.taxi-option input{
+width:20px;
+height:20px;
+cursor:pointer;
+accent-color:#25D366;
+}
+
+/* CARD */
 .right-side{
 display:flex;
 align-items:center;
@@ -110,9 +141,9 @@ justify-content:center;
 
 .tour-card{
 width:100%;
-padding:30px 25px;
+padding:25px 20px;
 border:1px solid rgba(255,255,255,0.3);
-border-radius:25px;
+border-radius:20px;
 backdrop-filter:blur(12px);
 display:flex;
 flex-direction:column;
@@ -121,62 +152,102 @@ text-align:center;
 }
 
 .price{
-font-size:28px;
+font-size:26px;
 font-weight:600;
-margin-bottom:25px;
+margin-bottom:20px;
 color:#f77f00;
 }
 
 .btn-book{
 width:100%;
 max-width:300px;
-padding:14px;
+padding:12px;
 border:none;
 border-radius:40px;
 background:linear-gradient(135deg,#25D366,#1ebe5d);
 color:white;
-font-size:16px;
+font-size:15px;
 cursor:pointer;
-margin-top:20px;
+margin-top:15px;
 }
 
 .note{
 margin-top:15px;
-font-size:13px;
+font-size:12px;
 opacity:0.7;
 }
 
 .btn-back{
 display:inline-block;
 margin-bottom:20px;
-padding:10px 20px;
+padding:8px 16px;
 background:rgba(255,255,255,0.15);
 color:white;
 text-decoration:none;
 border-radius:30px;
-font-size:14px;
+font-size:13px;
 border:1px solid rgba(255,255,255,0.3);
 }
 
+/* TABLETS */
+@media(max-width:992px){
+
+.booking-container{
+grid-template-columns:1fr;
+padding:30px;
+gap:40px;
+}
+
+.booking-form{
+grid-template-columns:1fr;
+}
+
+textarea{
+grid-column:span 1;
+}
+
 .taxi-box{
-background:rgba(255,255,255,0.08);
-border-radius:12px;
-padding:14px 16px;
+grid-column:span 1;
 }
 
-.taxi-option{
-display:flex;
-align-items:center;
-gap:10px;
+}
+
+/* CELULARES */
+@media(max-width:600px){
+
+body{
+padding:10px;
+}
+
+.booking-container{
+padding:20px;
+border-radius:20px;
+}
+
+.left-side h1{
+font-size:22px;
+}
+
+.subtitle{
 font-size:14px;
-cursor:pointer;
 }
 
-.taxi-option input{
-width:24px;
-height:24px;
-cursor:pointer;
-accent-color:#25D366;
+.tour-description{
+font-size:13px;
+}
+
+.price{
+font-size:22px;
+}
+
+.btn-book{
+font-size:14px;
+}
+
+.note{
+font-size:11px;
+}
+
 }
 
 </style>
