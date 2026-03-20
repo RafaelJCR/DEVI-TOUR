@@ -357,15 +357,20 @@ Notes: ${notes.value}
 
 Deposit via PayPal completed. Please confirm pickup time.`;
 
-window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
+window.open("https://wa.me/18097980816?text="+encodeURIComponent(message),"_blank");
 
 }
 
 </script>
 
-<script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFmF6dMfgmzxSGra0&currency=USD"></script>
+<!-- ✅ PAYPAL CORREGIDO -->
+<script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
 
 <script>
+
+if (typeof paypal === "undefined") {
+console.error("PayPal SDK not loaded");
+}
 
 paypal.Buttons({
 
