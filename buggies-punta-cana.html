@@ -148,9 +148,11 @@ z-index:10;
 }
 
 @media(max-width:992px){
-.booking-container{grid-template-columns:1fr;}
+.booking-container{grid-template-columns:1fr;padding:25px;gap:30px;}
 .booking-form{grid-template-columns:1fr;}
 textarea{grid-column:span 1;}
+.schedule-box{grid-column:span 1;}
+.left-side h1{font-size:26px;}
 }
 
 
@@ -374,15 +376,21 @@ priceText.textContent=couples*90;
 
 function sendWhatsApp(){
 
+const schedule = document.querySelector('input[name="schedule"]:checked');
+const scheduleText = schedule ? schedule.value : 'Not selected';
+
 const message=`Hello! I would like to confirm my Buggies Adventure booking.
 
-Name: ${name.value}
-Hotel: ${hotelInput.value}
-Couples: ${couples.value}
-Date: ${date.value}
-Notes: ${notes.value}
+Name: ${document.getElementById("name").value}
+Hotel: ${document.getElementById("hotelInput").value}
+Couples: ${document.getElementById("couples").value}
+Date: ${document.getElementById("date").value}
+Schedule: ${scheduleText}
+Total: $${document.getElementById("priceTotal").textContent} USD
+Deposit: $${document.getElementById("depositTotal").textContent} USD
+Notes: ${document.getElementById("notes").value}
 
-Deposit via PayPal completed. Please confirm pickup time.`;
+Payment via PayPal completed. Please confirm pickup time.`;
 
 window.open("https://wa.me/18097980816?text="+encodeURIComponent(message),"_blank");
 
@@ -402,8 +410,8 @@ let couples=parseInt(document.getElementById("couples").value)||1;
 
 return actions.order.create({
 purchase_units:[{
-amount:{value:(couples*20).toFixed(2)},
-description:'Buggies Adventure Deposit'
+amount:{value: document.getElementById("priceTotal").textContent + '.00'},
+description:'Buggies Adventure'
 }]
 });
 

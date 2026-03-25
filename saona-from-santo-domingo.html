@@ -202,6 +202,10 @@ select option{ color:black; }
     margin-top:30px;
   }
 
+  .meeting-box{
+    grid-column:span 1;
+  }
+
 }.btn-back{
 display:inline-block;
 margin-bottom:20px;
@@ -373,7 +377,7 @@ Confirm Reservation via WhatsApp
 </button>
 
 <p class="note">
-Deposit via PayPal. Remaining balance paid on excursion day.
+Full payment via PayPal. Confirmation will be sent shortly.
 </p>
 
 </div>
@@ -462,17 +466,20 @@ function sendWhatsApp(){
 
 const message = `Hello! I would like to confirm my Saona Island From Santo Domingo booking.
 
-Name: ${name.value}
-Hotel: ${hotelInput.value}
-People: ${people.value}
-Date: ${date.value}
-Notes: ${notes.value}
+Name: ${document.getElementById("name").value}
+Hotel: ${document.getElementById("hotelInput").value}
+Adults: ${document.getElementById("adults").value}
+Children: ${document.getElementById("children").value}
+Meeting Point: ${document.querySelector('input[name="meeting"]:checked') ? document.querySelector('input[name="meeting"]:checked').value : 'Not selected'}
+Date: ${document.getElementById("date").value}
+Total: ${document.querySelector(".price").innerText}
+Notes: ${document.getElementById("notes").value}
 
-Deposit via PayPal completed.
+Payment via PayPal completed.
 Please confirm pickup time.
 `;
 
-window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
+window.open("https://wa.me/18097980816?text="+encodeURIComponent(message),"_blank");
 
 }
 
@@ -497,9 +504,9 @@ return actions.order.create({
 
 purchase_units:[{
 
-amount:{value:'20.00'},
+amount:{value: document.querySelector(".price").innerText.replace(/[^0-9]/g,'') + '.00'},
 
-description:'Saona Island From Santo Domingo Deposit'
+description:'Saona Island From Santo Domingo'
 
 }]
 

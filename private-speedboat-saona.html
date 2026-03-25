@@ -244,7 +244,13 @@ grid-column:span 1;
 margin-top:30px;
 }
 
-}.private-banner{
+.group-box{
+grid-column:span 1;
+}
+
+}
+
+.private-banner{
 display:flex;
 align-items:center;
 gap:15px;
@@ -455,7 +461,7 @@ Confirm Reservation via WhatsApp
 </button>
 
 <p class="note">
-Deposit via PayPal. Remaining balance paid on excursion day.
+Full payment via PayPal. Confirmation will be sent shortly.
 </p>
 
 </div>
@@ -527,16 +533,17 @@ function sendWhatsApp(){
 const message=`Hello! I would like to confirm my excursion booking.
 
 🚤 Private Speedboat To Saona Island
-👤 Name: ${name.value}
-🏨 Hotel: ${hotelInput.value}
-👥 People: ${people.value}
-📅 Date: ${date.value}
-📝 Notes: ${notes.value}
+Name: ${document.getElementById("name").value}
+Hotel: ${document.getElementById("hotelInput").value}
+Group Size: ${document.querySelector('input[name="group"]:checked').parentElement.textContent.trim()}
+Date: ${document.getElementById("date").value}
+Total: ${document.querySelector(".price").innerText}
+Notes: ${document.getElementById("notes").value}
 
-Deposit via PayPal completed.
+Payment via PayPal completed.
 Please confirm availability.`;
 
-window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
+window.open("https://wa.me/18097980816?text="+encodeURIComponent(message),"_blank");
 
 }
 
@@ -558,8 +565,8 @@ label:'paypal'
 createOrder:function(data,actions){
 return actions.order.create({
 purchase_units:[{
-amount:{value:'20.00'},
-description:'Private Speedboat To Saona Deposit'
+amount:{value: document.querySelector(".price").innerText.replace(/[^0-9]/g,'') + '.00'},
+description:'Private Speedboat To Saona'
 }]
 });
 },

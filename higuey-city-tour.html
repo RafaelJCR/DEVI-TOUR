@@ -208,25 +208,14 @@ grid-template-columns:1fr;
 textarea{
 grid-column:span 1;
 }
-.btn-back{
-display:inline-block;
-margin-bottom:20px;
-padding:10px 20px;
-background:rgba(255,255,255,0.15);
-color:white;
-text-decoration:none;
-border-radius:30px;
-font-size:14px;
-transition:0.3s;
-border:1px solid rgba(255,255,255,0.3);
+
+.pickup-box{
+grid-column:span 1;
 }
 
-.btn-back:hover{
-background:white;
-color:black;
-transform:translateY(-2px);
 }
-}.btn-back{
+
+.btn-back{
 display:inline-block;
 margin-bottom:20px;
 padding:10px 20px;
@@ -463,7 +452,7 @@ Confirm Reservation via WhatsApp
 </button>
 
 <p class="note">
-Deposit via PayPal. Remaining balance paid on tour day.
+Full payment via PayPal. Confirmation will be sent shortly.
 </p>
 
 </div>
@@ -483,8 +472,8 @@ style:{layout:'vertical',color:'blue',shape:'pill',label:'paypal'},
 createOrder:function(data,actions){
 return actions.order.create({
 purchase_units:[{
-amount:{value:'20.00'},
-description:'Higüey City Tour Deposit'
+amount:{value: document.querySelector(".price").innerText.replace(/[^0-9]/g,'') + '.00'},
+description:'Higüey City Tour'
 }]
 });
 },
@@ -562,20 +551,27 @@ list.style.display="block";
 
 function sendWhatsApp(){
 
+const pickup = document.querySelector('input[name="pickup"]:checked');
+const pickupTime = pickup ? pickup.value : 'Not selected';
+
 const message=`Hello! I would like to confirm my excursion booking.
 
 Higüey City Tour – Private
 
-Name: ${name.value}
-Hotel: ${hotelInput.value}
-People: ${people.value}
-Date: ${date.value}
-Notes: ${notes.value}
+Name: ${document.getElementById("name").value}
+Hotel: ${document.getElementById("hotelInput").value}
+Adults: ${document.getElementById("adults").value}
+Children: ${document.getElementById("children").value}
+Date: ${document.getElementById("date").value}
+Pickup Time: ${pickupTime}
+Notes: ${document.getElementById("notes").value}
 
-Deposit via PayPal completed.
+Total: ${document.querySelector(".price").innerText}
+
+Payment via PayPal completed.
 Please confirm pickup time.`;
 
-window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
+window.open("https://wa.me/18097980816?text="+encodeURIComponent(message),"_blank");
 
 }
 

@@ -319,7 +319,7 @@ Confirm Reservation via WhatsApp
 </button>
 
 <p class="note">
-Deposit via PayPal. Remaining balance paid on excursion day.
+Full payment via PayPal. Confirmation will be sent shortly.
 </p>
 
 </div>
@@ -361,8 +361,8 @@ style:{layout:'vertical',color:'blue',shape:'pill',label:'paypal'},
 createOrder:function(data,actions){
 return actions.order.create({
 purchase_units:[{
-amount:{value:'20.00'},
-description:'Saona Island & Altos de Chavón Deposit'
+amount:{value: document.querySelector(".price").innerText.replace(/[^0-9]/g,'') + '.00'},
+description:'Saona Island & Altos de Chavón'
 }]
 });
 },
@@ -425,16 +425,18 @@ const message=`Hello! I would like to confirm my excursion booking.
 
 Saona Island & Altos de Chavón
 
-Name: ${name.value}
-Hotel: ${hotelInput.value}
-People: ${people.value}
-Date: ${date.value}
-Notes: ${notes.value}
+Name: ${document.getElementById("name").value}
+Hotel: ${document.getElementById("hotelInput").value}
+Adults: ${document.getElementById("adults").value}
+Children: ${document.getElementById("children").value}
+Date: ${document.getElementById("date").value}
+Total: ${document.querySelector(".price").innerText}
+Notes: ${document.getElementById("notes").value}
 
-Deposit via PayPal completed.
+Payment via PayPal completed.
 Please confirm pickup time.`;
 
-window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank");
+window.open("https://wa.me/18097980816?text="+encodeURIComponent(message),"_blank");
 
 }
 

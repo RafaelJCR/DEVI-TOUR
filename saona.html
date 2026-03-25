@@ -373,22 +373,23 @@ function sendWhatsApp(){
 
 let message=`Hello! I would like to book Saona Island.
 
-Name: ${name.value}
-Hotel: ${hotelInput.value}
+Name: ${document.getElementById("name").value}
+Hotel: ${document.getElementById("hotelInput").value}
 
-Adults: ${adults.value}
-Children: ${children.value}
-Babies: ${babies.value}
+Adults: ${document.getElementById("adults").value}
+Children: ${document.getElementById("children").value}
+Babies: ${document.getElementById("babies").value}
 
-Total Price: ${totalPrice.innerText}
+Date: ${document.getElementById("date").value}
 
-Date: ${date.value}
+Total: ${document.getElementById("totalPrice").innerText}
+Deposit: ${document.getElementById("deposit").innerText}
 
-Notes: ${notes.value}
+Notes: ${document.getElementById("notes").value}
 
-Deposit via PayPal completed.`;
+Payment via PayPal completed.`;
 
-window.open("https://wa.me/18090000000?text="+encodeURIComponent(message));
+window.open("https://wa.me/18097980816?text="+encodeURIComponent(message));
 
 }
 
@@ -403,8 +404,8 @@ paypal.Buttons({
 createOrder:function(data,actions){
 return actions.order.create({
 purchase_units:[{
-amount:{value: depositAmount.toString()},
-description:'Saona Island Deposit'
+amount:{value: document.getElementById("totalPrice").innerText.replace(/[^0-9]/g,'') + '.00'},
+description:'Saona Island Catamaran & Speed Boat'
 }]
 });
 },

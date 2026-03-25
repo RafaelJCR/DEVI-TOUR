@@ -302,7 +302,7 @@ Confirm Booking via WhatsApp
 </button>
 
 <p class="note">
-Deposit via PayPal. Remaining balance paid on excursion day.
+Full payment via PayPal. Confirmation will be sent shortly.
 </p>
 
 </div>
@@ -337,21 +337,25 @@ updateTotal();
 
 function sendWhatsApp(){
 
-const name=document.getElementById("name").value;
-const hotel=document.getElementById("hotel").value;
-const people=document.getElementById("people").value;
-const date=document.getElementById("date").value;
-const notes=document.getElementById("notes").value;
+const msg_name=document.getElementById("name").value;
+const msg_hotel=document.getElementById("hotelInput").value;
+const msg_adults=document.getElementById("adults").value;
+const msg_children=document.getElementById("children").value;
+const msg_date=document.getElementById("date").value;
+const msg_notes=document.getElementById("notes").value;
+const msg_total=document.querySelector(".price").innerText;
 
 const message=`Hello! I would like to book Samana Whale Excursion.
 
-Name: ${name}
-Hotel: ${hotel}
-People: ${people}
-Date: ${date}
-Notes: ${notes}`;
+Name: ${msg_name}
+Hotel: ${msg_hotel}
+Adults: ${msg_adults}
+Children: ${msg_children}
+Date: ${msg_date}
+Total: ${msg_total}
+Notes: ${msg_notes}`;
 
-window.open("https://wa.me/18090000000?text="+encodeURIComponent(message));
+window.open("https://wa.me/18097980816?text="+encodeURIComponent(message));
 
 }
 
@@ -368,8 +372,8 @@ style:{layout:'vertical',color:'gold',shape:'pill',label:'paypal'},
 createOrder:function(data,actions){
 return actions.order.create({
 purchase_units:[{
-amount:{value:'20.00'},
-description:'Samana Whale Excursion Deposit'
+amount:{value: document.querySelector(".price").innerText.replace(/[^0-9]/g,'') + '.00'},
+description:'Samaná & Cayo Levantado'
 }]
 });
 },

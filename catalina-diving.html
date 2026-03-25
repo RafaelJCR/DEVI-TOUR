@@ -347,7 +347,7 @@ Confirm Reservation via WhatsApp
 </button>
 
 <p class="note">
-Deposit via PayPal. Remaining balance paid on excursion day.
+Full payment via PayPal. Confirmation will be sent shortly.
 </p>
 
 </div>
@@ -375,16 +375,21 @@ updatePrice();
 
 function sendWhatsApp(){
 
+const taxiChecked = document.getElementById("taxiService");
+const taxiText = taxiChecked && taxiChecked.checked ? "Yes" : "No";
+
 const message=`Hello! I would like to confirm my excursion booking.
 
 Excursion: Catalina Island & Diving
-Name: ${name.value}
-Hotel: ${hotelInput.value}
-People: ${people.value}
-Date: ${date.value}
-Notes: ${notes.value}
+Name: ${document.getElementById("name").value}
+Hotel: ${document.getElementById("hotelInput").value}
+People: ${document.getElementById("people").value}
+Date: ${document.getElementById("date").value}
+Total: ${document.querySelector(".price").innerText}
+Taxi Service: ${taxiText}
+Notes: ${document.getElementById("notes").value}
 
-Deposit via PayPal completed.
+Payment via PayPal completed.
 Please confirm pickup time.`;
 
 window.open("https://wa.me/18097980816?text="+encodeURIComponent(message),"_blank");
@@ -404,8 +409,8 @@ style:{layout:'vertical',color:'blue',shape:'pill',label:'paypal'},
 createOrder:function(data,actions){
 return actions.order.create({
 purchase_units:[{
-amount:{value:'30.00'},
-description:'Catalina Island & Diving Deposit'
+amount:{value: document.querySelector(".price").innerText.replace(/[^0-9]/g,'') + '.00'},
+description:'Catalina Island & Diving'
 }]
 });
 },

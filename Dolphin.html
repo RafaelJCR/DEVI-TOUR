@@ -307,7 +307,7 @@ Confirm Booking via WhatsApp
 </button>
 
 <p class="note">
-Deposit via PayPal. Remaining balance paid on excursion day.
+Full payment via PayPal. Confirmation will be sent shortly.
 </p>
 
 </div>
@@ -347,6 +347,8 @@ const prog=program.options[program.selectedIndex].text;
 const date=document.getElementById("date").value;
 const notes=document.getElementById("notes").value;
 
+const total=document.getElementById("totalPrice").innerText;
+
 const message=`Hello! I would like to book the Dolphin Experience.
 
 Program: ${prog}
@@ -354,9 +356,10 @@ Name: ${name}
 Hotel: ${hotel}
 People: ${p}
 Date: ${date}
+Total: ${total}
 Notes: ${notes}`;
 
-window.open("https://wa.me/18090000000?text="+encodeURIComponent(message));
+window.open("https://wa.me/18097980816?text="+encodeURIComponent(message));
 
 }
 
@@ -373,8 +376,8 @@ style:{layout:'vertical',color:'gold',shape:'pill',label:'paypal'},
 createOrder:function(data,actions){
 return actions.order.create({
 purchase_units:[{
-amount:{value:'20.00'},
-description:'Dolphin Experience Deposit'
+amount:{value: document.getElementById("totalPrice").innerText.replace(/[^0-9]/g,'') + '.00'},
+description:'Dolphin Experience'
 }]
 });
 },

@@ -153,6 +153,84 @@ cursor:pointer;
 accent-color:#25D366;
 }
 
+.btn-back{
+display:inline-block;
+margin-bottom:20px;
+padding:10px 20px;
+background:rgba(255,255,255,0.15);
+color:white;
+text-decoration:none;
+border-radius:30px;
+font-size:14px;
+transition:0.3s;
+border:1px solid rgba(255,255,255,0.3);
+backdrop-filter:blur(8px);
+}
+
+.btn-back:hover{
+background:white;
+color:black;
+transform:translateY(-2px);
+}
+
+@media (max-width: 768px){
+
+.booking-container{
+grid-template-columns:1fr;
+gap:30px;
+padding:25px;
+}
+
+.booking-form{
+grid-template-columns:1fr;
+}
+
+textarea{
+grid-column:span 1;
+}
+
+.left-side h1{
+font-size:26px;
+}
+
+.price{
+font-size:26px;
+}
+
+}
+
+@media (max-width: 450px){
+
+.booking-container{
+padding:18px;
+gap:20px;
+border-radius:18px;
+}
+
+.left-side h1{
+font-size:22px;
+}
+
+.tour-description{
+font-size:13px;
+}
+
+input, textarea{
+padding:12px;
+font-size:14px;
+}
+
+.price{
+font-size:22px;
+}
+
+.btn-book{
+font-size:14px;
+padding:12px;
+}
+
+}
+
 </style>
 </head>
 
@@ -161,6 +239,8 @@ accent-color:#25D366;
 <div class="booking-container">
 
 <div class="left-side">
+
+<a href="index.html" class="btn-back">⬅ Back to Home</a>
 
 <h1>🏛️ Book Your Excursion</h1>
 <p class="subtitle">Santo Domingo City Tour</p>
@@ -273,7 +353,7 @@ Confirm Reservation via WhatsApp
 
 
 <p class="note">
-Deposit via PayPal. Remaining balance paid on excursion day.
+Full payment via PayPal. Confirmation will be sent shortly.
 </p>
 
 </div>
@@ -310,25 +390,30 @@ let kids=document.getElementById("kids").value
 let babies=document.getElementById("babies").value
 
 let total=document.getElementById("total").innerText
+let deposit=document.getElementById("deposit").innerText
+const taxiChecked = document.getElementById("taxiService");
+const taxiText = taxiChecked && taxiChecked.checked ? "Yes" : "No";
 
 const message=`Hello! I would like to confirm my Santo Domingo City Tour booking.
 
-Name: ${name.value}
-Hotel: ${hotel.value}
+Name: ${document.getElementById("name").value}
+Hotel: ${document.getElementById("hotelInput").value}
 
 Adults: ${adults}
 Kids 4-8: ${kids}
 Kids 0-3: ${babies}
 
-Date: ${date.value}
+Date: ${document.getElementById("date").value}
 
 Total: ${total}
+Deposit: ${deposit}
+Taxi Service: ${taxiText}
 
-Notes: ${notes.value}
+Notes: ${document.getElementById("notes").value}
 
-Deposit via PayPal completed.`
+Payment via PayPal completed.`
 
-window.open("https://wa.me/18090000000?text="+encodeURIComponent(message),"_blank")
+window.open("https://wa.me/18097980816?text="+encodeURIComponent(message),"_blank")
 
 }
 
@@ -343,8 +428,8 @@ paypal.Buttons({
 createOrder:function(data,actions){
 return actions.order.create({
 purchase_units:[{
-amount:{value: depositAmount.toString()},
-description:'Santo Domingo City Tour Deposit'
+amount:{value: document.getElementById("total").innerText.replace(/[^0-9]/g,'') + '.00'},
+description:'Santo Domingo City Tour'
 }]
 })
 },
