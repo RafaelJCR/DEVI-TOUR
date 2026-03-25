@@ -7,7 +7,12 @@
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
 
 body{
 background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
@@ -19,8 +24,9 @@ justify-content:center;
 padding:20px;
 }
 
+/* CONTAINER */
 .booking-container{
-width:95%;
+width:100%;
 max-width:1200px;
 display:grid;
 grid-template-columns:1.2fr 1fr;
@@ -33,8 +39,9 @@ box-shadow:0 30px 60px rgba(0,0,0,0.5);
 color:white;
 }
 
+/* TEXT */
 .left-side h1{
-font-size:36px;
+font-size:clamp(24px,4vw,36px);
 font-weight:300;
 margin-bottom:10px;
 text-align:center;
@@ -43,26 +50,18 @@ text-align:center;
 .subtitle{
 text-align:center;
 margin-bottom:20px;
+font-size:clamp(14px,2vw,18px);
 }
 
-.tour-description{
-margin-bottom:30px;
-line-height:1.7;
-font-size:14px;
-}
-
-.tour-description ul{
-padding-left:18px;
-}
-
+/* FORM */
 .booking-form{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:25px;
+gap:20px;
 }
 
 label{
-font-size:14px;
+font-size:13px;
 opacity:0.8;
 margin-bottom:6px;
 display:block;
@@ -70,20 +69,49 @@ display:block;
 
 input,textarea{
 width:100%;
-padding:14px;
+padding:12px 14px;
 border:none;
-border-radius:12px;
+border-radius:10px;
 background:rgba(255,255,255,0.08);
 color:white;
-font-size:15px;
+font-size:14px;
 outline:none;
+transition:0.3s;
+}
+
+input:focus,textarea:focus{
+background:rgba(255,255,255,0.15);
 }
 
 textarea{
 grid-column:span 2;
 height:100px;
+resize:none;
 }
 
+/* TAXI */
+.taxi-box{
+background:rgba(255,255,255,0.08);
+border-radius:10px;
+padding:12px;
+grid-column:span 2;
+}
+
+.taxi-option{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:13px;
+cursor:pointer;
+}
+
+.taxi-option input{
+width:20px;
+height:20px;
+accent-color:#25D366;
+}
+
+/* RIGHT SIDE */
 .right-side{
 display:flex;
 align-items:center;
@@ -92,65 +120,107 @@ justify-content:center;
 
 .tour-card{
 width:100%;
-padding:30px;
+padding:25px 20px;
 border:1px solid rgba(255,255,255,0.3);
-border-radius:25px;
+border-radius:20px;
 text-align:center;
 }
 
+/* PRICE */
 .price{
-font-size:32px;
+font-size:clamp(22px,4vw,32px);
 font-weight:600;
 margin-bottom:5px;
 color:#f77f00;
 }
 
 .deposit{
-font-size:16px;
+font-size:clamp(13px,2vw,16px);
 margin-bottom:20px;
 color:#FFD54F;
 }
 
+/* BUTTON */
 .btn-book{
 width:100%;
-padding:14px;
+padding:12px;
 border:none;
 border-radius:40px;
 background:#25D366;
 color:white;
-font-size:16px;
+font-size:15px;
 cursor:pointer;
-margin-top:20px;
+margin-top:15px;
+transition:0.3s;
 }
 
+.btn-book:hover{
+transform:translateY(-2px);
+}
+
+/* NOTE */
 .note{
 margin-top:15px;
-font-size:13px;
+font-size:12px;
 opacity:0.7;
 }
 
+/* TABLET */
+@media(max-width:992px){
+
+.booking-container{
+grid-template-columns:1fr;
+gap:40px;
+padding:30px;
+}
+
+.booking-form{
+grid-template-columns:1fr;
+}
+
+textarea{
+grid-column:span 1;
+}
+
 .taxi-box{
-background:rgba(255,255,255,0.08);
-border-radius:12px;
-padding:14px 16px;
-display:flex;
-flex-direction:column;
-justify-content:center;
+grid-column:span 1;
 }
 
-.taxi-option{
-display:flex;
-align-items:center;
-gap:10px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+body{
+padding:10px;
+}
+
+.booking-container{
+padding:20px;
+border-radius:20px;
+gap:25px;
+}
+
+.booking-form{
+gap:15px;
+}
+
+.price{
+font-size:22px;
+}
+
+.deposit{
+font-size:13px;
+}
+
+.btn-book{
 font-size:14px;
-cursor:pointer;
 }
 
-.taxi-option input{
-width:24px;
-height:24px;
-cursor:pointer;
-accent-color:#25D366;
+.note{
+font-size:11px;
+}
+
 }
 
 .btn-back{
@@ -245,45 +315,6 @@ padding:12px;
 <h1>🏛️ Book Your Excursion</h1>
 <p class="subtitle">Santo Domingo City Tour</p>
 
-<div class="tour-description">
-
-<h3>About this Excursion</h3>
-
-<p>
-After picking you up from your hotel, we travel to the historic capital city of Santo Domingo.
-</p>
-
-<p>
-Our first stop will be the famous <strong>Los Tres Ojos National Park</strong>, a natural cave system
-with beautiful underground lagoons.
-</p>
-
-<p>
-After that we will visit some of the most important historical landmarks of the city such as:
-</p>
-
-<ul>
-<li>The First Cathedral of America</li>
-<li>The Columbus Lighthouse</li>
-<li>The Colonial Zone</li>
-<li>The Santo Domingo Malecon</li>
-<li>The Presidential Palace</li>
-<li>The National Museum</li>
-<li>Souvenir shops and local cultural spots</li>
-</ul>
-
-<h4>The excursion includes:</h4>
-
-<ul>
-<li>Entrance tickets to parks and museums</li>
-<li>Round-trip transportation</li>
-<li>Buffet style lunch</li>
-<li>Non-alcoholic beverages</li>
-<li>Professional tour guide</li>
-</ul>
-
-</div>
-
 <form class="booking-form">
 
 <div>
@@ -317,11 +348,12 @@ After that we will visit some of the most important historical landmarks of the 
 </div>
 
 <div class="taxi-box">
+
 <label>Additional services</label>
 
 <label class="taxi-option">
-<input type="checkbox" id="taxiService">
-Taxi Service. Only for hotels located in Bayahibe.
+<input type="checkbox" id="taxiService" onchange="updateTotal()">
+Taxi Service. Only for hotels located in Bayahibe (+$30 USD)
 </label>
 
 </div>
@@ -351,7 +383,6 @@ Taxi Service. Only for hotels located in Bayahibe.
 Confirm Reservation via WhatsApp
 </button>
 
-
 <p class="note">
 Full payment via PayPal. Confirmation will be sent shortly.
 </p>
@@ -364,14 +395,19 @@ Full payment via PayPal. Confirmation will be sent shortly.
 
 <script>
 
-let depositAmount = 20;
+let depositAmount = 20
 
 function updateTotal(){
 
 let adults=parseInt(document.getElementById("adults").value) || 0
 let kids=parseInt(document.getElementById("kids").value) || 0
+let taxi=document.getElementById("taxiService").checked
 
 let total=(adults*55)+(kids*45)
+
+if(taxi){
+total+=30
+}
 
 depositAmount=(adults+kids)*20
 
@@ -388,6 +424,7 @@ function sendWhatsApp(){
 let adults=document.getElementById("adults").value
 let kids=document.getElementById("kids").value
 let babies=document.getElementById("babies").value
+let taxi=document.getElementById("taxiService").checked ? "Yes (+$30)" : "No"
 
 let total=document.getElementById("total").innerText
 let deposit=document.getElementById("deposit").innerText

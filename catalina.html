@@ -7,12 +7,16 @@
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
 
 body{
 background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
 url("https://res.cloudinary.com/simpleview/image/upload/v1548270991/clients/catalinaislandccvb/TwoBoysSnorkeling_22c65f85-64d1-445d-9afc-e06fb9e7a7d8.jpg") no-repeat center/cover;
-
 min-height:100vh;
 display:flex;
 align-items:center;
@@ -20,8 +24,9 @@ justify-content:center;
 padding:20px;
 }
 
+/* CONTAINER */
 .booking-container{
-width:95%;
+width:100%;
 max-width:1200px;
 display:grid;
 grid-template-columns:1.2fr 1fr;
@@ -32,87 +37,78 @@ backdrop-filter:blur(16px);
 border-radius:30px;
 box-shadow:0 30px 60px rgba(0,0,0,0.5);
 color:white;
-align-items:center;
-justify-items:center;
 }
 
+/* TEXT */
 .left-side,.right-side{width:100%;}
 
 .left-side h1{
-font-size:36px;
+font-size:clamp(24px,4vw,36px);
 font-weight:300;
 margin-bottom:10px;
 text-align:center;
 }
 
 .subtitle{
-font-size:18px;
+font-size:clamp(14px,2vw,18px);
 margin-bottom:20px;
 text-align:center;
 }
 
-.tour-description{
-margin-bottom:35px;
-line-height:1.7;
-font-size:14px;
-opacity:0.9;
-}
-
-.tour-description h3{
-margin-bottom:15px;
-font-weight:500;
-}
-
-.tour-description h4{
-margin-top:15px;
-margin-bottom:10px;
-}
-
-.tour-description ul{
-padding-left:18px;
-}
-
+/* FORM */
 .booking-form{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:30px;
+gap:20px;
 }
 
 label{
-font-size:14px;
+font-size:13px;
 opacity:0.8;
 margin-bottom:6px;
 display:block;
 }
 
-input,select,textarea{
+input,textarea{
 width:100%;
-padding:14px 16px;
+padding:12px 14px;
 border:none;
-border-radius:12px;
+border-radius:10px;
 background:rgba(255,255,255,0.08);
 color:white;
-font-size:15px;
+font-size:14px;
 outline:none;
-transition:0.3s;
-}
-
-input:focus,select:focus,textarea:focus{
-background:rgba(255,255,255,0.15);
-box-shadow:0 0 0 2px rgba(255,255,255,0.4);
-transform:scale(1.02);
 }
 
 textarea{
 grid-column:span 2;
-height:110px;
+height:100px;
 resize:none;
 }
 
-input::placeholder,textarea::placeholder{
-color:rgba(255,255,255,0.6);
+/* TAXI */
+.taxi-box{
+grid-column:span 2;
+background:rgba(255,255,255,0.08);
+border-radius:10px;
+padding:12px;
 }
 
+.taxi-option{
+display:flex;
+align-items:center;
+gap:10px;
+cursor:pointer;
+font-size:13px;
+}
+
+.taxi-option input{
+width:20px;
+height:20px;
+accent-color:#25D366;
+}
+
+/* CARD */
 .right-side{
 display:flex;
 align-items:center;
@@ -121,69 +117,57 @@ justify-content:center;
 
 .tour-card{
 width:100%;
-padding:30px 25px;
+padding:25px 20px;
 border:1px solid rgba(255,255,255,0.3);
-border-radius:25px;
-backdrop-filter:blur(12px);
-display:flex;
-flex-direction:column;
-align-items:center;
+border-radius:20px;
 text-align:center;
 }
 
-.tour-card h2{
-margin-bottom:20px;
-font-weight:400;
-}
-
-.tour-card p{
-font-size:14px;
-line-height:1.6;
-opacity:0.85;
-margin-bottom:25px;
-}
-
 .price{
-font-size:28px;
+font-size:26px;
 font-weight:600;
-margin-bottom:25px;
+margin-bottom:20px;
 color:#f77f00;
 }
 
 .btn-book{
 width:100%;
 max-width:300px;
-padding:14px;
+padding:12px;
 border:none;
 border-radius:40px;
 background:linear-gradient(135deg,#25D366,#1ebe5d);
 color:white;
-font-size:16px;
+font-size:15px;
 cursor:pointer;
-margin-top:20px;
-transition:0.3s;
-}
-
-.btn-book:hover{
-transform:translateY(-4px);
-box-shadow:0 15px 30px rgba(37,211,102,0.4);
+margin-top:15px;
 }
 
 .note{
 margin-top:15px;
-font-size:13px;
+font-size:12px;
 opacity:0.7;
 }
 
-select option{
-color:black;
+.btn-back{
+display:inline-block;
+margin-bottom:20px;
+padding:8px 16px;
+background:rgba(255,255,255,0.15);
+color:white;
+text-decoration:none;
+border-radius:30px;
+font-size:13px;
+border:1px solid rgba(255,255,255,0.3);
 }
 
+/* TABLETS */
 @media(max-width:992px){
 
 .booking-container{
 grid-template-columns:1fr;
-padding:30px 20px;
+padding:30px;
+gap:40px;
 }
 
 .booking-form{
@@ -194,23 +178,44 @@ textarea{
 grid-column:span 1;
 }
 
-}.btn-back{
-display:inline-block;
-margin-bottom:20px;
-padding:10px 20px;
-background:rgba(255,255,255,0.15);
-color:white;
-text-decoration:none;
-border-radius:30px;
-font-size:14px;
-transition:0.3s;
-border:1px solid rgba(255,255,255,0.3);
+.taxi-box{
+grid-column:span 1;
 }
 
-.btn-back:hover{
-background:white;
-color:black;
-transform:translateY(-2px);
+}
+
+/* CELULARES */
+@media(max-width:600px){
+
+body{
+padding:10px;
+}
+
+.booking-container{
+padding:20px;
+border-radius:20px;
+}
+
+.left-side h1{
+font-size:22px;
+}
+
+.subtitle{
+font-size:14px;
+}
+
+.price{
+font-size:22px;
+}
+
+.btn-book{
+font-size:14px;
+}
+
+.note{
+font-size:11px;
+}
+
 }
 
 </style>
@@ -222,45 +227,10 @@ transform:translateY(-2px);
 
 <div class="left-side">
 
-
 <a href="index.html" class="btn-back">⬅ Back to Home</a>
+
 <h1>🐠 Book Your Excursion</h1>
 <p class="subtitle">Catalina Island & Snorkeling</p>
-
-<div class="tour-description">
-
-<h3>About this Excursion</h3>
-
-<p>
-After picking you up from your hotel, we will head to the city of <strong>La Romana</strong>.
-There we will board a <strong>motomaran</strong>, a boat that is smaller than a catamaran
-but faster and perfect for this adventure.
-</p>
-
-<p>
-Once on board, we will sail to the coral reef where we will enjoy an incredible
-<strong>snorkeling experience for approximately 25 to 35 minutes</strong>
-in the crystal clear Caribbean waters.
-</p>
-
-<p>
-After snorkeling, we will continue our journey to the beautiful
-<strong>Catalina Island</strong>, where you will spend the rest of the day relaxing,
-swimming and enjoying the beach.
-</p>
-
-<h4>The excursion includes:</h4>
-
-<ul>
-<li>Round-trip transportation</li>
-<li>Professional tour guide</li>
-<li>Buffet style lunch</li>
-<li>Alcoholic beverages</li>
-<li>Entertainment and music</li>
-<li>Snorkeling equipment</li>
-</ul>
-
-</div>
 
 <form class="booking-form" onsubmit="return false;">
 
@@ -276,12 +246,12 @@ swimming and enjoying the beach.
 
 <div>
 <label>Adults (9+ years) — $55</label>
-<input type="number" id="adults" value="1" min="0" oninput="updateTotal()">
+<input type="number" id="adults" value="1" min="0">
 </div>
 
 <div>
 <label>Kids 4-8 years — $45</label>
-<input type="number" id="kids" value="0" min="0" oninput="updateTotal()">
+<input type="number" id="kids" value="0" min="0">
 </div>
 
 <div>
@@ -292,6 +262,17 @@ swimming and enjoying the beach.
 <div>
 <label>Excursion Date</label>
 <input type="date" id="date">
+</div>
+
+<div class="taxi-box">
+
+<label>Additional Services</label>
+
+<label class="taxi-option">
+<input type="checkbox" id="taxiService">
+Taxi Service (Only Bayahibe hotels) + $30 USD
+</label>
+
 </div>
 
 <div>
@@ -309,8 +290,7 @@ swimming and enjoying the beach.
 <h2>Catalina Island & Snorkeling</h2>
 
 <p>
-Enjoy crystal-clear waters, snorkeling at the coral reef and a relaxing
-day on the beautiful beaches of Catalina Island.
+Enjoy crystal-clear waters, snorkeling at the coral reef and a relaxing day on Catalina Island.
 </p>
 
 <div class="price">$55 USD</div>
@@ -333,30 +313,47 @@ Full payment via PayPal. Confirmation will be sent shortly.
 
 <script>
 
-
 const adultPrice = 55;
 const kidPrice = 45;
+const taxiPrice = 30;
 
 const adults = document.getElementById("adults");
 const kids = document.getElementById("kids");
 const babies = document.getElementById("babies");
+const taxiService = document.getElementById("taxiService");
+
+const nameInput = document.getElementById("name");
+const hotelInput = document.getElementById("hotelInput");
+const dateInput = document.getElementById("date");
+const notesInput = document.getElementById("notes");
 
 const priceBox = document.querySelector(".price");
 
+let total = 0;
+
 function updateTotal(){
 
-let total =
+total =
 (adults.value * adultPrice) +
 (kids.value * kidPrice);
+
+if(taxiService.checked){
+total += taxiPrice;
+}
 
 priceBox.innerText = "$" + total + " USD";
 
 }
 
-// calcular al cargar la página
+adults.addEventListener("input",updateTotal);
+kids.addEventListener("input",updateTotal);
+taxiService.addEventListener("change",updateTotal);
+
 updateTotal();
 
 function sendWhatsApp(){
+
+let taxi = taxiService.checked ? "Yes (+$30)" : "No";
 
 const message=`Hello! I would like to confirm my excursion booking.
 

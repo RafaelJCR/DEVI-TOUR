@@ -7,7 +7,12 @@
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
 
 body{
 background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
@@ -19,8 +24,9 @@ justify-content:center;
 padding:20px;
 }
 
+/* CONTAINER */
 .booking-container{
-width:95%;
+width:100%;
 max-width:1200px;
 display:grid;
 grid-template-columns:1.2fr 1fr;
@@ -37,48 +43,50 @@ justify-items:center;
 
 .left-side,.right-side{width:100%;}
 
+/* TEXT */
 .left-side h1{
-font-size:36px;
+font-size:clamp(24px,4vw,36px);
 font-weight:300;
 margin-bottom:10px;
 text-align:center;
 }
 
 .subtitle{
-font-size:18px;
+font-size:clamp(14px,2vw,18px);
 margin-bottom:20px;
 text-align:center;
 }
 
 .tour-description{
-margin-bottom:35px;
-line-height:1.7;
+margin-bottom:30px;
+line-height:1.6;
 font-size:14px;
 opacity:0.9;
 }
 
 .tour-description h3{
-margin-bottom:15px;
+margin-bottom:10px;
 font-weight:500;
 }
 
 .tour-description h4{
-margin-top:15px;
-margin-bottom:10px;
+margin-top:10px;
+margin-bottom:8px;
 }
 
 .tour-description ul{
 padding-left:18px;
 }
 
+/* FORM */
 .booking-form{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:30px;
+gap:20px;
 }
 
 label{
-font-size:14px;
+font-size:13px;
 opacity:0.8;
 margin-bottom:6px;
 display:block;
@@ -86,32 +94,45 @@ display:block;
 
 input,select,textarea{
 width:100%;
-padding:14px 16px;
+padding:12px 14px;
 border:none;
-border-radius:12px;
+border-radius:10px;
 background:rgba(255,255,255,0.08);
 color:white;
-font-size:15px;
+font-size:14px;
 outline:none;
-transition:0.3s;
-}
-
-input:focus,select:focus,textarea:focus{
-background:rgba(255,255,255,0.15);
-box-shadow:0 0 0 2px rgba(255,255,255,0.4);
-transform:scale(1.02);
 }
 
 textarea{
 grid-column:span 2;
-height:110px;
+height:100px;
 resize:none;
 }
 
-input::placeholder,textarea::placeholder{
-color:rgba(255,255,255,0.6);
+/* TAXI */
+.taxi-box{
+grid-column:span 2;
+background:rgba(255,255,255,0.08);
+border-radius:10px;
+padding:12px;
 }
 
+.taxi-option{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:13px;
+cursor:pointer;
+}
+
+.taxi-option input{
+width:20px;
+height:20px;
+cursor:pointer;
+accent-color:#25D366;
+}
+
+/* CARD */
 .right-side{
 display:flex;
 align-items:center;
@@ -120,9 +141,9 @@ justify-content:center;
 
 .tour-card{
 width:100%;
-padding:30px 25px;
+padding:25px 20px;
 border:1px solid rgba(255,255,255,0.3);
-border-radius:25px;
+border-radius:20px;
 backdrop-filter:blur(12px);
 display:flex;
 flex-direction:column;
@@ -130,57 +151,51 @@ align-items:center;
 text-align:center;
 }
 
-.tour-card h2{
-margin-bottom:20px;
-font-weight:400;
-}
-
-.tour-card p{
-font-size:14px;
-line-height:1.6;
-opacity:0.85;
-margin-bottom:25px;
-}
-
 .price{
-font-size:28px;
+font-size:26px;
 font-weight:600;
-margin-bottom:25px;
+margin-bottom:20px;
 color:#f77f00;
 }
 
 .btn-book{
 width:100%;
 max-width:300px;
-padding:14px;
+padding:12px;
 border:none;
 border-radius:40px;
 background:linear-gradient(135deg,#25D366,#1ebe5d);
 color:white;
-font-size:16px;
+font-size:15px;
 cursor:pointer;
-margin-top:20px;
-transition:0.3s;
-}
-
-.btn-book:hover{
-transform:translateY(-4px);
-box-shadow:0 15px 30px rgba(37,211,102,0.4);
+margin-top:15px;
 }
 
 .note{
 margin-top:15px;
-font-size:13px;
+font-size:12px;
 opacity:0.7;
 }
 
-select option{color:black;}
+.btn-back{
+display:inline-block;
+margin-bottom:20px;
+padding:8px 16px;
+background:rgba(255,255,255,0.15);
+color:white;
+text-decoration:none;
+border-radius:30px;
+font-size:13px;
+border:1px solid rgba(255,255,255,0.3);
+}
 
+/* TABLETS */
 @media(max-width:992px){
 
 .booking-container{
 grid-template-columns:1fr;
-padding:30px 20px;
+padding:30px;
+gap:40px;
 }
 
 .booking-form{
@@ -191,47 +206,48 @@ textarea{
 grid-column:span 1;
 }
 
-}.btn-back{
-display:inline-block;
-margin-bottom:20px;
-padding:10px 20px;
-background:rgba(255,255,255,0.15);
-color:white;
-text-decoration:none;
-border-radius:30px;
-font-size:14px;
-transition:0.3s;
-border:1px solid rgba(255,255,255,0.3);
-}
-
-.btn-back:hover{
-background:white;
-color:black;
-transform:translateY(-2px);
-}
-
 .taxi-box{
-background:rgba(255,255,255,0.08);
-border-radius:12px;
-padding:14px 16px;
-display:flex;
-flex-direction:column;
-justify-content:center;
+grid-column:span 1;
 }
 
-.taxi-option{
-display:flex;
-align-items:center;
-gap:10px;
+}
+
+/* CELULARES */
+@media(max-width:600px){
+
+body{
+padding:10px;
+}
+
+.booking-container{
+padding:20px;
+border-radius:20px;
+}
+
+.left-side h1{
+font-size:22px;
+}
+
+.subtitle{
 font-size:14px;
-cursor:pointer;
 }
 
-.taxi-option input{
-width:24px;
-height:24px;
-cursor:pointer;
-accent-color:#25D366;
+.tour-description{
+font-size:13px;
+}
+
+.price{
+font-size:22px;
+}
+
+.btn-book{
+font-size:14px;
+}
+
+.note{
+font-size:11px;
+}
+
 }
 
 </style>
@@ -243,8 +259,8 @@ accent-color:#25D366;
 
 <div class="left-side">
 
-
 <a href="index.html" class="btn-back">⬅ Back to Home</a>
+
 <h1>🤿 Book Your Excursion</h1>
 <p class="subtitle">Catalina Island & Diving</p>
 
@@ -252,21 +268,16 @@ accent-color:#25D366;
 
 <h3>About this Excursion</h3>
 
-<p>
-This excursion is available for <strong>adults only</strong>.
-</p>
+<p>This excursion is available for <strong>adults only</strong>.</p>
 
 <p>
 After picking you up from your hotel, we will head to the city of 
-<strong>La Romana</strong>. There we will board a <strong>motomaran</strong>, 
-a smaller but faster boat than a traditional catamaran.
+<strong>La Romana</strong>. There we will board a <strong>motomaran</strong>.
 </p>
 
 <p>
 Once on board, we will travel to the coral reef where we will complete 
-<strong>two diving immersions</strong>, each lasting approximately 
-<strong>one hour</strong>, exploring the beautiful underwater world 
-of the Caribbean.
+<strong>two diving immersions</strong>.
 </p>
 
 <h4>The excursion includes:</h4>
@@ -303,28 +314,29 @@ for an additional cost of <strong>$25 USD per person</strong>.
 <input type="number" id="people" value="1" min="1">
 </div>
 
-
 <div>
 <label>Excursion Date</label>
 <input type="date" id="date">
 </div>
 
 <div class="taxi-box">
+
 <label>Additional services</label>
 
 <label class="taxi-option">
 <input type="checkbox" id="taxiService">
-Taxi Service. Only for hotels located in Bayahibe.
+Taxi Service. Only for hotels located in Bayahibe. Extra fee: $30 USD.
 </label>
 
 </div>
 
 <div>
 <label>Additional Information</label>
-<textarea id="notes" placeholder="Diving license? Instructor needed? Special requests..."></textarea>
+<textarea id="notes" placeholder="Diving license? Instructor needed?"></textarea>
 </div>
 
 </form>
+
 </div>
 
 <div class="right-side">
@@ -334,8 +346,7 @@ Taxi Service. Only for hotels located in Bayahibe.
 <h2>Catalina Island & Diving</h2>
 
 <p>
-Experience an unforgettable scuba diving adventure exploring coral reefs 
-and marine life in the crystal clear waters near Catalina Island.
+Experience an unforgettable scuba diving adventure exploring coral reefs.
 </p>
 
 <div class="price">$125 USD</div>
@@ -358,19 +369,27 @@ Full payment via PayPal. Confirmation will be sent shortly.
 
 <script>
 
-    people.addEventListener("input",updatePrice);
+const people = document.getElementById("people");
+const taxiService = document.getElementById("taxiService");
 
-   const pricePerPerson = 125;
+const pricePerPerson = 125;
+const taxiPrice = 30;
+
+people.addEventListener("input", updatePrice);
+taxiService.addEventListener("change", updatePrice);
 
 function updatePrice(){
 
 let total = people.value * pricePerPerson;
 
+if(taxiService.checked){
+total += taxiPrice;
+}
+
 document.querySelector(".price").innerText = "$" + total + " USD";
 
 }
 
-// calcular cuando cargue la página
 updatePrice();
 
 function sendWhatsApp(){

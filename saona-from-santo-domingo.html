@@ -55,6 +55,7 @@ body::before{
   font-size:18px;
   color:#ffffff;
   margin-bottom:20px;
+  text-align:center;
 }
 
 .tour-description{
@@ -232,9 +233,9 @@ margin-top:-10px;
 
 .meeting-option{
 display:flex;
-align-items:center;
+align-items:flex-start;
 gap:10px;
-padding:8px 12px;
+padding:10px 12px;
 border-radius:8px;
 background:rgba(255,255,255,0.07);
 margin-bottom:6px;
@@ -243,34 +244,54 @@ font-size:13px;
 transition:0.2s;
 }
 
+.meeting-option span{
+line-height:1.4;
+}
+
 .meeting-option:hover{
 background:rgba(255,255,255,0.14);
 }
 
 .meeting-option input{
 appearance:none;
-width:11px;
-height:11px;
+width:14px;
+height:14px;
 border:2px solid #ffffff;
 border-radius:3px;
 cursor:pointer;
 position:relative;
-transform:scale(0.7);
+margin-top:3px;
 }
 
 .meeting-option input:checked{
 background:#25D366;
-border-color:#ffffff;
 }
 
 .meeting-option input:checked::after{
 content:"✔";
 color:white;
-font-size:18px;
+font-size:14px;
 position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
+}
+
+@media(max-width:992px){
+.booking-container{grid-template-columns:1fr;padding:30px 20px;gap:40px;}
+.booking-form{grid-template-columns:1fr;gap:20px;}
+textarea{grid-column:span 1;}
+.tour-card{margin-top:10px;}
+.left-side h1{font-size:28px;}
+}
+
+@media(max-width:600px){
+body{padding:10px;}
+.booking-container{padding:20px 15px;border-radius:20px;}
+input, select, textarea{padding:12px;font-size:14px;}
+.btn-book{font-size:15px;padding:12px;}
+.price{font-size:24px;}
+.subtitle{font-size:16px;}
 }
 </style>
 </head>
@@ -285,37 +306,31 @@ transform:translate(-50%,-50%);
 <p class="subtitle">Saona Island From Santo Domingo</p>
 
 <div class="tour-description">
-
 <h3>About this Excursion</h3>
-
-<p>This excursion begins in the city of Santo Domingo, after we leave Santo Domingo we will head to Bayahibe. There we will board a speed boat or a catamaran. If we go out by speedboat, we will make a stop in the morning at the natural pool for about 25 to 35 minutes, then we will go to Saona Island where we will spend the entire day and on the way back we will return on a catamran. If we board the motomaran in the morning, the stop at the natural pool will be in the afternoon.</p>
-
+<p>This excursion begins in the city of Santo Domingo...</p>
 <h4>The excursion includes:</h4>
-
 <ul>
 <li>Round trip transportation</li>
 <li>Buffet style lunch</li>
 <li>Professional tourist guide</li>
 <li>Transportation</li>
 <li>maritime by speedboat and catamran</li>
-<li>Stop at the natural pool for 25 to 35 minutes</li>
+<li>Stop at the natural pool</li>
 <li>Alcoholic beverages</li>
 <li>water and sodas</li>
 </ul>
-
 </div>
 
 <form class="booking-form" onsubmit="return false;">
 
 <div>
 <label>Full Name</label>
-<input type="text" id="name" placeholder="John Doe">
+<input type="text" id="name">
 </div>
 
-<div class="hotel-box">
-<label>Hotel / Accommodation</label>
-<input type="text" id="hotelInput" placeholder="Start typing your hotel...">
-<div id="hotelList"></div>
+<div>
+<label>Hotel</label>
+<input type="text" id="hotelInput">
 </div>
 
 <div>
@@ -329,46 +344,25 @@ transform:translate(-50%,-50%);
 </div>
 
 <div>
-<label>Excursion Date</label>
+<label>Date</label>
 <input type="date" id="date">
 </div>
 
-<div class="meeting-box">
-
-<label>Meeting Point</label>
-
-<label class="meeting-option">
-<input type="radio" name="meeting" value="Colon Park - Colonial Area (6:10 AM)">
-<span>Colon Park Colonial Area, in front of Pizzarelli – 6:10 AM</span>
-</label>
-
-<label class="meeting-option">
-<input type="radio" name="meeting" value="Texaco Pump - Juan Carlos Bridge (6:25 AM)" checked>
-<span>Texaco Pump next to Juan Carlos Bridge – 6:25 AM</span>
-</label>
-
-</div>
-
 <div>
-<label>Additional Information</label>
-<textarea id="notes" placeholder="Kids, special requests, room number..."></textarea>
+<label>Notes</label>
+<textarea id="notes"></textarea>
 </div>
 
 </form>
 </div>
 
 <div class="right-side">
-
 <div class="tour-card">
 
 <h2>Saona Island From Santo Domingo</h2>
+<p>Full-day excursion from Santo Domingo.</p>
 
-<p>
-Full-day excursion from Santo Domingo including transportation,
-natural pools, pristine beaches and a true Caribbean experience.
-</p>
-
-<div class="price">$75 USD</div>
+<div class="price" id="price">$75 USD</div>
 
 <div id="paypal-button-container"></div>
 
@@ -381,86 +375,21 @@ Full payment via PayPal. Confirmation will be sent shortly.
 </p>
 
 </div>
-
 </div>
 
 </div>
 
 <script>
-
-const hotels = [
-"Hard Rock Hotel & Casino Punta Cana","Royalton Punta Cana","Royalton Bavaro",
-"Royalton Splash Punta Cana","Royalton CHIC Punta Cana",
-"Riu Palace Bavaro","Riu Palace Punta Cana","Riu Palace Macao","Riu Bambu","Riu Republica",
-"Majestic Mirage Punta Cana","Majestic Elegance Punta Cana","Majestic Colonial Punta Cana",
-"Bahia Principe Fantasia","Bahia Principe Grand Bavaro","Bahia Principe Luxury Ambar",
-"Barceló Bávaro Palace","Barceló Bávaro Beach",
-"Iberostar Selection Bavaro","Iberostar Grand Bavaro","JOIA Bavaro by Iberostar",
-"Dreams Royal Beach","Dreams Macao","Secrets Royal Beach","Secrets Cap Cana",
-"Melia Caribe Beach","Paradisus Palma Real","Lopesan Costa Bavaro",
-"Ocean Blue & Sand","Ocean El Faro",
-"Grand Palladium Punta Cana","Catalonia Bavaro","Excellence Punta Cana",
-"Hyatt Zilara Cap Cana","Hyatt Ziva Cap Cana","TRS Cap Cana","Eden Roc Cap Cana",
-"Nickelodeon Punta Cana","Impressive Punta Cana","Vista Sol Punta Cana",
-"Santo Domingo Hotel"
-];
-
 const adultPrice = 75;
 const childPrice = 55;
 
-const adultsInput = document.getElementById("adults");
-const childrenInput = document.getElementById("children");
-
-const priceBox = document.querySelector(".price");
-
 function updateTotal(){
-
-let adults = parseInt(adultsInput.value) || 0;
-let children = parseInt(childrenInput.value) || 0;
-
-let total = (adults * adultPrice) + (children * childPrice);
-
-priceBox.innerText = "$" + total + " USD";
-
+let adults = parseInt(document.getElementById("adults").value)||0;
+let children = parseInt(document.getElementById("children").value)||0;
+let total = (adults*adultPrice)+(children*childPrice);
+document.getElementById("price").innerText="$"+total+" USD";
 }
-
-// calcular al cargar la página
 updateTotal();
-
-const input = document.getElementById("hotelInput");
-const list = document.getElementById("hotelList");
-
-input.addEventListener("input", () => {
-
-const value = input.value.toLowerCase().trim();
-
-list.innerHTML="";
-
-if(!value){
-list.style.display="none";
-return;
-}
-
-hotels
-.filter(h => h.toLowerCase().startsWith(value[0]))
-.forEach(h => {
-
-const div = document.createElement("div");
-
-div.textContent = h;
-
-div.onclick = () => {
-input.value = h;
-list.style.display = "none";
-};
-
-list.appendChild(div);
-
-});
-
-list.style.display="block";
-
-});
 
 function sendWhatsApp(){
 
@@ -482,13 +411,11 @@ Please confirm pickup time.
 window.open("https://wa.me/18097980816?text="+encodeURIComponent(message),"_blank");
 
 }
-
 </script>
 
 <script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
 
 <script>
-
 paypal.Buttons({
 
 style:{
@@ -525,7 +452,6 @@ alert('Payment completed by '+details.payer.name.given_name);
 }
 
 }).render('#paypal-button-container');
-
 </script>
 
 </body>

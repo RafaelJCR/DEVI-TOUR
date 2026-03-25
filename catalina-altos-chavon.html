@@ -4,196 +4,218 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Excursion | Catalina Island & Altos de Chavón</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
 
 body{
-  background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-  url("https://beditour.com/wp-content/uploads/2023/11/3-1-scaled-e1701017731754.jpg") no-repeat center center/cover;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+url("https://beditour.com/wp-content/uploads/2023/11/3-1-scaled-e1701017731754.jpg") no-repeat center center/cover;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
 }
 
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  z-index:-1;
+content:"";
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.55);
+z-index:-1;
 }
 
+/* CONTAINER */
 .booking-container{
-  width:95%;
-  max-width:1200px;
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:60px;
-  padding:50px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(16px);
-  border-radius:30px;
-  box-shadow:0 30px 60px rgba(0,0,0,0.5);
-  color:white;
-  align-items:center;
-  justify-items:center;
+width:100%;
+max-width:1200px;
+display:grid;
+grid-template-columns:1.2fr 1fr;
+gap:60px;
+padding:50px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(16px);
+border-radius:30px;
+box-shadow:0 30px 60px rgba(0,0,0,0.5);
+color:white;
+align-items:center;
+justify-items:center;
 }
 
-.left-side, .right-side{ width:100%; }
+.left-side,.right-side{width:100%;}
 
+/* TEXT */
 .left-side h1{
-  font-size:36px;
-  font-weight:300;
-  margin-bottom:10px;
-  text-align:center;
+font-size:clamp(24px,4vw,36px);
+font-weight:300;
+margin-bottom:10px;
+text-align:center;
 }
 
 .subtitle{
-  font-size:18px;
-  color:#ffffff;
-  margin-bottom:20px;
+font-size:clamp(14px,2vw,18px);
+margin-bottom:20px;
+text-align:center;
 }
 
-.tour-description{
-margin-bottom:35px;
-line-height:1.7;
-font-size:14px;
-opacity:0.9;
-}
-
-.tour-description h3{
-margin-bottom:15px;
-font-weight:500;
-}
-
-.tour-description h4{
-margin-top:15px;
-margin-bottom:10px;
-}
-
-.tour-description ul{
-padding-left:18px;
-}
-
+/* FORM */
 .booking-form{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
 }
 
-label{ font-size:14px; opacity:0.8; margin-bottom:6px; display:block; }
-
-input, select, textarea{
-  width:100%;
-  padding:14px 16px;
-  border:none;
-  border-radius:12px;
-  background:rgba(255,255,255,0.08);
-  color:white;
-  font-size:15px;
-  outline:none;
-  transition:0.3s;
+label{
+font-size:13px;
+opacity:0.8;
+margin-bottom:6px;
+display:block;
 }
 
-input:focus, select:focus, textarea:focus{
-  background:rgba(255,255,255,0.15);
-  box-shadow:0 0 0 2px rgba(255,255,255,0.4);
-  transform:scale(1.02);
+input,textarea{
+width:100%;
+padding:12px 14px;
+border:none;
+border-radius:10px;
+background:rgba(255,255,255,0.08);
+color:white;
+font-size:14px;
+outline:none;
 }
 
 textarea{
-  grid-column:span 2;
-  height:110px;
-  resize:none;
+grid-column:span 2;
+height:100px;
+resize:none;
 }
 
-input::placeholder, textarea::placeholder{ color:rgba(255,255,255,0.6); }
-
-.right-side{
-  display:flex;
-  align-items:center;
-  justify-content:center;
+/* TAXI */
+.taxi-box{
+grid-column:span 2;
+background:rgba(255,255,255,0.08);
+padding:12px;
+border-radius:10px;
 }
 
+.taxi-option{
+display:flex;
+align-items:center;
+gap:10px;
+cursor:pointer;
+font-size:13px;
+}
+
+/* CARD */
 .tour-card{
-  width:100%;
-  padding:30px 25px;
-  border:1px solid rgba(255,255,255,0.3);
-  border-radius:25px;
-  backdrop-filter:blur(12px);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
+width:100%;
+padding:25px 20px;
+border:1px solid rgba(255,255,255,0.3);
+border-radius:20px;
+text-align:center;
 }
 
-.tour-card h2{ margin-bottom:20px; font-weight:400; }
-.tour-card p{ font-size:14px; line-height:1.6; opacity:0.85; margin-bottom:25px; }
-
-.price{ font-size:28px; font-weight:600; margin-bottom:25px; color:#f77f00; }
+.price{
+font-size:26px;
+font-weight:600;
+margin-bottom:20px;
+color:#f77f00;
+}
 
 .btn-book{
-  width:100%;
-  max-width:300px;
-  padding:14px;
-  border:none;
-  border-radius:40px;
-  background:linear-gradient(135deg,#25D366,#1ebe5d);
-  color:white;
-  font-size:16px;
-  cursor:pointer;
-  margin-top:20px;
-  transition:0.3s;
+width:100%;
+max-width:300px;
+padding:12px;
+border:none;
+border-radius:40px;
+background:linear-gradient(135deg,#25D366,#1ebe5d);
+color:white;
+font-size:15px;
+cursor:pointer;
+margin-top:15px;
 }
 
-.btn-book:hover{
-  transform:translateY(-4px);
-  box-shadow:0 15px 30px rgba(37,211,102,0.4);
+.note{
+margin-top:15px;
+font-size:12px;
+opacity:0.7;
 }
 
-.note{ margin-top:15px; font-size:13px; opacity:0.7; }
-
-.hotel-box{ position:relative; }
-
-#hotelList{
-  position:absolute;
-  width:101%;
-  background:#fff;
-  color:#000;
-  border-radius:5px;
-  max-height:180px;
-  overflow-y:auto;
-  display:none;
-  z-index:10;
-}
-
-select option{ color:black; }
-
-@media(max-width:992px){
-  .booking-container{ grid-template-columns:1fr; padding:30px 20px; }
-  .booking-form{ grid-template-columns:1fr; }
-  textarea{ grid-column:span 1; }
-  .tour-card{ margin-top:30px; }
-}.btn-back{
+.btn-back{
 display:inline-block;
 margin-bottom:20px;
-padding:10px 20px;
+padding:8px 16px;
 background:rgba(255,255,255,0.15);
 color:white;
 text-decoration:none;
 border-radius:30px;
-font-size:14px;
-transition:0.3s;
+font-size:13px;
 border:1px solid rgba(255,255,255,0.3);
 }
 
-.btn-back:hover{
-background:white;
-color:black;
-transform:translateY(-2px);
+/* TABLETS */
+@media(max-width:992px){
+
+.booking-container{
+grid-template-columns:1fr;
+padding:30px;
+gap:40px;
 }
+
+.booking-form{
+grid-template-columns:1fr;
+}
+
+textarea{
+grid-column:span 1;
+}
+
+.taxi-box{
+grid-column:span 1;
+}
+
+}
+
+/* CELULARES */
+@media(max-width:600px){
+
+body{
+padding:10px;
+}
+
+.booking-container{
+padding:20px;
+border-radius:20px;
+}
+
+.left-side h1{
+font-size:22px;
+}
+
+.subtitle{
+font-size:14px;
+}
+
+.price{
+font-size:22px;
+}
+
+.btn-book{
+font-size:14px;
+}
+
+.note{
+font-size:11px;
+}
+
+}
+
 </style>
 </head>
 
@@ -204,29 +226,9 @@ transform:translateY(-2px);
 <div class="left-side">
 
 <a href="index.html" class="btn-back">⬅ Back to Home</a>
+
 <h1>📍 Book Your Excursion</h1>
 <p class="subtitle">Catalina Island & Altos de Chavón</p>
-
-<div class="tour-description">
-
-<h3>About this Excursion</h3>
-
-<p>
-Explore Punta Cana’s surrounding landscape by land and water during a 9-hour tour. Step back in time with a visit to Altos de Chavón, a replica of a medieval Mediterranean village. Hop aboard a double-decker boat for a cruise along the Chavón River, then hop on a catamaran for a sailing adventure to Catalina Island. While on the island, enjoy a buffet lunch and use the provided diving equipment to explore the underwater world. Round-trip transportation from select Punta Cana hotels available.
-</p>
-
-<h4>Included services:</h4>
-
-<ul>
-<li>Alcoholic and non-alcoholic drinks</li>
-<li>Buffet lunch and snacks</li>
-<li>Professional guide</li>
-<li>Hotel pickup and drop-off</li>
-<li>Vehicle with air conditioning</li>
-<li>snorkeling equipment</li>
-</ul>
-
-</div>
 
 <form class="booking-form" onsubmit="return false;">
 
@@ -235,10 +237,9 @@ Explore Punta Cana’s surrounding landscape by land and water during a 9-hour t
 <input type="text" id="name" placeholder="John Doe">
 </div>
 
-<div class="hotel-box">
+<div>
 <label>Hotel / Pickup Location</label>
-<input type="text" id="hotelInput" placeholder="Start typing hotel...">
-<div id="hotelList"></div>
+<input type="text" id="hotelInput" placeholder="Hotel">
 </div>
 
 <div>
@@ -256,12 +257,24 @@ Explore Punta Cana’s surrounding landscape by land and water during a 9-hour t
 <input type="date" id="date">
 </div>
 
+<div class="taxi-box">
+
+<label>Additional Services</label>
+
+<label class="taxi-option">
+<input type="checkbox" id="taxiService" onchange="updateTotal()">
+Taxi Service (Hotels outside Punta Cana) + $30 USD
+</label>
+
+</div>
+
 <div>
 <label>Additional Information</label>
 <textarea id="notes" placeholder="Kids, special requests, room number..."></textarea>
 </div>
 
 </form>
+
 </div>
 
 <div class="right-side">
@@ -270,11 +283,9 @@ Explore Punta Cana’s surrounding landscape by land and water during a 9-hour t
 
 <h2>Catalina Island & Altos de Chavón</h2>
 
-<p>
-Snorkeling adventure, Caribbean beaches and a cultural visit to Altos de Chavón village.
-</p>
+<p>Snorkeling adventure, Caribbean beaches and a cultural visit to Altos de Chavón village.</p>
 
-<div class="price">$85 USD</div>
+<div class="price">$155 USD</div>
 
 <div id="paypal-button-container"></div>
 
@@ -293,65 +304,41 @@ Full payment via PayPal. Confirmation will be sent shortly.
 </div>
 
 <script>
-const hotels = [
-"Hard Rock Hotel & Casino Punta Cana","Royalton Punta Cana","Royalton Bavaro",
-"Royalton Splash Punta Cana","Royalton CHIC Punta Cana",
-"Riu Palace Bavaro","Riu Palace Punta Cana","Riu Palace Macao","Riu Bambu","Riu Republica",
-"Majestic Mirage Punta Cana","Majestic Elegance Punta Cana","Majestic Colonial Punta Cana",
-"Bahia Principe Fantasia","Bahia Principe Grand Bavaro","Bahia Principe Luxury Ambar",
-"Barceló Bávaro Palace","Barceló Bávaro Beach",
-"Iberostar Selection Bavaro","Iberostar Grand Bavaro","JOIA Bavaro by Iberostar",
-"Dreams Royal Beach","Dreams Macao","Secrets Royal Beach","Secrets Cap Cana",
-"Melia Caribe Beach","Paradisus Palma Real","Lopesan Costa Bavaro",
-"Ocean Blue & Sand","Ocean El Faro",
-"Grand Palladium Punta Cana","Catalonia Bavaro","Excellence Punta Cana",
-"Hyatt Zilara Cap Cana","Hyatt Ziva Cap Cana","TRS Cap Cana","Eden Roc Cap Cana",
-"Nickelodeon Punta Cana","Impressive Punta Cana","Vista Sol Punta Cana",
-"Santo Domingo Hotel"
-];
 
-const adultPrice = 155;
-const childPrice = 95;
+const adultPrice=155;
+const childPrice=95;
+const taxiPrice=30;
 
-const adultsInput = document.getElementById("adults");
-const childrenInput = document.getElementById("children");
+const adultsInput=document.getElementById("adults");
+const childrenInput=document.getElementById("children");
+const taxiService=document.getElementById("taxiService");
 
-const priceBox = document.querySelector(".price");
+const priceBox=document.querySelector(".price");
+
+let total=0;
 
 function updateTotal(){
 
-let adults = parseInt(adultsInput.value) || 0;
-let children = parseInt(childrenInput.value) || 0;
+let adults=parseInt(adultsInput.value)||0;
+let children=parseInt(childrenInput.value)||0;
 
-let total = (adults * adultPrice) + (children * childPrice);
+total=(adults*adultPrice)+(children*childPrice);
 
-priceBox.innerText = "$" + total + " USD";
+if(taxiService.checked){
+total+=taxiPrice;
+}
+
+priceBox.innerText="$"+total+" USD";
 
 }
 
-// calcular al cargar la página
 updateTotal();
 
-const input = document.getElementById("hotelInput");
-const list = document.getElementById("hotelList");
-
-input.addEventListener("input", () => {
-  const value = input.value.toLowerCase().trim();
-  list.innerHTML = "";
-  if(!value){ list.style.display="none"; return; }
-
-  hotels.filter(h => h.toLowerCase().startsWith(value[0])).forEach(h=>{
-    const div=document.createElement("div");
-    div.textContent=h;
-    div.onclick=()=>{ input.value=h; list.style.display="none"; };
-    list.appendChild(div);
-  });
-
-  list.style.display="block";
-});
-
 function sendWhatsApp(){
-  const message = `Hello! I would like to confirm my Catalina Island & Altos de Chavón booking.
+
+let taxi=taxiService.checked ? "Yes (+$30)" : "No";
+
+const message=`Hello! I would like to confirm my Catalina Island & Altos de Chavón booking.
 
 Name: ${document.getElementById("name").value}
 Hotel: ${document.getElementById("hotelInput").value}
@@ -365,13 +352,21 @@ Payment via PayPal completed. Please confirm pickup time.`;
 
   window.open("https://wa.me/18097980816?text="+encodeURIComponent(message),"_blank");
 }
+
 </script>
 
+<!-- ✅ PAYPAL CORREGIDO -->
 <script src="https://www.paypal.com/sdk/js?client-id=ATLdzC_wHDk-XsAD_Ht1IEoSv-npdcIcLnFNM2hMoL01UgfzxHcrEEgRPno5_njFJmF6dMfgmzxSGra0&currency=USD"></script>
 
 <script>
+
+if (typeof paypal === "undefined") {
+console.error("PayPal SDK not loaded");
+}
+
 paypal.Buttons({
-style:{ layout:'vertical', color:'blue', shape:'pill', label:'paypal' },
+
+style:{layout:'vertical',color:'blue',shape:'pill',label:'paypal'},
 
 createOrder:function(data,actions){
 return actions.order.create({
@@ -389,6 +384,7 @@ alert('Payment completed by '+details.payer.name.given_name);
 }
 
 }).render('#paypal-button-container');
+
 </script>
 
 </body>
